@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "Volkart_Italic";
+  src: url("../assets/fonts//volkart/volkart-italic-webfont.woff2") format("woff2"),
+    url("../assets/fonts//volkart/volkart-italic-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Volkart_Light";
+  src: url("../assets/fonts//volkart/volkart-light-webfont.woff2") format("woff2"),
+    url("../assets/fonts//volkart/volkart-light-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Volkart_Medium";
+
+  src: url("../assets/fonts//volkart/Volkart-Medium.svg") format("svg"),
+    url("../assets/fonts//volkart/Volkart-Medium.woff") format("woff"),
+    url("../assets/fonts//volkart/Volkart-Medium.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Volkart_Regular";
+
+  src: url("../assets/fonts//volkart/Volkart-Regular.svg") format("svg"),
+    url("../assets/fonts//volkart/Volkart-Regular.woff") format("woff"),
+    url("../assets/fonts//volkart/Volkart-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Volkart_Bold";
+  src: url("../assets/fonts//volkart/volkart-bold-webfont.woff2") format("woff2"),
+    url("../assets/fonts//volkart/volkart-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

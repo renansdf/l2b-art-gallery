@@ -1,0 +1,99 @@
+.welcome_message_container .welcome_message_content_mobile {
+  background: url("../assets/img/capa_mobile.png");
+  background-repeat: no-repeat;
+  background-size: 400px;
+  background-position: top;
+  background-color: var(--l2b-white-full);
+  margin: auto;
+  padding: 0px;
+  width: 100%;
+  position: absolute;
+  display: none;
+
+  margin: 0px;
+  height: 100%;
+  bottom: 0px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.welcome_message_container .welcome_message_content_mobile .close_welcome_message_mobile {
+  color: var(--l2b-light-grey);
+  font-size: 48px;
+  font-weight: bold;
+  margin: auto;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  width: 30px;
+}
+
+.welcome_message_container .welcome_message_content_mobile .close_welcome_message_mobile:focus {
+  color: var(--l2b-black);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.welcome_message_container .welcome_message_content_mobile .welcome_message_text_mobile {
+  padding: 80px 60px;
+  margin-top: 230px;
+  font-weight: bold;
+}
+
+.welcome_message_container .welcome_message_content_mobile .welcome_message_text_mobile .welcome_message_title_mobile {
+  font-family: "Volkart_Bold";
+  font-weight: bold;
+}
+
+.welcome_message_container .welcome_message_content_mobile .welcome_message_text_mobile .welcome_message_title_mobile img {
+  padding: 50px 0px;
+  width:120px; 
+  margin:auto;
+}
+
+.welcome_message_container .welcome_message_content_mobile .welcome_message_text_mobile .welcome_message_instructions_mobile {
+  padding-bottom: 5px; 
+  padding-top: 5px;
+  text-align: center;
+}
+
+.welcome_message_container .welcome_message_content_mobile .welcome_message_text_mobile .welcome_message_next_page_mobile {
+  font-family: "Volkart_Bold";
+  background: url("../assets/img/instructions_menu_arrow.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 14px;
+
+  width: 60px;
+  height: 20px;
+  right: 60px;
+  position: absolute;
+  margin: 0px;
+  font-size: 20px;
+  top: 650px;
+}
+
+.welcome_message_container .welcome_message_content_mobile .welcome_message_text_mobile .welcome_message_previous_page_mobile {
+  font-family: "Volkart_Bold";
+  background: url("../assets/img/instructions_menu_arrow.svg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 14px;
+
+  right: 135px;
+  position: absolute;
+  margin: 0px;
+  font-size: 20px;
+  top: 650px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transform: scaleX(-1);
+}
+
+@media only screen and (max-width: 600px) {
+  .welcome_message_container .welcome_message_content_mobile {
+    display: block !important;
+  }
+}

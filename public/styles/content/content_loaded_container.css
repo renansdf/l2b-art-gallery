@@ -1,0 +1,129 @@
+.loaded_content_container {
+  font-family: "Volkart_Light";
+}
+
+.content_title {
+  font-family: "Volkart_Bold";
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  padding-top: 60px;
+  color: var(--l2b-dark-grey);
+  font-size: 28px;
+  width: 277px;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.content_title.content_title_poesias {
+  width: 100%;
+}
+
+.content_page {
+  font-family: "Volkart_Light";
+  color: var(--l2b-dark-grey);
+  text-align: left;
+  width: 426px;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  white-space: pre-line;
+}
+
+.content_page .content_subtitle_poesias {
+  font-family: "Volkart_Bold";
+  color: var(--l2b-light-grey);
+  margin-top: -15px;
+  font-size: 22px;
+}
+
+.content_page .welcome_artists_page {
+  white-space: normal;
+}
+
+.content_page .welcome_artists_page .welcome_artists_item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.content_page .welcome_artists_page .welcome_artists_item b {
+  padding-right: 20px;
+}
+
+.content_page .welcome_room_link {
+  cursor: pointer;
+}
+
+.content_page .welcome_room_link:hover,
+.content_page .welcome_room_link:active {
+  color: var(--l2b-dark-red);
+}
+
+.content_page p {
+  padding: 0;
+  top: 0;
+}
+
+.content_page a {
+  font-style: italic;
+  font-weight: 700;
+  padding: 0;
+  top: 0;
+
+  color: var(--l2b-grey);
+  opacity: 0.7;
+}
+
+.content_page a:visited {
+  color: var(--l2b-grey);
+}
+
+.content_page a:hover
+.content_page a:active {
+  color: var(--l2b-dark-red);
+}
+
+.content_page b {
+  font-family: "Volkart_Bold";
+  line-height: 35px;
+}
+
+
+
+.content_page_subtitle {
+  font-family: "Volkart_Bold";
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+
+.content_page_hidden {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .pages_container {
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  .content_title.content_title_poesias {
+    font-size: 24px;
+  }
+
+  .content_page .content_subtitle_poesias {
+    font-size: 20px;
+  }
+
+  .loaded_content_container {
+    padding-left: inherit;
+  }
+
+  .content_page {
+    width: 100%;
+    word-wrap: break-word;
+  }
+}
