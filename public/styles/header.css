@@ -1,0 +1,75 @@
+.header {
+  font-family: "Volkart_Medium";
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--l2b-transparent);
+  position: fixed !important;
+  top: 0;
+  padding: 25px;
+}
+
+.header .header_desktop {
+  display: block;
+}
+
+.header .header_room_name {
+  display: block !important;
+}
+
+.header .header_mobile {
+  display: none;
+}
+
+.header .header_text {
+  color: var(--l2b-white-full);
+  text-align: center;
+  font-weight: normal;
+  display: none;
+}
+
+.header .header_menu_button {
+  cursor:pointer; 
+  margin: 18px;
+  font-size: 24px;
+  display: block;
+}
+
+.header .sound_icon {
+  margin-bottom: -3px;
+  cursor: pointer;
+  width: 32px;
+  margin-left:30px;
+}
+
+.header .align_left {
+  float: left;
+}
+
+.header .align_right {
+  float: right;
+}
+
+.header .header_logo {
+  width: 155px;
+  margin-top: 1.3em;
+}
+
+.header_mobile .header_logo {
+  height: 66px;
+  width: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .header .header_desktop {
+    display: none;
+  }
+
+  .header .header_mobile {
+    display: block;
+  }
+
+  .header .sound_icon {
+    display: inline-block;
+    margin: 25px 10px;
+  }
+}
