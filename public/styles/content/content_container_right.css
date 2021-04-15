@@ -1,77 +1,8 @@
-.right_content_container {
-  height: 100%;
-  width: 0px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background: var(--l2b-white-full) 0% 0% no-repeat padding-box;
-  overflow-x: hidden;
-  padding-top: 60px;
-  transition: 0.5s;
-}
-
-.right_content_container_show {
-  width: 562px;
-}
-
-.right_content_container_hide {
-  width: 0px;
-}
-
-.right_content_container a {
-  padding: 8px 8px 8px 0px;
-  text-decoration: none;
-  color: var(--l2b-grey);
-  display: block;
-}
-
-.right_content_container a:hover {
-  color: var(--l2b-dark-red);
-}
-
 .right_content_container .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
   margin-left: 50px;
-}
-
-.right_content_container::-webkit-scrollbar-track {
-  background-color: var(--l2b-white);
-}
-
-.right_content_container::-webkit-scrollbar {
-  width: 6px;
-  background: var(--l2b-white);
-}
-
-.right_content_container::-webkit-scrollbar-thumb {
-  background: var(--l2b-light-grey);
-}
-
-.close_right_content_container {
-  font-family: "Volkart_Light";
-  color: var(--l2b-light-grey);
-  float: right;
-  font-size: 40px;
-  position: absolute;
-  top: 30px;
-  right: 23px;
-  z-index: 2;
-}
-
-.close_right_content_container:hover,
-.close_right_content_container:focus {
-  color: var(--l2b-black);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.right_content_receiver {
-  padding: 30px 70px 70px 70px;
-  bottom: 10px;
-  overflow: hidden;
 }
 
 @media only screen and (max-width: 600px) {

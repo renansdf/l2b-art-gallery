@@ -1,7 +1,3 @@
-.loaded_content_container {
-  font-family: "Volkart_Light";
-}
-
 .content_title {
   font-family: "Volkart_Bold";
   font-weight: bold;
@@ -17,17 +13,6 @@
 
 .content_title.content_title_poesias {
   width: 100%;
-}
-
-.content_page {
-  font-family: "Volkart_Light";
-  color: var(--l2b-dark-grey);
-  text-align: left;
-  width: 426px;
-  font-size: 18px;
-  margin: 0;
-  padding: 0;
-  white-space: pre-line;
 }
 
 .content_page .content_subtitle_poesias {
@@ -105,10 +90,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .pages_container {
-    padding-bottom: 0;
-    margin: 0;
-  }
 
   .content_title.content_title_poesias {
     font-size: 24px;
