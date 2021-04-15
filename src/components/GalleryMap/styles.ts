@@ -1,0 +1,100 @@
+import styled from 'styled-components';
+
+export const MapTitle = styled.h2`
+    display: none;
+    font-family: "Volkart_Medium";
+    color: var(--l2b-light-grey);
+    top: 117px;
+    left: 1429px;
+    width: 85px;
+    height: 39px;
+    text-align: left;
+    font: Medium 32px/39px Volkart ☞;
+    letter-spacing: 0.48px;
+    color: var(--l2b-light-grey);
+    opacity: 1;
+    font-weight: normal;
+`;
+
+interface ItemContainerProps{
+    teleport_to?: string;
+}
+
+export const ItemContainer = styled.div<ItemContainerProps>`
+    font-family: "Volkart_Light";
+    font-weight: 600;
+    top: 215px;
+    left: 1429px;
+    width: 99%;
+    min-height: 110px;
+    background-color: var(--l2b-transparent);
+    border-bottom: 1px solid var(--l2b-light-grey);
+    background: url("../assets/img/arrow-down-right.svg") 0% 0% no-repeat padding-box;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 40px;
+    background-position-y: center;
+    float: left;
+    cursor: pointer;
+
+    transition: linear 250ms;
+
+    padding: 0;
+    text-decoration: underline;
+    color: var(--l2b-grey);
+
+    &:last-child {
+        background: none;
+        border-bottom: none;
+    }
+
+    &:last-child:hover {
+        background-image: none;
+        border-bottom: none;
+    }
+
+    &:hover,
+    &:active {
+        border-bottom: 1px solid var(--l2b-red);
+        background: url("../assets/img/desktop_menu_arrow_hover.svg") 0% 0% no-repeat padding-box;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 40px;
+    }
+
+
+    @media only screen and (max-width: 600px) {
+        border-bottom: 0px;
+        width: 100% !important;
+    }
+`;
+
+export const ItemTitle = styled.div`
+    font-family: "Volkart_Medium";
+    font-size: 22px;
+    font-weight: 500;
+    padding: 50px 50px 0px 0px;
+    color: var(--l2b-dark-grey  );
+`;
+
+export const ItemDescription = styled.div`
+    font-size: 18px;
+    padding: 10px 40px 30px 0px;
+    color: var(--l2b-light-grey);
+    /*white-space: pre;*/
+    line-height: 2;
+
+    @media only screen and (max-width: 600px) {
+        font-size: 14px;
+    }
+`;
+
+export const ContactEmail = styled.a`
+    padding: 0;
+    text-decoration: underline;
+    color: var(--l2b-grey);
+
+    &:hover, &:active{
+        color: var(--l2b-red);
+    }
+  `;
