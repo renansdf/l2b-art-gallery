@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Camera from '../../components/Camera';
 import skybox from '../../assets/textures/skybox.png';
@@ -13,14 +13,36 @@ import Infantis from './Infantis';
 import Memorias from './Memorias';
 import Poesias from './Poesias';
 
+import LoadingScreen from '../../components/LoadingScreen';
+
+interface IAssetRef {
+  fileLoader: {
+    manager: any;
+  }
+}
+
 const Museu: React.FC = () => {
+  const museuRef = useRef(null);
+  const assetsRef = useRef<IAssetRef>(null);
+  const [loadingVisibility, setLoadingVisibility] = useState(true);
+
+  useEffect(() => {
+    if(assetsRef.current){
+      const loader = assetsRef.current.fileLoader.manager;
+      loader.onLoad = () => {
+        setLoadingVisibility(false);
+      }
+    }
+  }, []);
+
   return (
     <a-scene id="aframeScene" renderer="colorManagement : true; sortObjects: true" vr-mode-ui="enabled: false" loading-screen="enabled : false">
+      <LoadingScreen isVisible={loadingVisibility} />
       <a-sky src={skybox} animation="property : rotation; from : 0 0 0; to : 0 360 0; dur : 1000000; loop : true;" />
-      <a-entity gltf-model={museuglb} scale=".35 .35 .35" position="-42.5 0 0" />
+      <a-entity ref={museuRef} gltf-model={museuglb} scale=".35 .35 .35" position="-42.5 0 0" />
       <Camera />
 
-      <a-assets>
+      <a-assets ref={assetsRef}>
         <img id="plus" src={hotspotIcon} alt="hotspot Icon" />
         <a-mixin id="hotspotMixin" billboard material="shader: flat; side: double; transparent: true; src : #plus; alphaTest : 0.1;" scale="0.3 0.3 1" geometry="primitive : plane"></a-mixin>
         <a-mixin id="navMeshMaterial" material="shader: flat; side: double; transparent: true; opacity : .5; color : white" visible="false"></a-mixin>
