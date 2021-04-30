@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {THREE} from 'aframe';
 
 import NextPositionGizmo from './NextPositionGizmo';
 
 import './scripts/aframe-touch-look-controls';
 import './scripts/aframe-navigation-collider';
+import { useTeleport } from '../../hooks/Teleport';
 // import '../../helpers/navigation3DFunctions';
 
 export interface IVector3 {
@@ -14,37 +15,29 @@ export interface IVector3 {
   isVector3?: boolean;
 }
 
+interface CameraProps {
+  setAttribute: any;
+  components: any;
+}
+
 const Camera: React.FC = () => {
     const [gizmoPosition, setGizmoPosition] = useState<IVector3>({x: 0, y: 0, z: 5});
-    const [cameraPosition, setCameraPosition] = useState<IVector3>({x: 0, y: 1.6, z: 30});
     const [cameraAnimation, setCameraAnimation] = useState<string>('');
 
-    let currentFloor = 0;
-    const movementSpeed = 5
+    const cameraRef = useRef<CameraProps>();
+    const {cameraAttr} = useTeleport();
 
-    const gallery_rooms_data = {
-      /*
-      [   poesias     ]
-      [   exposições  ]                             [ contos & novelas  ]
-      [   memórias    ] [ bem vindo ] [ infantis  ] [ ensaios           ]
-      */
-    
-      'memórias':           { floor: 0, room: 0 },
-      'bem vindo':          { floor: 0, room: 1 },
-      'infantis':           { floor: 0, room: 2 },
-      'ensaios':            { floor: 0, room: 3 },
-    
-      'exposições':         { floor: 1, room: 4 },
-      'contos & novelas':   { floor: 1, room: 5 },
-    
-      'poesias':            { floor: 2, room: 6 }
-    }
-    
-    const cameraYHeight = [
-      1.6, // floor 0 height
-      4.6, // floor 1 height
-      7.5  // floor 2 height
-    ]
+    useEffect(() => {
+      if(cameraRef.current){
+        cameraRef.current.setAttribute('position', cameraAttr.position);
+        cameraRef.current.setAttribute('rotation', cameraAttr.rotation);
+        // console.log(cameraRef.current.components['touch-look-controls'].yawObject.rotation.y, cameraAttr.rotation.y);
+        // cameraRef.current.components['touch-look-controls'].pitchObject.rotation.x = THREE.Math.degToRad(cameraAttr.rotation.x);
+        // cameraRef.current.components['touch-look-controls'].yawObject.rotation.y = THREE.Math.degToRad(cameraAttr.rotation.y)
+      }
+    }, [cameraAttr]);
+
+    const movementSpeed = 10;
 
     const Vector3ToAframeAttribute = (vec: IVector3) => {
       return vec.x + ' ' + vec.y + ' ' + vec.z
@@ -52,7 +45,7 @@ const Camera: React.FC = () => {
 
     const GetMovementDuration = () => {
       let direction = new THREE.Vector3();
-      let currentPos = new THREE.Vector3(cameraPosition.x, cameraPosition.y, cameraPosition.z);
+      let currentPos = new THREE.Vector3(cameraAttr.position.x, cameraAttr.position.y, cameraAttr.position.z);
       let targetPos = new THREE.Vector3(gizmoPosition.x, gizmoPosition.y, gizmoPosition.z);
       
       direction = targetPos.sub(currentPos)
@@ -61,19 +54,18 @@ const Camera: React.FC = () => {
 
     const SetCameraMovementAnimationAttribute = (next_position: IVector3) => {
       let nPoint = next_position
-      nPoint.y = cameraYHeight[currentFloor]
+      nPoint.y = next_position.y+0.5;
 
       let nextPositionAttr = 'property: position; to: '+ Vector3ToAframeAttribute(nPoint) + ';'
       let movDurationAttr = 'dur: ' + GetMovementDuration().toString() + ';'
 
-      setCameraPosition(nPoint);
       setCameraAnimation(nextPositionAttr + movDurationAttr + ' easing: linear;');
     }
 
     const MoveCameraToNextPosition = (next_position: IVector3) => {
-      const gizmoAdjustedPosition = {...next_position, y: cameraYHeight[currentFloor] - 1}
+      const gizmoAdjustedPosition = {...next_position, y: next_position.y - 0.45}
       setGizmoPosition(gizmoAdjustedPosition);
-      SetCameraMovementAnimationAttribute(next_position)
+      SetCameraMovementAnimationAttribute(next_position);
     }
 
     const AddNavMeshListeners = () => {
@@ -95,7 +87,7 @@ const Camera: React.FC = () => {
     return (
       <>
         <NextPositionGizmo position={Vector3ToAframeAttribute(gizmoPosition)} />
-        <a-camera id="mainCamera" position="0 1.6 30" animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 10;" rotation="0 0 0" active="true" />
+        <a-camera ref={cameraRef} id="mainCamera" position='0 1.6 30' animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 10;" rotation="0 0 0" active="true" />
       </>
     );
 }

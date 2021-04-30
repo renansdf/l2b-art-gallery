@@ -15,16 +15,16 @@ function GetRoomData(room_name)
   return gallery_rooms_data[room_name]
 }
 
-// function SetHeaderAndHideMapContainer(room_name)
-// {
-//   setHeaderRoomName(room_name)
-//   SetModalBottomRoomName(room_name)
+function SetHeaderAndHideMapContainer(room_name)
+{
+  setHeaderRoomName(room_name)
+  SetModalBottomRoomName(room_name)
 
-//   if(isMobileDevice())
-//     HideGalleryMapContainerMobile()
-//   else
-//     HideRightContentContainer()
-// }
+  if(isMobileDevice())
+    HideGalleryMapContainerMobile()
+  else
+    HideRightContentContainer()
+}
 
 function TeleportCamera(floor, room)
 {
@@ -39,56 +39,56 @@ function TeleportCamera(floor, room)
   SetCameraRotation(newRot)
 }
 
-// function FadeAndTeleport(room_name)
-// {
-//   if(IsFading()) return
+function FadeAndTeleport(room_name)
+{
+  if(IsFading()) return
 
-//   const { floor, room } = GetRoomData(room_name)   
-//   SetHeaderAndHideMapContainer(room_name)
-//   Fade(fade_duration)
+  const { floor, room } = GetRoomData(room_name)   
+  SetHeaderAndHideMapContainer(room_name)
+  Fade(fade_duration)
 
-//   const fade_duration_ms = (fade_duration * 1000)
-//   setTimeout(() => { TeleportCamera(floor, room) }, (fade_duration_ms / 2));
-// }
+  const fade_duration_ms = (fade_duration * 1000)
+  setTimeout(() => { TeleportCamera(floor, room) }, (fade_duration_ms / 2));
+}
 
-// TODO : resolver esse teleport
-// function FadeAndTeleportFromWelcomeHotspot(room_name) {
-//   if(IsFading()) return
+TODO : resolver esse teleport
+function FadeAndTeleportFromWelcomeHotspot(room_name) {
+  if(IsFading()) return
 
-//   // Fade 
-//   Fade(fade_duration)
+  // Fade 
+  Fade(fade_duration)
 
-//   const fade_duration_ms = (fade_duration * 1000)
+  const fade_duration_ms = (fade_duration * 1000)
   
-//   setTimeout(() => { 
-//     // Set the new room name
-//     setHeaderRoomName(room_name)
-//     SetModalBottomRoomName(room_name)
+  setTimeout(() => { 
+    // Set the new room name
+    setHeaderRoomName(room_name)
+    SetModalBottomRoomName(room_name)
 
-//     // Hide the opened content 
-//     if (isMobileDevice()) {
-//       HideBottomContentContainer()
-//       HideMobileBackToNavigationButton()
-//       HideMobileReadContentButton()
-//       ShowMobileMapButton()
-//     } else {
-//       HideRightContentContainer()
-//     }
+    // Hide the opened content 
+    if (isMobileDevice()) {
+      HideBottomContentContainer()
+      HideMobileBackToNavigationButton()
+      HideMobileReadContentButton()
+      ShowMobileMapButton()
+    } else {
+      HideRightContentContainer()
+    }
 
-//     // Show the invisible hotspot button 
-//     currentHotspot.components.material.material.opacity = 1
-//     currentHotspot = null
+    // Show the invisible hotspot button 
+    currentHotspot.components.material.material.opacity = 1
+    currentHotspot = null
 
-//     // Move the camera to the room position
-//     ToggleMouseLookComponent(false)
-//     const { floor, room } = GetRoomData(room_name)
-//     TeleportCamera(floor, room)
+    // Move the camera to the room position
+    ToggleMouseLookComponent(false)
+    const { floor, room } = GetRoomData(room_name)
+    TeleportCamera(floor, room)
 
-//     // Enable the navigation again
-//     ToggleMouseLookComponent(true)
-//     isReading = false
-//    }, (fade_duration_ms / 2));
-// }
+    // Enable the navigation again
+    ToggleMouseLookComponent(true)
+    isReading = false
+   }, (fade_duration_ms / 2));
+}
 
 function SetCameraRotation(rot)
 {
