@@ -1,19 +1,13 @@
+/*global AFRAME*/
+
+import {bind} from './aframe-binder';
+
 var THREE = AFRAME.THREE;
 var GRABBING_CLASS = 'a-grabbing';
 var PI_2 = Math.PI / 2;
 var radToDeg = THREE.Math.radToDeg;
 
 var checkHasPositionalTracking = AFRAME.utils.device.checkHasPositionalTracking;
-
-function bind (fn, ctx/* , arg1, arg2 */) {
-  return (function (prependedArgs) {
-    return function bound () {
-      // Concat the bound function arguments with those passed to original bind
-      var args = prependedArgs.concat(Array.prototype.slice.call(arguments, 0));
-      return fn.apply(ctx, args);
-    };
-  })(Array.prototype.slice.call(arguments, 2));
-};
 
 function PolyfillControls (object) {
   var frameData;
@@ -36,7 +30,7 @@ function PolyfillControls (object) {
 
 var vrDisplay;
 var polyfilledVRDisplay;
-var POLYFILL_VRDISPLAY_ID = 'Cardboard VRDisplay (webvr-polyfill)';
+// var POLYFILL_VRDISPLAY_ID = 'Cardboard VRDisplay (webvr-polyfill)';
 
 AFRAME.registerComponent('touch-look-controls', {
   dependencies: ['position', 'rotation'],

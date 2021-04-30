@@ -1,19 +1,61 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+import Camera from '../../components/Camera';
 import skybox from '../../assets/textures/skybox.png';
 import museuglb from '../../assets/models/museu_2020_newBook.glb';
-import groundmark from '../../assets/textures/ground_mark.png';
+import hotspotIcon from '../../assets/textures/hotspot_icon.png';
+
+import BoasVindas from './BoasVindas';
+import ContosENovelas from './ContosENovelas';
+import Ensaios from './Ensaios';
+import Exposicoes from './Exposicoes';
+import Infantis from './Infantis';
+import Memorias from './Memorias';
+import Poesias from './Poesias';
+
+import LoadingScreen from '../../components/LoadingScreen';
+
+interface IAssetRef {
+  fileLoader: {
+    manager: any;
+  }
+}
 
 const Museu: React.FC = () => {
+  const museuRef = useRef(null);
+  const assetsRef = useRef<IAssetRef>(null);
+  const [loadingVisibility, setLoadingVisibility] = useState(true);
+
+  useEffect(() => {
+    if(assetsRef.current){
+      const loader = assetsRef.current.fileLoader.manager;
+      loader.onLoad = () => {
+        setLoadingVisibility(false);
+      }
+    }
+  }, []);
+
   return (
     <a-scene id="aframeScene" renderer="colorManagement : true; sortObjects: true" vr-mode-ui="enabled: false" loading-screen="enabled : false">
-
+      <LoadingScreen isVisible={loadingVisibility} />
       <a-sky src={skybox} animation="property : rotation; from : 0 0 0; to : 0 360 0; dur : 1000000; loop : true;" />
+      <a-entity ref={museuRef} gltf-model={museuglb} scale=".35 .35 .35" position="-42.5 0 0" />
+      <Camera />
 
-      <a-camera position="0 1.6 30" multitouch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 10;" rotation="0 0 0" active="true" />
+      <a-assets ref={assetsRef}>
+        <img id="plus" src={hotspotIcon} alt="hotspot Icon" />
+        <a-mixin id="hotspotMixin" billboard material="shader: flat; side: double; transparent: true; src : #plus; alphaTest : 0.1;" scale="0.3 0.3 1" geometry="primitive : plane"></a-mixin>
+        <a-mixin id="navMeshMaterial" material="shader: flat; side: double; transparent: true; opacity : .5; color : white" visible="false"></a-mixin>
+        <a-mixin id="occluderMaterial" material="shader: flat; side: double; transparent: true; opacity : .5; color : blue" visible="false"></a-mixin>
+      </a-assets>
 
-      <a-entity gltf-model={museuglb} scale=".35 .35 .35" position="-42.5 0 0" />
-
-      <a-entity id="nextPositionGizmo" position="0 0 -5" scale="1 1 1" rotation="90 0 0" material="side: double; color : #ff0000; transparent: true; opacity: 0;" src={groundmark} geometry="primitive : circle; radius : 0.25" animation__fadein="property : components.material.material.opacity; from : 0; to : 1; dur :500; startEvents : fadein;" animation__fadeout="property : components.material.material.opacity; from : 1; to : 0; dur : 500; startEvents : fadeout;"></a-entity>
+      <BoasVindas />
+      <ContosENovelas />
+      <Ensaios />
+      <Exposicoes />
+      <Infantis />
+      <Memorias />
+      <Poesias />
     </a-scene>
   );
 }

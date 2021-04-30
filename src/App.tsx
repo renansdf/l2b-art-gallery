@@ -1,11 +1,25 @@
 import React from 'react';
 import 'aframe';
-import 'aframe-touch-look-controls';
+
 import Museu from './environments/Museu';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+
+import AppProvider from './hooks/AppProvider';
+
+import GlobalStyles from './styles/GlobalStyles';
+
 
 const App: React.FC = () => {
   return (
-    <Museu />
+    <>
+      <AppProvider>
+        <Museu />
+        <Header />
+        <Sidebar />
+      </AppProvider>
+      <GlobalStyles />
+    </>
   );
 }
 

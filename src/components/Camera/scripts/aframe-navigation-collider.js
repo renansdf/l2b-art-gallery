@@ -1,3 +1,7 @@
+/*global AFRAME*/
+
+import {bind} from './aframe-binder';
+
 AFRAME.registerComponent('navigation_collider', {
   init: function () {
     this.timeSinceMouseDown = new Date()
