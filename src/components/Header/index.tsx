@@ -18,8 +18,8 @@ const Header: React.FC = () => {
                 </div>
 
                 <div>
-                    <MenuButton onClick={() => setIsSidebarVisible(!isSidebarVisible)}>&#9776;</MenuButton>
                     <RoomName>bem-vindo</RoomName>
+                    <MenuButton onClick={() => setIsSidebarVisible(!isSidebarVisible)}>&#9776;</MenuButton>
                 </div>
             </HeaderDesktop>
 

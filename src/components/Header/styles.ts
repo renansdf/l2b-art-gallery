@@ -15,6 +15,10 @@ export const HeaderDesktop = styled.div`
     align-items: center;
     justify-content: space-between;
 
+    div{
+        display: flex;
+    }
+
     @media only screen and (max-width: 600px) {
         display: none;
     }
@@ -39,7 +43,7 @@ export const Text = styled.h2`
 
 export const Logo = styled.img`
     width: 155px;
-    margin-top: 1.3em;
+    margin-top: 5px;
 `;
 
 export const MenuButton = styled.span`
