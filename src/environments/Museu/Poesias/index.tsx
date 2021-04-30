@@ -1,12 +1,11 @@
 import React from 'react';
-import {navMeshMaterial, hotspotMixin} from '../mixins';
 
 const Poesias: React.FC = () => {
   return (
     <a-entity id="Poesias" room_name="poesias">
         {/* <!--NavMesh--> */}
-        <a-plane id="Poesias-NavMesh-01" position="-36.09 6.73 -4.16" scale="4.7 13 1" navigation_collider class="collidable" rotation="-90 0 0" mixin={navMeshMaterial}></a-plane>
-        <a-plane id="Poesias-NavMesh-02" position="-28.5 6.73 -4.16"  scale="3 10 1" navigation_collider class="collidable" rotation="-90 90 0" mixin={navMeshMaterial}></a-plane>
+        <a-plane id="Poesias-NavMesh-01" position="-36.09 6.73 -4.16" scale="4.7 13 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
+        <a-plane id="Poesias-NavMesh-02" position="-28.5 6.73 -4.16"  scale="3 10 1" navigation_collider class="collidable" rotation="-90 90 0" mixin="navMeshMaterial"></a-plane>
         {/* <!--NavMesh--> */}
 
         {/* <!--Teleport Point--> */}
@@ -14,15 +13,15 @@ const Poesias: React.FC = () => {
         {/* <!--Teleport Point--> */}
 
         {/* <!--Hotspots--> */}
-        <a-entity id="poesias_hotspot_01" contentType="1" mixin={hotspotMixin} class="collidable" position="-34.61 7.41 0.15"></a-entity>
-        <a-entity id="poesias_hotspot_02" contentType="1" mixin={hotspotMixin} class="collidable" position="-37.61 7.41 0.15"></a-entity>
-        <a-entity id="poesias_hotspot_03" contentType="1" mixin={hotspotMixin} class="collidable" position="-34.61‬ 7.41 1.9"></a-entity>
-        <a-entity id="poesias_hotspot_04" contentType="1" mixin={hotspotMixin} class="collidable" position="-37.61 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_01" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 0.15"></a-entity>
+        <a-entity id="poesias_hotspot_02" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 0.15"></a-entity>
+        <a-entity id="poesias_hotspot_03" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61‬ 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_04" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 1.9"></a-entity>
 
-        <a-entity id="poesias_hotspot_05" contentType="1" mixin={hotspotMixin} class="collidable" position="-34.61 7.41 -8.7"></a-entity>
-        <a-entity id="poesias_hotspot_06" contentType="1" mixin={hotspotMixin} class="collidable" position="-37.61 7.41 -8.7"></a-entity>
-        <a-entity id="poesias_hotspot_07" contentType="1" mixin={hotspotMixin} class="collidable" position="-34.61 7.41 -10.5"></a-entity>
-        <a-entity id="poesias_hotspot_08" contentType="1" mixin={hotspotMixin} class="collidable" position="-37.61 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_05" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 -8.7"></a-entity>
+        <a-entity id="poesias_hotspot_06" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 -8.7"></a-entity>
+        <a-entity id="poesias_hotspot_07" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_08" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 -10.5"></a-entity>
         {/* <!--Hotspots--> */}
 
         {/* <!--Close Cameras--> */}

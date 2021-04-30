@@ -1,23 +1,22 @@
 import React from 'react';
-import {navMeshMaterial, occluderMaterial, hotspotMixin} from '../mixins';
 
 const Exposicoes: React.FC = () => {
   return (
     <a-entity id="Exposicoes" room_name="exposições">
     {/* <!--NavMesh--> */}
-    <a-plane id="Exposicoes-NavMesh" position="-26.4 3.67 -4.21" scale="19 3.5 1" navigation_collider class="collidable" rotation="-90 0 0" mixin={navMeshMaterial}></a-plane>
+    <a-plane id="Exposicoes-NavMesh" position="-26.4 3.67 -4.21" scale="19 3.5 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
     {/* <!--NavMesh--> */}
 
     {/* <!--NavMesh Occluders--> */}
-    <a-box id="Exposicoes Support_1" position="-25.607 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin={occluderMaterial}></a-box>
-    <a-box id="Exposicoes Support_2" position="-25.607 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin={occluderMaterial}></a-box>
-    <a-box id="Exposicoes Support_3" position="-28.05 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin={occluderMaterial}></a-box>
-    <a-box id="Exposicoes Support_4" position="-28.05 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin={occluderMaterial}></a-box>
-    <a-box id="Exposicoes Support_5" position="-30.5 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin={occluderMaterial}></a-box>
-    <a-box id="Exposicoes Support_6" position="-30.5 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin={occluderMaterial}></a-box>
+    <a-box id="Exposicoes Support_1" position="-25.607 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Exposicoes Support_2" position="-25.607 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Exposicoes Support_3" position="-28.05 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Exposicoes Support_4" position="-28.05 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Exposicoes Support_5" position="-30.5 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Exposicoes Support_6" position="-30.5 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
 
-    <a-box id="Exposicoes Wall_1" position="-22.1 5 -5.85" scale="0.23 2.7 1.65" class="collidable" mixin={occluderMaterial}></a-box>
-    <a-box id="Exposicoes Wall_2" position="-22.1 5 -2.35" scale="0.23 2.7 1.165" class="collidable" mixin={occluderMaterial}></a-box>
+    <a-box id="Exposicoes Wall_1" position="-22.1 5 -5.85" scale="0.23 2.7 1.65" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Exposicoes Wall_2" position="-22.1 5 -2.35" scale="0.23 2.7 1.165" class="collidable" mixin="occluderMaterial"></a-box>
     {/* <!--NavMesh Occluders--> */}
 
     {/* <!--Teleport Point--> */}
@@ -25,14 +24,14 @@ const Exposicoes: React.FC = () => {
     {/* <!--Teleport Point--> */}
 
     {/* <!--Hotspots--> */}
-    <a-entity id="exposicoes_hotspot_01" contentType="0" mixin={hotspotMixin} class="collidable" position="-25.35 4.85 -2.55"></a-entity>
-    <a-entity id="exposicoes_hotspot_02" contentType="0" mixin={hotspotMixin} class="collidable" position="-25.35 4.85 -5.65"></a-entity>
+    <a-entity id="exposicoes_hotspot_01" contentType="0" mixin="hotspotMixin" class="collidable" position="-25.35 4.85 -2.55"></a-entity>
+    <a-entity id="exposicoes_hotspot_02" contentType="0" mixin="hotspotMixin" class="collidable" position="-25.35 4.85 -5.65"></a-entity>
 
-    <a-entity id="exposicoes_hotspot_03" contentType="2" mixin={hotspotMixin} class="collidable" position="-27.79 4.85 -2.55"></a-entity>
-    <a-entity id="exposicoes_hotspot_04" contentType="2" mixin={hotspotMixin} class="collidable" position="-27.79 4.85 -5.65"></a-entity>
+    <a-entity id="exposicoes_hotspot_03" contentType="2" mixin="hotspotMixin" class="collidable" position="-27.79 4.85 -2.55"></a-entity>
+    <a-entity id="exposicoes_hotspot_04" contentType="2" mixin="hotspotMixin" class="collidable" position="-27.79 4.85 -5.65"></a-entity>
 
-    <a-entity id="exposicoes_hotspot_05" contentType="2" mixin={hotspotMixin} class="collidable" position="-30.2 4.85 -2.55"></a-entity>
-    <a-entity id="exposicoes_hotspot_06" contentType="2" mixin={hotspotMixin} class="collidable" position="-30.2 4.85 -5.65"></a-entity>
+    <a-entity id="exposicoes_hotspot_05" contentType="2" mixin="hotspotMixin" class="collidable" position="-30.2 4.85 -2.55"></a-entity>
+    <a-entity id="exposicoes_hotspot_06" contentType="2" mixin="hotspotMixin" class="collidable" position="-30.2 4.85 -5.65"></a-entity>
     {/* <!--Hotspots--> */}
 
     {/* <!--Close Cameras--> */}
