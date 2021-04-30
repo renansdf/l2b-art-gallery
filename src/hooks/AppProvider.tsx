@@ -1,10 +1,13 @@
 import React from 'react';
 import { SidebarProvider } from './Sidebar';
+import { TeleportProvider } from './Teleport';
 
 const AppProvider: React.FC = ({ children }) => (
-  <SidebarProvider>
-    {children}
-  </SidebarProvider>
+  <TeleportProvider>
+    <SidebarProvider>
+      {children}
+    </SidebarProvider>
+  </TeleportProvider>
 )
 
 export default AppProvider;
