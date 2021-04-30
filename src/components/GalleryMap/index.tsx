@@ -1,22 +1,32 @@
 import React from 'react';
+import { useSidebar } from '../../hooks/Sidebar';
+import { useTeleport } from '../../hooks/Teleport';
 import {ItemContainer, ItemTitle, ItemDescription, ContactEmail} from './styles';
 
 const GalleryMap: React.FC = () => {
+    const {teleportCamera} = useTeleport();
+    const {setIsSidebarVisible} = useSidebar();
+
+    const handleTeleport = (roomName: string) => {
+        teleportCamera(roomName);
+        setIsSidebarVisible(false);
+    }
+
     return (
         <>
-            <ItemContainer teleport_to="ensaios">
+            <ItemContainer onClick={() => handleTeleport('ensaios')}>
                 <ItemTitle>ensaios</ItemTitle>
                 <ItemDescription>a arte, o artista e a criação artistica</ItemDescription>
             </ItemContainer>
 
-            <ItemContainer teleport_to="poesias">
+            <ItemContainer onClick={() => handleTeleport('poesias')}>
                 <ItemTitle>poesias</ItemTitle>
                 <ItemDescription>
                     só sei falar comigo mesmo<br />sobre mundos
                 </ItemDescription>
             </ItemContainer>
 
-            <ItemContainer teleport_to="exposições">
+            <ItemContainer onClick={() => handleTeleport('exposicoes')}>
                 <ItemTitle>exposições</ItemTitle>
                 <ItemDescription>
                     turquesas 
@@ -25,14 +35,14 @@ const GalleryMap: React.FC = () => {
                 </ItemDescription>
             </ItemContainer>
 
-            <ItemContainer teleport_to="contos & novelas">
+            <ItemContainer onClick={() => handleTeleport('contosENovelas')}>
                 <ItemTitle>contos & novelas</ItemTitle>
                 <ItemDescription>
                     labirintos da memória
                 </ItemDescription>
             </ItemContainer>
 
-            <ItemContainer teleport_to="memórias">
+            <ItemContainer onClick={() => handleTeleport('memorias')}>
                 <ItemTitle>memórias</ItemTitle>
                 <ItemDescription>
                     os medíocres
@@ -41,7 +51,7 @@ const GalleryMap: React.FC = () => {
                 </ItemDescription>
             </ItemContainer>
 
-            <ItemContainer teleport_to="infantis">
+            <ItemContainer onClick={() => handleTeleport('infantis')}>
                 <ItemTitle>infantis</ItemTitle>
                 <ItemDescription>
                     o navio que era saudade 
@@ -54,7 +64,7 @@ const GalleryMap: React.FC = () => {
                 </ItemDescription>
             </ItemContainer>
 
-            <ItemContainer teleport_to="bem vindo">
+            <ItemContainer onClick={() => handleTeleport('boasVindas')}>
                 <ItemTitle>bem-vindo</ItemTitle>
             </ItemContainer>
 
