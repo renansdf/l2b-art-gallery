@@ -5,7 +5,7 @@ import Museu from './environments/Museu';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 
-import {SidebarProvider} from './hooks/Sidebar';
+import AppProvider from './hooks/AppProvider';
 
 import GlobalStyles from './styles/GlobalStyles';
 
@@ -13,11 +13,11 @@ import GlobalStyles from './styles/GlobalStyles';
 const App: React.FC = () => {
   return (
     <>
-      <Museu />
-      <SidebarProvider>
+      <AppProvider>
+        <Museu />
         <Header />
         <Sidebar />
-      </SidebarProvider>
+      </AppProvider>
       <GlobalStyles />
     </>
   );
