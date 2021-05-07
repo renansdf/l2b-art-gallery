@@ -19,14 +19,14 @@ const Infantis: React.FC = () => {
         {/* <!--NavMesh Occluders--> */}
 
         {/* <!--Teleport Point--> */}
-        <a-entity id="Infantis-TeleportPoint" rotation="0 270 0" position="-6.66 1.6 -4.09" class="teleportPoint"></a-entity>
+        {/* <a-entity id="Infantis-TeleportPoint" rotation="0 270 0" position="-6.66 1.6 -4.09" class="teleportPoint"></a-entity> */}
         {/* <!--Teleport Point--> */}
 
         {/* <!--HotSpots--> */}
-        <a-entity id="infantis_hotspot_01" contentType="3" mixin="hotspotMixin" class="collidable" position="-9.4 1.1 -5.33"></a-entity>
+        {/* <a-entity id="infantis_hotspot_01" contentType="3" mixin="hotspotMixin" class="collidable" position="-9.4 1.1 -5.33"></a-entity>
         <a-entity id="infantis_hotspot_02" contentType="3" mixin="hotspotMixin" class="collidable" position="-11.8 1.1 -2.67"></a-entity>
         <a-entity id="infantis_hotspot_03" contentType="3" mixin="hotspotMixin" class="collidable" position="-14 1.1 -5.2"></a-entity>
-        <a-entity id="infantis_hotspot_04" contentType="3" mixin="hotspotMixin" class="collidable" position="-8.69 1.1 -2.67"></a-entity>
+        <a-entity id="infantis_hotspot_04" contentType="3" mixin="hotspotMixin" class="collidable" position="-8.69 1.1 -2.67"></a-entity> */}
         {/* <!--HotSpots--> */}
 
         {/* <!--CloseCameras--> */}

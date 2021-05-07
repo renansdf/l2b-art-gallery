@@ -13,12 +13,12 @@ const Memorias: React.FC = () => {
             {/* <!--NavMesh Occluders--> */}
 
             {/* <!--Teleport Point--> */}
-            <a-entity id="Memorias-TeleportPoint" rotation="0 90 0" position="6.72111 0 -4.21" class="teleportPoint"></a-entity>
+            {/* <a-entity id="Memorias-TeleportPoint" rotation="0 90 0" position="6.72111 0 -4.21" class="teleportPoint"></a-entity> */}
             {/* <!--Teleport Point--> */}
 
             {/* <!--Hotspots--> */}
-            <a-entity id="memorias_hotspot_01" contentType="1" mixin="hotspotMixin" class="collidable" position="10.78 1.4 -6"></a-entity>
-            <a-entity id="memorias_hotspot_02" contentType="1" mixin="hotspotMixin" class="collidable" position="10.78 1.4 -2.5"></a-entity>
+            {/* <a-entity id="memorias_hotspot_01" contentType="1" mixin="hotspotMixin" class="collidable" position="10.78 1.4 -6"></a-entity>
+            <a-entity id="memorias_hotspot_02" contentType="1" mixin="hotspotMixin" class="collidable" position="10.78 1.4 -2.5"></a-entity> */}
             {/* <!--Hotspots--> */}
 
             {/* <!--Close Cameras--> */}

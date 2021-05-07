@@ -13,16 +13,16 @@ const Ensaios: React.FC = () => {
     {/* <!--NavMesh Occluders--> */}
 
     {/* <!--Teleport Point--> */}
-    <a-entity id="Ensaios-TeleportPoint" rotation="0 270 0" position="-26.74456 0.14515 -4.12" class="teleportPoint"></a-entity>
+    {/* <a-entity id="Ensaios-TeleportPoint" rotation="0 270 0" position="-26.74456 0.14515 -4.12" class="teleportPoint"></a-entity> */}
     {/* <!--Teleport Point--> */}
 
     {/* <!--Hotspots--> */}
-    <a-entity id="ensaios_hotspot_01" contentType="0" mixin="hotspotMixin" class="collidable" position="-29.6 1.6 -5.8"></a-entity>
+    {/* <a-entity id="ensaios_hotspot_01" contentType="0" mixin="hotspotMixin" class="collidable" position="-29.6 1.6 -5.8"></a-entity>
     <a-entity id="ensaios_hotspot_02" contentType="0" mixin="hotspotMixin" class="collidable" position="-32.02 1.6 -5.8"></a-entity>
     <a-entity id="ensaios_hotspot_03" contentType="0" mixin="hotspotMixin" class="collidable" position="-34.55 1.6 -5.8"></a-entity>
     <a-entity id="ensaios_hotspot_04" contentType="0" mixin="hotspotMixin" class="collidable" position="-29.6 1.6 -2.5"></a-entity>
     <a-entity id="ensaios_hotspot_05" contentType="0" mixin="hotspotMixin" class="collidable" position="-32.02 1.6 -2.5"></a-entity>
-    <a-entity id="ensaios_hotspot_06" contentType="0" mixin="hotspotMixin" class="collidable" position="-34.55 1.6 -2.5"></a-entity>
+    <a-entity id="ensaios_hotspot_06" contentType="0" mixin="hotspotMixin" class="collidable" position="-34.55 1.6 -2.5"></a-entity> */}
     {/* <!--Hotspots--> */}
 
     {/* <!--Close Cameras--> */}

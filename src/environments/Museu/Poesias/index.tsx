@@ -9,11 +9,11 @@ const Poesias: React.FC = () => {
         {/* <!--NavMesh--> */}
 
         {/* <!--Teleport Point--> */}
-        <a-entity id="Poesias-TeleportPoint" rotation="0 270 0" position="-29.5 7.5 -4.2" class="teleportPoint"></a-entity>
+        {/* <a-entity id="Poesias-TeleportPoint" rotation="0 270 0" position="-29.5 7.5 -4.2" class="teleportPoint"></a-entity> */}
         {/* <!--Teleport Point--> */}
 
         {/* <!--Hotspots--> */}
-        <a-entity id="poesias_hotspot_01" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 0.15"></a-entity>
+        {/* <a-entity id="poesias_hotspot_01" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 0.15"></a-entity>
         <a-entity id="poesias_hotspot_02" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 0.15"></a-entity>
         <a-entity id="poesias_hotspot_03" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61‬ 7.41 1.9"></a-entity>
         <a-entity id="poesias_hotspot_04" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 1.9"></a-entity>
@@ -21,7 +21,7 @@ const Poesias: React.FC = () => {
         <a-entity id="poesias_hotspot_05" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 -8.7"></a-entity>
         <a-entity id="poesias_hotspot_06" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 -8.7"></a-entity>
         <a-entity id="poesias_hotspot_07" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 -10.5"></a-entity>
-        <a-entity id="poesias_hotspot_08" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_08" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 -10.5"></a-entity> */}
         {/* <!--Hotspots--> */}
 
         {/* <!--Close Cameras--> */}

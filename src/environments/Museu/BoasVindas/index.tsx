@@ -1,17 +1,17 @@
 import React from 'react';
-import { useSidebar } from '../../../hooks/Sidebar';
+// import { useSidebar } from '../../../hooks/Sidebar';
 
-import BoasVindasHotspot01 from './content/BoasVindasHotspot01';
-import BoasVindasHotspot02 from './content/BoasVindasHotspot02';
-import BoasVindasHotspot03 from './content/BoasVindasHotspot03';
+// import BoasVindasHotspot01 from './content/BoasVindasHotspot01';
+// import BoasVindasHotspot02 from './content/BoasVindasHotspot02';
+// import BoasVindasHotspot03 from './content/BoasVindasHotspot03';
 
 const BoasVindas: React.FC = () => {
-    const {setContent, setSidebarVisibility} = useSidebar();
+    // const {setContent, setSidebarVisibility} = useSidebar();
 
-    const handleClick = (component: React.FC) => {
-        setContent(component);
-        setSidebarVisibility(true);
-    }
+    // const handleClick = (component: React.FC) => {
+    //     setContent(component);
+    //     setSidebarVisibility(true);
+    // }
 
     return (
         <a-entity id="BoasVindas" room_name="bem vindo">
@@ -22,16 +22,16 @@ const BoasVindas: React.FC = () => {
             <a-plane id="BoasVindas_Infantis_Connection" position="-5.25 0.59 -4.21" scale="2.4 1.5 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
             {/* <!--NavMesh--> */}
 
-            <a-entity id="BoasVindas_TeleportPoint" rotation="0 0 0" position="0 1.6 0" class="teleportPoint"></a-entity>
+            {/* <a-entity id="BoasVindas_TeleportPoint" rotation="0 0 0" position="0 1.6 0" class="teleportPoint"></a-entity> */}
             
             {/* <!--NavMesh Occluders--> */}
             <a-box id="BoasVindas_Occluder" position="0.06 0.85 -5.18" scale="1.916 0.502 0.638" class="collidable" mixin="occluderMaterial"></a-box>
             {/* <!--NavMesh Occluders--> */}
 
             {/* <!--HotSpots--> */}
-            <a-entity id="boasvindas_hotspot_01" onClick={() => handleClick(BoasVindasHotspot01)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="0.05 3 -6.83"></a-entity>
+            {/* <a-entity id="boasvindas_hotspot_01" onClick={() => handleClick(BoasVindasHotspot01)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="0.05 3 -6.83"></a-entity>
             <a-entity id="boasvindas_hotspot_02" onClick={() => handleClick(BoasVindasHotspot02)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="3.3 3 -4.1"></a-entity>
-            <a-entity id="boasvindas_hotspot_03" onClick={() => handleClick(BoasVindasHotspot03)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="-3.3 3 -4.1"></a-entity>
+            <a-entity id="boasvindas_hotspot_03" onClick={() => handleClick(BoasVindasHotspot03)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="-3.3 3 -4.1"></a-entity> */}
             {/* <!--HotSpots--> */}
 
             {/* <!--CloseCameras--> */}

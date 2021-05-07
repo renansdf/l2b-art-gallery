@@ -20,18 +20,18 @@ const Exposicoes: React.FC = () => {
     {/* <!--NavMesh Occluders--> */}
 
     {/* <!--Teleport Point--> */}
-    <a-entity id="Exposicoes-TeleportPoint" rotation="0 270 0" position="-22.23678 4.43 -4.21" class="teleportPoint"></a-entity>
+    {/* <a-entity id="Exposicoes-TeleportPoint" rotation="0 270 0" position="-22.23678 4.43 -4.21" class="teleportPoint"></a-entity> */}
     {/* <!--Teleport Point--> */}
 
     {/* <!--Hotspots--> */}
-    <a-entity id="exposicoes_hotspot_01" contentType="0" mixin="hotspotMixin" class="collidable" position="-25.35 4.85 -2.55"></a-entity>
+    {/* <a-entity id="exposicoes_hotspot_01" contentType="0" mixin="hotspotMixin" class="collidable" position="-25.35 4.85 -2.55"></a-entity>
     <a-entity id="exposicoes_hotspot_02" contentType="0" mixin="hotspotMixin" class="collidable" position="-25.35 4.85 -5.65"></a-entity>
 
     <a-entity id="exposicoes_hotspot_03" contentType="2" mixin="hotspotMixin" class="collidable" position="-27.79 4.85 -2.55"></a-entity>
     <a-entity id="exposicoes_hotspot_04" contentType="2" mixin="hotspotMixin" class="collidable" position="-27.79 4.85 -5.65"></a-entity>
 
     <a-entity id="exposicoes_hotspot_05" contentType="2" mixin="hotspotMixin" class="collidable" position="-30.2 4.85 -2.55"></a-entity>
-    <a-entity id="exposicoes_hotspot_06" contentType="2" mixin="hotspotMixin" class="collidable" position="-30.2 4.85 -5.65"></a-entity>
+    <a-entity id="exposicoes_hotspot_06" contentType="2" mixin="hotspotMixin" class="collidable" position="-30.2 4.85 -5.65"></a-entity> */}
     {/* <!--Hotspots--> */}
 
     {/* <!--Close Cameras--> */}
