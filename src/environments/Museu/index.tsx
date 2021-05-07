@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import Camera from '../../components/Camera';
 import skybox from '../../assets/textures/skybox.png';
-import museuglb from '../../assets/models/museu_novo.glb';
+import museuglb from '../../assets/models/galeria.glb';
 import hotspotIcon from '../../assets/textures/hotspot_icon.png';
 
 import BoasVindas from './BoasVindas';
