@@ -1,6 +1,18 @@
 import React from 'react';
+import { useSidebar } from '../../../hooks/Sidebar';
+
+import BoasVindasHotspot01 from './content/BoasVindasHotspot01';
+import BoasVindasHotspot02 from './content/BoasVindasHotspot02';
+import BoasVindasHotspot03 from './content/BoasVindasHotspot03';
 
 const BoasVindas: React.FC = () => {
+    const {setContent, setSidebarVisibility} = useSidebar();
+
+    const handleClick = (component: React.FC) => {
+        setContent(component);
+        setSidebarVisibility(true);
+    }
+
     return (
         <a-entity id="BoasVindas" room_name="bem vindo">
             {/* <!--NavMesh --> */}
@@ -17,9 +29,9 @@ const BoasVindas: React.FC = () => {
             {/* <!--NavMesh Occluders--> */}
 
             {/* <!--HotSpots--> */}
-            <a-entity id="boasvindas_hotspot_01" contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="0.05 3 -6.83"></a-entity>
-            <a-entity id="boasvindas_hotspot_02" contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="3.3 3 -4.1"></a-entity>
-            <a-entity id="boasvindas_hotspot_03" contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="-3.3 3 -4.1"></a-entity>
+            <a-entity id="boasvindas_hotspot_01" onClick={() => handleClick(BoasVindasHotspot01)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="0.05 3 -6.83"></a-entity>
+            <a-entity id="boasvindas_hotspot_02" onClick={() => handleClick(BoasVindasHotspot02)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="3.3 3 -4.1"></a-entity>
+            <a-entity id="boasvindas_hotspot_03" onClick={() => handleClick(BoasVindasHotspot03)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="-3.3 3 -4.1"></a-entity>
             {/* <!--HotSpots--> */}
 
             {/* <!--CloseCameras--> */}
