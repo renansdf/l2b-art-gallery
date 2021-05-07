@@ -46,7 +46,7 @@ const teleportPoints : ITeleportPoints = {
     rotation: {x: 0, y: 0, z: 0},
     floor: 0
   },
-  contosENovelas: {
+  observatorio: {
     position: {x:14.8, y: 4.6, z: -4.2},
     rotation: {x: 0, y: 90, z: 0},
     floor: 1
@@ -56,7 +56,7 @@ const teleportPoints : ITeleportPoints = {
     rotation: {x: 0, y: 270, z: 0},
     floor: 0
   },
-  exposicoes: {
+  contosENovelas: {
     position: {x:-22.23, y: 4.6, z: -4.21},
     rotation: {x: 0, y: 270, z: 0},
     floor: 1
@@ -66,7 +66,7 @@ const teleportPoints : ITeleportPoints = {
     rotation: {x: 0, y: 270, z: 0},
     floor: 0
   },
-  memorias: {
+  exposicoes: {
     position: {x:6.72111, y: 1.6, z: -4.21},
     rotation: {x: 0, y: 90, z: 0},
     floor: 0
