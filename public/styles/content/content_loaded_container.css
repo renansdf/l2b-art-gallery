@@ -22,35 +22,6 @@
   font-size: 22px;
 }
 
-.content_page .welcome_artists_page {
-  white-space: normal;
-}
-
-.content_page .welcome_artists_page .welcome_artists_item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 40px;
-}
-
-.content_page .welcome_artists_page .welcome_artists_item b {
-  padding-right: 20px;
-}
-
-.content_page .welcome_room_link {
-  cursor: pointer;
-}
-
-.content_page .welcome_room_link:hover,
-.content_page .welcome_room_link:active {
-  color: var(--l2b-dark-red);
-}
-
-.content_page p {
-  padding: 0;
-  top: 0;
-}
-
 .content_page a {
   font-style: italic;
   font-weight: 700;
@@ -70,20 +41,12 @@
   color: var(--l2b-dark-red);
 }
 
-.content_page b {
-  font-family: "Volkart_Bold";
-  line-height: 35px;
-}
-
-
-
 .content_page_subtitle {
   font-family: "Volkart_Bold";
   font-weight: bold;
   margin: 0;
   padding: 0;
 }
-
 
 .content_page_hidden {
   display: none;
@@ -97,14 +60,5 @@
 
   .content_page .content_subtitle_poesias {
     font-size: 20px;
-  }
-
-  .loaded_content_container {
-    padding-left: inherit;
-  }
-
-  .content_page {
-    width: 100%;
-    word-wrap: break-word;
   }
 }
