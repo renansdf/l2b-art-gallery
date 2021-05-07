@@ -32,19 +32,17 @@ const GalleryMap: React.FC = () => {
                 </ItemDescription>
             </ItemContainer>
 
+            <ItemContainer onClick={() => handleTeleport('observatorio')}>
+                <ItemTitle>observatório</ItemTitle>
+                <ItemDescription>
+                    observatório
+                </ItemDescription>
+            </ItemContainer>
+
             <ItemContainer onClick={() => handleTeleport('contosENovelas')}>
                 <ItemTitle>contos & novelas</ItemTitle>
                 <ItemDescription>
                     labirintos da memória
-                </ItemDescription>
-            </ItemContainer>
-
-            <ItemContainer onClick={() => handleTeleport('memorias')}>
-                <ItemTitle>memórias</ItemTitle>
-                <ItemDescription>
-                    os medíocres
-                    <br />
-                    memorias gustativas 
                 </ItemDescription>
             </ItemContainer>
 
