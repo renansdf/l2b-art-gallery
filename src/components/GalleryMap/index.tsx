@@ -1,15 +1,12 @@
 import React from 'react';
-import { useSidebar } from '../../hooks/Sidebar';
 import { useTeleport } from '../../hooks/Teleport';
 import {ItemContainer, ItemTitle, ItemDescription, ContactEmail} from './styles';
 
 const GalleryMap: React.FC = () => {
     const {teleportCamera} = useTeleport();
-    const {setIsSidebarVisible} = useSidebar();
 
     const handleTeleport = (roomName: string) => {
         teleportCamera(roomName);
-        setIsSidebarVisible(false);
     }
 
     return (

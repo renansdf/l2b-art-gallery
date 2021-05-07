@@ -1,6 +1,19 @@
 import React from 'react';
+import { useSidebar } from '../../../hooks/Sidebar';
+
+import ContosENovelas01 from './content/ContosENovelas01';
+import ContosENovelas02 from './content/ContosENovelas02';
+import ContosENovelas03 from './content/ContosENovelas03';
+import ContosENovelas04 from './content/ContosENovelas04';
 
 const ContosENovelas: React.FC = () => {
+  const {setContent, setSidebarVisibility} = useSidebar();
+
+  const handleClick = (component: React.FC) => {
+      setContent(component);
+      setSidebarVisibility(true);
+  }
+
   return (
     <a-entity id="ContosENovelas" room_name="contos & novelas">
         {/* <!--NavMesh--> */}
@@ -11,10 +24,10 @@ const ContosENovelas: React.FC = () => {
         <a-entity id="ContosENovelas-TeleportPoint" rotation="0 90 0" position="14.8 3.1 -4.2" class="teleportPoint"></a-entity>
 
         {/* <!--Hotspots--> */}
-        <a-entity id="contosenovelas_hotspot_01" contentType="1" mixin="hotspotMixin" class="collidable" position="16.67 4 -2.65"></a-entity>
-        <a-entity id="contosenovelas_hotspot_02" contentType="1" mixin="hotspotMixin" class="collidable" position="16.67 4 -5.25"></a-entity>
-        <a-entity id="contosenovelas_hotspot_03" contentType="1" mixin="hotspotMixin" class="collidable" position="19.55 4 -2.65"></a-entity>
-        <a-entity id="contosenovelas_hotspot_04" contentType="1" mixin="hotspotMixin" class="collidable" position="19.55 4 -5.25"></a-entity>
+        <a-entity id="contosenovelas_hotspot_01" onClick={() => handleClick(ContosENovelas01)} contentType="1" mixin="hotspotMixin" class="collidable" position="16.67 4 -2.65"></a-entity>
+        <a-entity id="contosenovelas_hotspot_02" onClick={() => handleClick(ContosENovelas02)} contentType="1" mixin="hotspotMixin" class="collidable" position="16.67 4 -5.25"></a-entity>
+        <a-entity id="contosenovelas_hotspot_03" onClick={() => handleClick(ContosENovelas03)} contentType="1" mixin="hotspotMixin" class="collidable" position="19.55 4 -2.65"></a-entity>
+        <a-entity id="contosenovelas_hotspot_04" onClick={() => handleClick(ContosENovelas04)} contentType="1" mixin="hotspotMixin" class="collidable" position="19.55 4 -5.25"></a-entity>
         {/* <!--Hotspots--> */}
 
         {/* <!--Close Cameras--> */}

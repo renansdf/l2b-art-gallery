@@ -1,12 +1,19 @@
 import React from 'react';
 
+import GalleryMap from '../GalleryMap';
+
 import WhiteLogo from '../../assets/img/white_logo_desktop.png';
 import { useSidebar } from '../../hooks/Sidebar';
 
 import {Container, HeaderDesktop, HeaderMobile, Text, Logo, MenuButton, RoomName} from './styles';
 
 const Header: React.FC = () => {
-    const {isSidebarVisible, setIsSidebarVisible} = useSidebar();
+    const {setSidebarVisibility, setContent} = useSidebar();
+
+    const handleOpenMenu = () => {
+        setContent(GalleryMap);
+        setSidebarVisibility(true);
+    }
 
     return (
         <Container>
@@ -19,7 +26,7 @@ const Header: React.FC = () => {
 
                 <div>
                     <RoomName>bem-vindo</RoomName>
-                    <MenuButton onClick={() => setIsSidebarVisible(!isSidebarVisible)}>&#9776;</MenuButton>
+                    <MenuButton onClick={handleOpenMenu}>&#9776;</MenuButton>
                 </div>
             </HeaderDesktop>
 

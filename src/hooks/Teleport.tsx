@@ -37,7 +37,7 @@ interface ITeleportPoints {
 
 const teleportPoints : ITeleportPoints = {
   inicial: {
-    position: {x:0, y: 1.6, z: 30},
+    position: {x:0, y: 1.6, z: 15},
     rotation: {x: 0, y: 0, z: 0},
     floor: 0
   },

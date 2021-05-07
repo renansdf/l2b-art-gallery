@@ -37,7 +37,7 @@ const Camera: React.FC = () => {
       }
     }, [cameraAttr]);
 
-    const movementSpeed = 10;
+    const movementSpeed = 15;
 
     const Vector3ToAframeAttribute = (vec: IVector3) => {
       return vec.x + ' ' + vec.y + ' ' + vec.z

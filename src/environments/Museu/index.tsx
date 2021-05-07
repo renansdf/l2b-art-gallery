@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import Camera from '../../components/Camera';
 import skybox from '../../assets/textures/skybox.png';
-import museuglb from '../../assets/models/museu_2020_newBook.glb';
+import museuglb from '../../assets/models/museu_novo.glb';
 import hotspotIcon from '../../assets/textures/hotspot_icon.png';
 
 import BoasVindas from './BoasVindas';
@@ -39,7 +39,7 @@ const Museu: React.FC = () => {
     <a-scene id="aframeScene" renderer="colorManagement : true; sortObjects: true" vr-mode-ui="enabled: false" loading-screen="enabled : false">
       <LoadingScreen isVisible={loadingVisibility} />
       <a-sky src={skybox} animation="property : rotation; from : 0 0 0; to : 0 360 0; dur : 1000000; loop : true;" />
-      <a-entity ref={museuRef} gltf-model={museuglb} scale=".35 .35 .35" position="-42.5 0 0" />
+      <a-entity ref={museuRef} gltf-model={museuglb} scale=".75 .75 .75" position="-49.09 0 -4.16" rotation="0 -90 0" />
       <Camera />
 
       <a-assets ref={assetsRef}>
