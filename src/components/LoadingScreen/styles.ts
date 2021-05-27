@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface IContainerProps {
-  visibility: boolean;
+  isVisible: boolean;
 }
 
 export const Container = styled.div<IContainerProps>`
@@ -35,7 +35,7 @@ export const Container = styled.div<IContainerProps>`
     }
   }
 
-  ${(props) => props.visibility && css`
+  ${(props) => props.isVisible && css`
     display: flex;
   `}
 `;
