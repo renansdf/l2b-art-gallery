@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useSidebar } from '../../../hooks/Sidebar';
+import ContentPagination from '../../../components/ContentPagination';
 
 const Poesias: React.FC = () => {
+  const {setContent, setSidebarVisibility} = useSidebar();
+
+  const handleClick = useCallback((component: JSX.Element) => {
+    setContent(component);
+    setSidebarVisibility(true);
+  }, [setContent, setSidebarVisibility]);
+
   return (
     <a-entity id="Poesias" room_name="poesias">
         {/* <!--NavMesh--> */}
-        <a-plane id="Poesias-NavMesh-01" position="-36.09 6.73 -4.16" scale="4.7 13 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
-        <a-plane id="Poesias-NavMesh-02" position="-28.5 6.73 -4.16"  scale="3 10 1" navigation_collider class="collidable" rotation="-90 90 0" mixin="navMeshMaterial"></a-plane>
+        <a-plane id="Poesias-NavMesh-01" position="-37.130 6.73 -4.16" scale="4.810 14.270 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
+        <a-plane id="Poesias-NavMesh-02" position="-29.110 6.730 -4.160"  scale="5.190 11.890 1" navigation_collider class="collidable" rotation="-90 90 0" mixin="navMeshMaterial"></a-plane>
         {/* <!--NavMesh--> */}
 
         {/* <!--Teleport Point--> */}
@@ -13,15 +22,15 @@ const Poesias: React.FC = () => {
         {/* <!--Teleport Point--> */}
 
         {/* <!--Hotspots--> */}
-        {/* <a-entity id="poesias_hotspot_01" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 0.15"></a-entity>
-        <a-entity id="poesias_hotspot_02" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 0.15"></a-entity>
-        <a-entity id="poesias_hotspot_03" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61‬ 7.41 1.9"></a-entity>
-        <a-entity id="poesias_hotspot_04" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YKgtiBEAACIAc1rT" />)} mixin="hotspotMixin" class="collidable" position="-36.3 7.41 0.15"></a-entity>
+        <a-entity id="poesias_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK6ssxAAACYAXtDp" />)} mixin="hotspotMixin" class="collidable" position="-35.8‬ 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK66nRAAACMAXw_m" />)} mixin="hotspotMixin" class="collidable" position="-38.61 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK66xBAAACYAXxCg" />)}  mixin="hotspotMixin" class="collidable" position="-38.5 7.41 0.15"></a-entity>
 
-        <a-entity id="poesias_hotspot_05" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 -8.7"></a-entity>
-        <a-entity id="poesias_hotspot_06" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 -8.7"></a-entity>
-        <a-entity id="poesias_hotspot_07" contentType="1" mixin="hotspotMixin" class="collidable" position="-34.61 7.41 -10.5"></a-entity>
-        <a-entity id="poesias_hotspot_08" contentType="1" mixin="hotspotMixin" class="collidable" position="-37.61 7.41 -10.5"></a-entity> */}
+        <a-entity id="poesias_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK663hAAACMAXxEX" />)} mixin="hotspotMixin" class="collidable" position="-36.2 7.41 -8.7"></a-entity>
+        <a-entity id="poesias_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YK66-BAAACMAXxGN" />)} mixin="hotspotMixin" class="collidable" position="-35.77 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_07" onClick={() => handleClick(<ContentPagination contentId="YK67JhAAACMAXxJh" />)} mixin="hotspotMixin" class="collidable" position="-38.56 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_08" onClick={() => handleClick(<ContentPagination contentId="YK67DhAAACQAXxHz" />)} mixin="hotspotMixin" class="collidable" position="-38.56 7.41 -8.7"></a-entity>
         {/* <!--Hotspots--> */}
 
         {/* <!--Close Cameras--> */}
@@ -37,7 +46,7 @@ const Poesias: React.FC = () => {
         {/* <!--Close Cameras--> */}
 
         {/* <!-- Stair Teleporter--> */}
-        <a-entity id="down-stairs-button" position="-30.5 7.6 -1.9" scale="0.35 0.35 1" billboard class="collidable" material="shader: flat; side: double; transparent: true; opacity: 1; src : #down-stairs" geometry="primitive : plane" onClick="FadeAndTeleport('exposições')"></a-entity>
+        {/* <a-entity id="down-stairs-button" position="-30.5 7.6 -1.9" scale="0.35 0.35 1" billboard class="collidable" material="shader: flat; side: double; transparent: true; opacity: 1; src : #down-stairs" geometry="primitive : plane" onClick="FadeAndTeleport('exposições')"></a-entity> */}
         {/* <!-- Stair Teleporter-->  */}
       </a-entity>
   );
