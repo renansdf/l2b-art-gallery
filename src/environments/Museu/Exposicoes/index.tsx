@@ -1,22 +1,44 @@
 import React from 'react';
+import Client from '../../../helpers/api';
+
+import { useOverlay } from '../../../hooks/Overlay';
+import { useSidebar } from '../../../hooks/Sidebar';
+
+import ContentGallery from '../../../components/ContentGallery';
+import ContentPagination from '../../../components/ContentPagination';
+
+interface IResponse{
+  data: {
+    tipo_de_conteudo: boolean;
+  }
+}
 
 const Exposicoes: React.FC = () => {
+  const {setSidebarVisibility, setContent} = useSidebar();
+  const {setOverlayVisibility, setContent: setOverlayContent} = useOverlay();
+
+
+  const loadContent = async (id: string) => {
+    const response: IResponse = await Client.getByID(id, {});
+
+    if(response.data.tipo_de_conteudo === false){
+      setSidebarVisibility(true);
+      setContent(<ContentPagination contentId={id} />);
+    } else {
+      setOverlayVisibility(true);
+      setOverlayContent(<ContentGallery contentId={id} />);
+    }
+  }
+
   return (
     <a-entity id="Exposicoes" room_name="exposições">
     {/* <!--NavMesh--> */}
-    <a-plane id="Exposicoes-NavMesh" position="-26.4 3.67 -4.21" scale="19 3.5 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
+    <a-plane id="Exposicoes-NavMesh" position="13.32 0.6 -4.21" scale="14 4 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
     {/* <!--NavMesh--> */}
 
     {/* <!--NavMesh Occluders--> */}
-    <a-box id="Exposicoes Support_1" position="-25.607 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
-    <a-box id="Exposicoes Support_2" position="-25.607 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
-    <a-box id="Exposicoes Support_3" position="-28.05 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
-    <a-box id="Exposicoes Support_4" position="-28.05 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
-    <a-box id="Exposicoes Support_5" position="-30.5 4.52 -5.64" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
-    <a-box id="Exposicoes Support_6" position="-30.5 4.52 -2.52" scale="0.23 1.745 1.125" class="collidable" mixin="occluderMaterial"></a-box>
-
-    <a-box id="Exposicoes Wall_1" position="-22.1 5 -5.85" scale="0.23 2.7 1.65" class="collidable" mixin="occluderMaterial"></a-box>
-    <a-box id="Exposicoes Wall_2" position="-22.1 5 -2.35" scale="0.23 2.7 1.165" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Exposicoes Wall_1" position="7.521 1.95 -2.620" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Exposicoes Wall_2" position="7.521 1.95 -5.710" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
     {/* <!--NavMesh Occluders--> */}
 
     {/* <!--Teleport Point--> */}
@@ -24,8 +46,9 @@ const Exposicoes: React.FC = () => {
     {/* <!--Teleport Point--> */}
 
     {/* <!--Hotspots--> */}
-    {/* <a-entity id="exposicoes_hotspot_01" contentType="0" mixin="hotspotMixin" class="collidable" position="-25.35 4.85 -2.55"></a-entity>
-    <a-entity id="exposicoes_hotspot_02" contentType="0" mixin="hotspotMixin" class="collidable" position="-25.35 4.85 -5.65"></a-entity>
+    <a-entity id="exposicoes_hotspot_01" onClick={() => loadContent('YK8CYxAAACUAYFDH')} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -6.000"></a-entity>
+    <a-entity id="exposicoes_hotspot_02" onClick={() => loadContent('YK8LaRAAACMAYHkL')} contentType="0" mixin="hotspotMixin" class="collidable" position="11.020 1.560 -2.230"></a-entity>
+    {/*
 
     <a-entity id="exposicoes_hotspot_03" contentType="2" mixin="hotspotMixin" class="collidable" position="-27.79 4.85 -2.55"></a-entity>
     <a-entity id="exposicoes_hotspot_04" contentType="2" mixin="hotspotMixin" class="collidable" position="-27.79 4.85 -5.65"></a-entity>
@@ -46,8 +69,8 @@ const Exposicoes: React.FC = () => {
     {/* <!--Close Cameras--> */}
 
     {/* <!-- Stair Teleporter--> */}
-    <a-entity id="down-stairs-button" position="-19 4.5 -3.1" scale="0.35 0.35 1" billboard class="collidable" material="shader: flat; side: double; transparent: true; opacity: 1; src : #down-stairs" geometry="primitive : plane" onClick="FadeAndTeleport('infantis')"></a-entity>
-    <a-entity id="down-stairs-button" position="-33 4.5 -3.2" scale="0.35 0.35 1" billboard class="collidable" material="shader: flat; side: double; transparent: true; opacity: 1; src : #up-stairs" geometry="primitive : plane" onClick="FadeAndTeleport('poesias')"></a-entity>
+    {/* <a-entity id="down-stairs-button" position="-19 4.5 -3.1" scale="0.35 0.35 1" billboard class="collidable" material="shader: flat; side: double; transparent: true; opacity: 1; src : #down-stairs" geometry="primitive : plane" onClick="FadeAndTeleport('infantis')"></a-entity>
+    <a-entity id="down-stairs-button" position="-33 4.5 -3.2" scale="0.35 0.35 1" billboard class="collidable" material="shader: flat; side: double; transparent: true; opacity: 1; src : #up-stairs" geometry="primitive : plane" onClick="FadeAndTeleport('poesias')"></a-entity> */}
     {/* <!-- Stair Teleporter--> */}
   </a-entity>
   );

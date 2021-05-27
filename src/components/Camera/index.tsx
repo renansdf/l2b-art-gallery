@@ -17,6 +17,12 @@ export interface IVector3 {
 
 interface CameraProps {
   setAttribute: any;
+  getAttribute: any;
+  object3D: {
+    rotation: {
+      set: any;
+    }
+  }
   components: any;
 }
 
@@ -29,11 +35,16 @@ const Camera: React.FC = () => {
 
     useEffect(() => {
       if(cameraRef.current){
+
+        // console.log(cameraAttr, cameraRef.current.components['touch-look-controls']);
         cameraRef.current.setAttribute('position', cameraAttr.position);
-        cameraRef.current.setAttribute('rotation', cameraAttr.rotation);
-        // console.log(cameraRef.current.components['touch-look-controls'].yawObject.rotation.y, cameraAttr.rotation.y);
+        // cameraRef.current.setAttribute('rotation', cameraAttr.rotation);
         // cameraRef.current.components['touch-look-controls'].pitchObject.rotation.x = THREE.Math.degToRad(cameraAttr.rotation.x);
-        // cameraRef.current.components['touch-look-controls'].yawObject.rotation.y = THREE.Math.degToRad(cameraAttr.rotation.y)
+        cameraRef.current.object3D.rotation.set(
+          THREE.Math.degToRad(cameraAttr.rotation.x),
+          THREE.Math.degToRad(cameraAttr.rotation.y),
+          THREE.Math.degToRad(cameraAttr.rotation.z)
+        );
       }
     }, [cameraAttr]);
 
@@ -85,10 +96,10 @@ const Camera: React.FC = () => {
     })
 
     return (
-      <>
+      <a-entity id="cameraRig">
         <NextPositionGizmo position={Vector3ToAframeAttribute(gizmoPosition)} />
-        <a-camera ref={cameraRef} id="mainCamera" position='0 1.6 30' animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 10;" rotation="0 0 0" active="true" />
-      </>
+        <a-camera ref={cameraRef} id="mainCamera" animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 10;" active="true" />
+      </a-entity>
     );
 }
 

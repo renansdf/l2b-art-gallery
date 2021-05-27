@@ -10,7 +10,7 @@ import ContosENovelas from './ContosENovelas';
 import Ensaios from './Ensaios';
 import Exposicoes from './Exposicoes';
 import Infantis from './Infantis';
-import Memorias from './Memorias';
+import Observatorio from './Observatorio';
 import Poesias from './Poesias';
 
 import LoadingScreen from '../../components/LoadingScreen';
@@ -54,7 +54,7 @@ const Museu: React.FC = () => {
       <Ensaios />
       <Exposicoes />
       <Infantis />
-      <Memorias />
+      <Observatorio />
       <Poesias />
     </a-scene>
   );

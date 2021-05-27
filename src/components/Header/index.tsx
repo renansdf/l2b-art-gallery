@@ -11,7 +11,7 @@ const Header: React.FC = () => {
     const {setSidebarVisibility, setContent} = useSidebar();
 
     const handleOpenMenu = () => {
-        setContent(GalleryMap);
+        setContent(<GalleryMap />);
         setSidebarVisibility(true);
     }
 

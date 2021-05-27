@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useSidebar } from '../../../hooks/Sidebar';
+import ContentPagination from '../../../components/ContentPagination';
 
 const Ensaios: React.FC = () => {
+  const {setContent, setSidebarVisibility} = useSidebar();
+
+  const handleClick = useCallback((component: JSX.Element) => {
+    setContent(component);
+    setSidebarVisibility(true);
+  }, [setContent, setSidebarVisibility]);
+
   return (
     <a-entity id="Ensaios" room_name="ensaios">
     {/* <!--NavMesh--> */}
-    <a-plane id="Ensaios-NavMesh" position="-33.54 0.59 -4.12" scale="14 3.63 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
+    <a-plane id="Ensaios-NavMesh" position="-32.880 0.59 -4.12" scale="14 3.63 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
     {/* <!--NavMesh--> */}
 
     {/* <!--NavMesh Occluders--> */}
-    <a-box id="Ensaios Wall_1" position="-26.539 1.95 -2.4" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
-    <a-box id="Ensaios Wall_2" position="-26.534 1.95 -5.85" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Ensaios Wall_1" position="-26.534 1.95 -2.620" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
+    <a-box id="Ensaios Wall_2" position="-26.534 1.95 -5.720" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
     {/* <!--NavMesh Occluders--> */}
 
     {/* <!--Teleport Point--> */}
@@ -17,12 +26,12 @@ const Ensaios: React.FC = () => {
     {/* <!--Teleport Point--> */}
 
     {/* <!--Hotspots--> */}
-    {/* <a-entity id="ensaios_hotspot_01" contentType="0" mixin="hotspotMixin" class="collidable" position="-29.6 1.6 -5.8"></a-entity>
-    <a-entity id="ensaios_hotspot_02" contentType="0" mixin="hotspotMixin" class="collidable" position="-32.02 1.6 -5.8"></a-entity>
-    <a-entity id="ensaios_hotspot_03" contentType="0" mixin="hotspotMixin" class="collidable" position="-34.55 1.6 -5.8"></a-entity>
-    <a-entity id="ensaios_hotspot_04" contentType="0" mixin="hotspotMixin" class="collidable" position="-29.6 1.6 -2.5"></a-entity>
-    <a-entity id="ensaios_hotspot_05" contentType="0" mixin="hotspotMixin" class="collidable" position="-32.02 1.6 -2.5"></a-entity>
-    <a-entity id="ensaios_hotspot_06" contentType="0" mixin="hotspotMixin" class="collidable" position="-34.55 1.6 -2.5"></a-entity> */}
+    <a-entity id="ensaios_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YK7cOxAAACMAX6YT" />)} mixin="hotspotMixin" class="collidable" position="-28.8 1.6 -2.5"></a-entity>
+    <a-entity id="ensaios_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK7cTBAAACQAX6Zi" />)} mixin="hotspotMixin" class="collidable" position="-31.55 1.6 -2.5"></a-entity>
+    <a-entity id="ensaios_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK7cYBAAACUAX6bF" />)} mixin="hotspotMixin" class="collidable" position="-34.25 1.6 -2.5"></a-entity> 
+    <a-entity id="ensaios_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK7ccRAAACMAX6cU" />)} mixin="hotspotMixin" class="collidable" position="-34.35 1.6 -5.8"></a-entity>
+    <a-entity id="ensaios_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK7cgxAAACQAX6do" />)} mixin="hotspotMixin" class="collidable" position="-31.65 1.6 -5.8"></a-entity>
+    <a-entity id="ensaios_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YK7ckhAAACYAX6ez" />)} mixin="hotspotMixin" class="collidable" position="-28.8 1.6 -5.5"></a-entity>
     {/* <!--Hotspots--> */}
 
     {/* <!--Close Cameras--> */}
