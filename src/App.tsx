@@ -4,6 +4,7 @@ import 'aframe';
 import Museu from './environments/Museu';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
+import Overlay from './components/Overlay';
 
 import AppProvider from './hooks/AppProvider';
 
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Museu />
         <Header />
         <Sidebar />
+        <Overlay />
       </AppProvider>
       <GlobalStyles />
     </>
