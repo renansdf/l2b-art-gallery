@@ -4,6 +4,7 @@ import Client from '../../../helpers/api';
 import { useOverlay } from '../../../hooks/Overlay';
 import { useSidebar } from '../../../hooks/Sidebar';
 
+import Covers from '../../../components/Covers';
 import ContentGallery from '../../../components/ContentGallery';
 import ContentPagination from '../../../components/ContentPagination';
 
@@ -34,28 +35,17 @@ const Exposicoes: React.FC = () => {
     <a-entity id="Exposicoes" room_name="exposições">
     {/* <!--NavMesh--> */}
     <a-plane id="Exposicoes-NavMesh" position="13.32 0.6 -4.21" scale="14 4 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
-    {/* <!--NavMesh--> */}
 
     {/* <!--NavMesh Occluders--> */}
     <a-box id="Exposicoes Wall_1" position="7.521 1.95 -2.620" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
     <a-box id="Exposicoes Wall_2" position="7.521 1.95 -5.710" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
-    {/* <!--NavMesh Occluders--> */}
 
-    {/* <!--Teleport Point--> */}
-    {/* <a-entity id="Exposicoes-TeleportPoint" rotation="0 270 0" position="-22.23678 4.43 -4.21" class="teleportPoint"></a-entity> */}
-    {/* <!--Teleport Point--> */}
+    {/* <!--Imagens dos totens--> */}
+    <Covers contentType="exposicoes" />
 
     {/* <!--Hotspots--> */}
     <a-entity id="exposicoes_hotspot_01" onClick={() => loadContent('YK8CYxAAACUAYFDH')} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -6.000"></a-entity>
-    <a-entity id="exposicoes_hotspot_02" onClick={() => loadContent('YK8LaRAAACMAYHkL')} contentType="0" mixin="hotspotMixin" class="collidable" position="11.020 1.560 -2.230"></a-entity>
-    {/*
-
-    <a-entity id="exposicoes_hotspot_03" contentType="2" mixin="hotspotMixin" class="collidable" position="-27.79 4.85 -2.55"></a-entity>
-    <a-entity id="exposicoes_hotspot_04" contentType="2" mixin="hotspotMixin" class="collidable" position="-27.79 4.85 -5.65"></a-entity>
-
-    <a-entity id="exposicoes_hotspot_05" contentType="2" mixin="hotspotMixin" class="collidable" position="-30.2 4.85 -2.55"></a-entity>
-    <a-entity id="exposicoes_hotspot_06" contentType="2" mixin="hotspotMixin" class="collidable" position="-30.2 4.85 -5.65"></a-entity> */}
-    {/* <!--Hotspots--> */}
+    <a-entity id="exposicoes_hotspot_02" onClick={() => loadContent('YK8LaRAAACMAYHkL')} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -2.230"></a-entity>
 
     {/* <!--Close Cameras--> */}
     <a-camera id="exposicoes_closeCam_01" active="false" class="closeCameras" position="-24.18 4.79 -2.51" rotation="-1.77 90.24 0.00"></a-camera>
@@ -66,7 +56,6 @@ const Exposicoes: React.FC = () => {
 
     <a-camera id="exposicoes_closeCam_05" active="false" class="closeCameras" position="-29.16 4.92 -2.48" rotation="-10.20 89.28 0.00"></a-camera>
     <a-camera id="exposicoes_closeCam_06" active="false" class="closeCameras" position="-29.09 4.90 -5.67" rotation="-4.66 90.72 0.00"></a-camera>
-    {/* <!--Close Cameras--> */}
 
     {/* <!-- Stair Teleporter--> */}
     {/* <a-entity id="down-stairs-button" position="-19 4.5 -3.1" scale="0.35 0.35 1" billboard class="collidable" material="shader: flat; side: double; transparent: true; opacity: 1; src : #down-stairs" geometry="primitive : plane" onClick="FadeAndTeleport('infantis')"></a-entity>
