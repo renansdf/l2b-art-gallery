@@ -1,58 +1,58 @@
 @font-face {
   font-family: "Volkart Black";
-  src: url("../../assets/fonts//volkart/volkart-black-webfont.woff2") format("woff2"),
-    url("../../assets/fonts//volkart/volkart-black-webfont.woff") format("woff");
+  src: url("./volkart/volkart-black-webfont.woff2") format("woff2"),
+    url("./volkart/volkart-black-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Volkart Black Italic";
-  src: url("../assets/fonts//volkart/volkart-blackitalic-webfont.woff2")
+  src: url("./volkart/volkart-blackitalic-webfont.woff2")
       format("woff2"),
-    url("../assets/fonts//volkart/volkart-blackitalic-webfont.woff") format("woff");
+    url("./volkart/volkart-blackitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Volkart Bold Italic";
-  src: url("../assets/fonts//volkart/volkart-bolditalic-webfont.woff2") format("woff2"),
-    url("../assets/fonts//volkart/volkart-bolditalic-webfont.woff") format("woff");
+  src: url("./volkart/volkart-bolditalic-webfont.woff2") format("woff2"),
+    url("./volkart/volkart-bolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Volkart Extra Bold";
-  src: url("../assets/fonts//volkart/volkart-extrabold-webfont.woff2") format("woff2"),
-    url("../assets/fonts//volkart/volkart-extrabold-webfont.woff") format("woff");
+  src: url("./volkart/volkart-extrabold-webfont.woff2") format("woff2"),
+    url("./volkart/volkart-extrabold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Volkart Extra Bold Italic";
-  src: url("../assets/fonts//volkart/volkart-extrabolditalic-webfont.woff2")
+  src: url("./volkart/volkart-extrabolditalic-webfont.woff2")
       format("woff2"),
-    url("../assets/fonts//volkart/volkart-extrabolditalic-webfont.woff") format("woff");
+    url("./volkart/volkart-extrabolditalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Volkart Extra Light";
-  src: url("../assets/fonts//volkart/volkart-extralight-webfont.woff2") format("woff2"),
-    url("../assets/fonts//volkart/volkart-extralight-webfont.woff") format("woff");
+  src: url("./volkart/volkart-extralight-webfont.woff2") format("woff2"),
+    url("./volkart/volkart-extralight-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Volkart Extra Light Italic";
-  src: url("../assets/fonts//volkart/volkart-extralightitalic-webfont.woff2")
+  src: url("./volkart/volkart-extralightitalic-webfont.woff2")
       format("woff2"),
-    url("../assets/fonts//volkart/volkart-extralightitalic-webfont.woff")
+    url("./volkart/volkart-extralightitalic-webfont.woff")
       format("woff");
   font-weight: normal;
   font-style: normal;
@@ -60,33 +60,33 @@
 
 @font-face {
   font-family: "Volkart Hairline";
-  src: url("../assets/fonts//volkart/volkart-hairline-webfont.woff2") format("woff2"),
-    url("../assets/fonts//volkart/volkart-hairline-webfont.woff") format("woff");
+  src: url("./volkart/volkart-hairline-webfont.woff2") format("woff2"),
+    url("./volkart/volkart-hairline-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Volkart Hairline Italic";
-  src: url("../assets/fonts//volkart/volkart-hairlineitalic-webfont.woff2")
+  src: url("./volkart/volkart-hairlineitalic-webfont.woff2")
       format("woff2"),
-    url("../assets/fonts//volkart/volkart-hairlineitalic-webfont.woff") format("woff");
+    url("./volkart/volkart-hairlineitalic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "volkart-italicuploaded_file";
-  src: url("../assets/fonts//volkart/volkart-italic-webfont.woff2") format("woff2"),
-    url("../assets/fonts//volkart/volkart-italic-webfont.woff") format("woff");
+  font-family: "volkart-italic";
+  src: url("./volkart/volkart-italic-webfont.woff2") format("woff2"),
+    url("./volkart/volkart-italic-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "volkart-lightuploaded_file";
-  src: url("../assets/fonts//volkart/volkart-light-webfont.woff2") format("woff2"),
-    url("../assets/fonts//volkart/volkart-light-webfont.woff") format("woff");
+  font-family: "volkart-light";
+  src: url("./volkart/volkart-light-webfont.woff2") format("woff2"),
+    url("./volkart/volkart-light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -94,9 +94,9 @@
 @font-face {
   font-family: "Volkart-Medium";
 
-  src: url("../assets/fonts//volkart/Volkart-Medium.svg") format("svg"),
-    url("../assets/fonts//volkart/Volkart-Medium.woff") format("woff"),
-    url("../assets/fonts//volkart/Volkart-Medium.woff2") format("woff2");
+  src: url("./volkart/Volkart-Medium.svg") format("svg"),
+    url("./volkart/Volkart-Medium.woff") format("woff"),
+    url("./volkart/Volkart-Medium.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -104,17 +104,17 @@
 @font-face {
   font-family: "Volkart-Regular";
 
-  src: url("../assets/fonts//volkart/Volkart-Regular.svg") format("svg"),
-    url("../assets/fonts//volkart/Volkart-Regular.woff") format("woff"),
-    url("../assets/fonts//volkart/Volkart-Regular.woff2") format("woff2");
+  src: url("./volkart/Volkart-Regular.svg") format("svg"),
+    url("./volkart/Volkart-Regular.woff") format("woff"),
+    url("./volkart/Volkart-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "volkart-bolduploaded_file";
-  src: url("../assets/fonts//volkart/volkart-bold-webfont.woff2") format("woff2"),
-    url("../assets/fonts//volkart/volkart-bold-webfont.woff") format("woff");
+  font-family: "volkart-bold";
+  src: url("./volkart/volkart-bold-webfont.woff2") format("woff2"),
+    url("./volkart/volkart-bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
