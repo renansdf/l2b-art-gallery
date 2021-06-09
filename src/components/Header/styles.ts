@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    font-family: "Volkart_Medium";
+    font-family: "Volkart-Medium";
     width: 100%;
     overflow: hidden;
     background-color: var(--l2b-transparent);

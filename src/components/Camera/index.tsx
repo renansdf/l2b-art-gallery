@@ -6,7 +6,6 @@ import NextPositionGizmo from './NextPositionGizmo';
 import './scripts/aframe-touch-look-controls';
 import './scripts/aframe-navigation-collider';
 import { useTeleport } from '../../hooks/Teleport';
-// import '../../helpers/navigation3DFunctions';
 
 export interface IVector3 {
   x: number;
@@ -48,7 +47,7 @@ const Camera: React.FC = () => {
       }
     }, [cameraAttr]);
 
-    const movementSpeed = 15;
+    const movementSpeed = 5;
 
     const Vector3ToAframeAttribute = (vec: IVector3) => {
       return vec.x + ' ' + vec.y + ' ' + vec.z
@@ -98,7 +97,7 @@ const Camera: React.FC = () => {
     return (
       <a-entity id="cameraRig">
         <NextPositionGizmo position={Vector3ToAframeAttribute(gizmoPosition)} />
-        <a-camera ref={cameraRef} id="mainCamera" animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 10;" active="true" />
+        <a-camera ref={cameraRef} id="mainCamera" animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 5;" active="true" />
       </a-entity>
     );
 }

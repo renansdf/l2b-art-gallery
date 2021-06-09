@@ -1,3 +1,7 @@
+/*global THREE, AFRAME */
+
+let targetEl;
+
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -103,7 +107,6 @@
 	    var self = this;
 	    var target = self.data.src;
 	    var object3D = self.el.object3D;
-	    var targetEl;
 
 	    // No longer looking at anything (i.e., look-at="").
 	    if (!target || (typeof target === 'object' && !Object.keys(target).length)) {
