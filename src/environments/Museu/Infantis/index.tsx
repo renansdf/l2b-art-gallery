@@ -13,9 +13,6 @@ const Infantis: React.FC = () => {
 
   return (
     <a-entity id="Infantis" room_name="infantis">
-      {/* <!-- Book 03 Cover --> */}
-      <a-plane id="book-03-cover-mesh" position="-8.69 0.79 -2.67" rotation="270 208 0" scale="0.096 0.125 0.916" material="shader: flat; src: #book-03-cover;"></a-plane>
-
       {/* <!--NavMesh --> */}
       <a-plane id="Infantis_Ensaios_Connection" position="-23.55 0.59 -4.12" scale="6 1.7 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
       <a-plane id="Infantis-NavMesh" position="-13.44 0.6 -4" scale="14 1.660 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>

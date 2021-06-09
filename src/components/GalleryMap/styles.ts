@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
+import desktopMenuArrow from '../../assets/img/desktop_menu_arrow_hover.svg';
+import arrowDownRight from '../../assets/img/arrow-down-right.svg';
+
 export const MapTitle = styled.h2`
     display: none;
-    font-family: "Volkart_Medium";
+    font-family: "Volkart-Medium";
     color: var(--l2b-light-grey);
     top: 117px;
     left: 1429px;
@@ -21,15 +24,13 @@ interface ItemContainerProps{
 }
 
 export const ItemContainer = styled.div<ItemContainerProps>`
-    font-family: "Volkart_Light";
-    font-weight: 600;
     top: 215px;
     left: 1429px;
     width: 99%;
     min-height: 110px;
     background-color: var(--l2b-transparent);
     border-bottom: 1px solid var(--l2b-light-grey);
-    background: url("../assets/img/arrow-down-right.svg") 0% 0% no-repeat padding-box;
+    background: url(${arrowDownRight}) 0% 0% no-repeat padding-box;
     background-repeat: no-repeat;
     background-position: right;
     background-size: 40px;
@@ -40,7 +41,6 @@ export const ItemContainer = styled.div<ItemContainerProps>`
     transition: linear 250ms;
 
     padding: 0;
-    text-decoration: underline;
     color: var(--l2b-grey);
 
     &:last-child {
@@ -56,7 +56,7 @@ export const ItemContainer = styled.div<ItemContainerProps>`
     &:hover,
     &:active {
         border-bottom: 1px solid var(--l2b-red);
-        background: url("../assets/img/desktop_menu_arrow_hover.svg") 0% 0% no-repeat padding-box;
+        background: url(${desktopMenuArrow}) 0% 0% no-repeat padding-box;
         background-repeat: no-repeat;
         background-position: right;
         background-size: 40px;
@@ -70,7 +70,7 @@ export const ItemContainer = styled.div<ItemContainerProps>`
 `;
 
 export const ItemTitle = styled.div`
-    font-family: "Volkart_Medium";
+    font-family: "Volkart-Medium";
     font-size: 22px;
     font-weight: 500;
     padding: 50px 50px 0px 0px;
@@ -79,6 +79,8 @@ export const ItemTitle = styled.div`
 
 export const ItemDescription = styled.div`
     font-size: 18px;
+    font-family: "Volkart-Light";
+    font-weight: 600;
     padding: 10px 40px 30px 0px;
     color: var(--l2b-light-grey);
     /*white-space: pre;*/
@@ -91,7 +93,7 @@ export const ItemDescription = styled.div`
 
 export const ContactEmail = styled.a`
     padding: 0;
-    text-decoration: underline;
+    text-decoration: underline!important;
     color: var(--l2b-grey);
 
     &:hover, &:active{
