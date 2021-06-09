@@ -1,5 +1,6 @@
 import React from 'react';
 import 'aframe';
+import './helpers/vendors/aframe-billboard';
 
 import Museu from './environments/Museu';
 import Header from './components/Header';
