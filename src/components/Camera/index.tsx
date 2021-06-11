@@ -18,6 +18,7 @@ interface CameraProps {
   setAttribute: any;
   getAttribute: any;
   object3D: {
+    position: any;
     rotation: {
       set: any;
     }
@@ -28,15 +29,25 @@ interface CameraProps {
 const Camera: React.FC = () => {
     const [gizmoPosition, setGizmoPosition] = useState<IVector3>({x: 0, y: 0, z: 5});
     const [cameraAnimation, setCameraAnimation] = useState<string>('');
+    const [previousPosition, setPreviousPosition] = useState<IVector3>();
 
     const cameraRef = useRef<CameraProps>();
     const {cameraAttr} = useTeleport();
+    const movementSpeed = 2;
+
+    const Vector3ToAframeAttribute = (vec: IVector3) => {
+      return vec.x + ' ' + vec.y + ' ' + vec.z
+    }
+
+    useEffect(() => {
+      setPreviousPosition(cameraRef.current?.object3D.position);
+    }, []);
 
     useEffect(() => {
       if(cameraRef.current){
+        cameraRef.current.setAttribute('position', cameraAttr.position);
 
         // console.log(cameraAttr, cameraRef.current.components['touch-look-controls']);
-        cameraRef.current.setAttribute('position', cameraAttr.position);
         // cameraRef.current.setAttribute('rotation', cameraAttr.rotation);
         // cameraRef.current.components['touch-look-controls'].pitchObject.rotation.x = THREE.Math.degToRad(cameraAttr.rotation.x);
         cameraRef.current.object3D.rotation.set(
@@ -47,33 +58,40 @@ const Camera: React.FC = () => {
       }
     }, [cameraAttr]);
 
-    const movementSpeed = 5;
-
-    const Vector3ToAframeAttribute = (vec: IVector3) => {
-      return vec.x + ' ' + vec.y + ' ' + vec.z
+    const setHeigth = (value: number) => {
+      if(value > 0 && value < 2){
+        return 1.6;
+      }
+      if(value > 3 && value < 5){
+        return 4.81;
+      }
+      if(value > 6 && value < 9){
+        return 8.05;
+      }
+      return 1.6;
     }
-
-    const GetMovementDuration = () => {
+    
+    const GetMovementDuration = (next_position: IVector3) => {
       let direction = new THREE.Vector3();
-      let currentPos = new THREE.Vector3(cameraAttr.position.x, cameraAttr.position.y, cameraAttr.position.z);
-      let targetPos = new THREE.Vector3(gizmoPosition.x, gizmoPosition.y, gizmoPosition.z);
+      let currentPos = new THREE.Vector3(previousPosition?.x, previousPosition?.y, previousPosition?.z);
+      let targetPos = new THREE.Vector3(next_position.x, next_position.y, next_position.z);
       
-      direction = targetPos.sub(currentPos)
+      direction = targetPos.sub(currentPos);
       return (direction.length() / movementSpeed) * 1000
     }
 
     const SetCameraMovementAnimationAttribute = (next_position: IVector3) => {
-      let nPoint = next_position
-      nPoint.y = next_position.y+0.5;
+      let nPoint = next_position;
+      nPoint.y = setHeigth(next_position.y);
 
       let nextPositionAttr = 'property: position; to: '+ Vector3ToAframeAttribute(nPoint) + ';'
-      let movDurationAttr = 'dur: ' + GetMovementDuration().toString() + ';'
+      let movDurationAttr = 'dur: ' + GetMovementDuration(next_position).toString() + ';'
 
       setCameraAnimation(nextPositionAttr + movDurationAttr + ' easing: linear;');
     }
 
     const MoveCameraToNextPosition = (next_position: IVector3) => {
-      const gizmoAdjustedPosition = {...next_position, y: next_position.y - 0.45}
+      const gizmoAdjustedPosition = {...next_position, y: setHeigth(next_position.y) - 1.05}
       setGizmoPosition(gizmoAdjustedPosition);
       SetCameraMovementAnimationAttribute(next_position);
     }
@@ -90,14 +108,14 @@ const Camera: React.FC = () => {
       });
     }
     
-    window.addEventListener('load', ()=> {
+    window.addEventListener('load', () => {
       AddNavMeshListeners()
     })
 
     return (
       <a-entity id="cameraRig">
         <NextPositionGizmo position={Vector3ToAframeAttribute(gizmoPosition)} />
-        <a-camera ref={cameraRef} id="mainCamera" animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 5;" active="true" />
+        <a-camera ref={cameraRef} id="mainCamera" animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 4;" active="true" />
       </a-entity>
     );
 }

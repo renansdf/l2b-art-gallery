@@ -1,6 +1,7 @@
 import React from 'react';
 import Client from '../../../helpers/api';
 
+import { useTeleport } from '../../../hooks/Teleport';
 import { useOverlay } from '../../../hooks/Overlay';
 import { useSidebar } from '../../../hooks/Sidebar';
 
@@ -15,9 +16,9 @@ interface IResponse{
 }
 
 const Exposicoes: React.FC = () => {
+  const {teleportCamera} = useTeleport();
   const {setSidebarVisibility, setContent} = useSidebar();
   const {setOverlayVisibility, setContent: setOverlayContent} = useOverlay();
-
 
   const loadContent = async (id: string) => {
     const response: IResponse = await Client.getByID(id, {});
@@ -34,7 +35,7 @@ const Exposicoes: React.FC = () => {
   return (
     <a-entity id="Exposicoes" room_name="exposições">
     {/* <!--NavMesh--> */}
-    <a-plane id="Exposicoes-NavMesh" position="13.32 0.6 -4.21" scale="14 4 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
+    <a-plane id="Exposicoes-NavMesh" position="13.32 0.59 -4.21" scale="14 4 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
 
     {/* <!--NavMesh Occluders--> */}
     <a-box id="Exposicoes Wall_1" position="7.521 1.95 -2.620" scale="0.08 2.79 1.8" class="collidable" mixin="occluderMaterial"></a-box>
@@ -46,6 +47,7 @@ const Exposicoes: React.FC = () => {
     {/* <!--Hotspots--> */}
     <a-entity id="exposicoes_hotspot_01" onClick={() => loadContent('YK8CYxAAACUAYFDH')} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -6.000"></a-entity>
     <a-entity id="exposicoes_hotspot_02" onClick={() => loadContent('YK8LaRAAACMAYHkL')} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -2.230"></a-entity>
+    <a-entity id="exposicoes_upStairs" onClick={() => teleportCamera('observatorio')} mixin="upStairs" class="collidable" position="15 1.560 -6.000" scale="0.35 0.35 1" ></a-entity>
 
     {/* <!--Close Cameras--> */}
     <a-camera id="exposicoes_closeCam_01" active="false" class="closeCameras" position="-24.18 4.79 -2.51" rotation="-1.77 90.24 0.00"></a-camera>
