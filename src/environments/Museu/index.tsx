@@ -4,6 +4,8 @@ import Camera from '../../components/Camera';
 import skybox from '../../assets/textures/skybox.png';
 import museuglb from '../../assets/models/galeria.glb';
 import hotspotIcon from '../../assets/textures/hotspot_icon.png';
+import upStairs from '../../assets/textures/up_stairs_icon.png';
+import downStairs from '../../assets/textures/down_stairs_icon.png'
 
 import BoasVindas from './BoasVindas';
 import ContosENovelas from './ContosENovelas';
@@ -44,7 +46,11 @@ const Museu: React.FC = () => {
 
       <a-assets ref={assetsRef}>
         <img id="plus" src={hotspotIcon} alt="hotspot Icon" />
+        <img id="up-stairs" src={upStairs} alt="upstairs icon" />
+        <img id="down-stairs" src={downStairs} alt="downstairs icon" />
         <a-mixin id="hotspotMixin" billboard material="shader: flat; side: double; transparent: true; src : #plus; alphaTest : 0.1;" scale="0.3 0.3 1" geometry="primitive : plane"></a-mixin>
+        <a-mixin id="upStairs" billboard material="shader: flat; side: double; transparent: true; opacity: 1; src : #up-stairs" geometry="primitive : plane"></a-mixin>
+        <a-mixin id="downStairs" billboard material="shader: flat; side: double; transparent: true; opacity: 1; src : #down-stairs" geometry="primitive : plane"></a-mixin>
         <a-mixin id="navMeshMaterial" material="shader: flat; side: double; transparent: true; opacity : .5; color : white" visible="false"></a-mixin>
         <a-mixin id="occluderMaterial" material="shader: flat; side: double; transparent: true; opacity : .5; color : blue" visible="false"></a-mixin>
       </a-assets>
