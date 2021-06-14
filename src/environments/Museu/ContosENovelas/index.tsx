@@ -36,8 +36,9 @@ const ContosENovelas: React.FC = () => {
         <a-entity id="ContoENovelas_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK7NYBAAACQAX2On" />)} mixin="hotspotMixin" class="collidable" position="-28.65 4.85 -2.55"></a-entity>
         <a-entity id="ContoENovelas_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK7NexAAACUAX2Qp" />)} mixin="hotspotMixin" class="collidable" position="-28.65 4.85 -6"></a-entity>
         <a-entity id="ContoENovelas_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK7NlxAAACMAX2Sz" />)} mixin="hotspotMixin" class="collidable" position="-26.35 4.85 -6"></a-entity>
-        <a-entity id="ContoENovelas_downStairs" onClick={() => teleportCamera('infantisStairs')} mixin="downStairs" class="collidable" position="-19.600 4.850 -3.330" scale="0.35 0.35 1" ></a-entity>
         <a-entity id="ContoENovelas_upStairs" onClick={() => teleportCamera('poesias')} mixin="upStairs" class="collidable" position="-34.630 4.850 -3.380" scale="0.35 0.35 1" ></a-entity>
+        <a-entity id="ContoENovelas_downStairs" onClick={() => teleportCamera('infantisStairs')} mixin="downStairs" class="collidable" position="-19.600 4.850 -3.330" scale="0.35 0.35 1" ></a-entity>
+        <a-entity id="ContoENovelas_downStairs_ensaios" onClick={() => teleportCamera('ensaiosStairs')} mixin="downStairs" class="collidable" position="-34.630 4.850 -5.629" scale="0.35 0.35 1" ></a-entity>
 
         {/* <!--Close Cameras--> */}
         <a-camera id="contosenovelas_closeCam_01" active="false" class="closeCameras" position="16.64 3.89 -2.75" rotation="-45.00 179.52 0.00"></a-camera>

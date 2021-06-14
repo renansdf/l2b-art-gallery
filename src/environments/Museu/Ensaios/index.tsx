@@ -1,10 +1,13 @@
 import React, { useCallback } from 'react';
 import { useSidebar } from '../../../hooks/Sidebar';
+import { useTeleport } from '../../../hooks/Teleport';
+
 import ContentPagination from '../../../components/ContentPagination';
 import Covers from '../../../components/Covers';
 
 const Ensaios: React.FC = () => {
   const {setContent, setSidebarVisibility} = useSidebar();
+  const {teleportCamera} = useTeleport();
 
   const handleClick = useCallback((component: JSX.Element) => {
     setContent(component);
@@ -29,7 +32,8 @@ const Ensaios: React.FC = () => {
     <a-entity id="ensaios_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK7cYBAAACUAX6bF" />)} mixin="hotspotMixin" class="collidable" position="-34.25 1.6 -2.5"></a-entity> 
     <a-entity id="ensaios_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK7ccRAAACMAX6cU" />)} mixin="hotspotMixin" class="collidable" position="-34.35 1.6 -5.8"></a-entity>
     <a-entity id="ensaios_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK7cgxAAACQAX6do" />)} mixin="hotspotMixin" class="collidable" position="-31.65 1.6 -5.8"></a-entity>
-    <a-entity id="ensaios_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YK7ckhAAACYAX6ez" />)} mixin="hotspotMixin" class="collidable" position="-28.8 1.6 -5.8"></a-entity>
+    <a-entity id="ensaios_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YK7ckhAAACYAX6ez" />)} mixin="hotspotMixin" class="collidable" position="-28.8 1.6 -5.8"></a-entity>
+    <a-entity id="ContoENovelas_upStairs" onClick={() => teleportCamera('contosENovelasStairs')} mixin="upStairs" class="collidable" position="-37.390 1.600 -4.880" scale="0.35 0.35 1" ></a-entity>
 
     {/* <!--Close Cameras--> */}
     <a-camera id="ensaios_closeCam_01" active="false" class="closeCameras" position="-29.56 1.45 -4.78" rotation="0.00 0.00 0.00"></a-camera>
