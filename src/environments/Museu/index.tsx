@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import Camera from '../../components/Camera';
 import skybox from '../../assets/textures/skybox.png';
-import museuglb from '../../assets/models/galeria.glb';
+import museuglb from '../../assets/models/galeria_neue.glb';
 import hotspotIcon from '../../assets/textures/hotspot_icon.png';
 import upStairs from '../../assets/textures/up_stairs_icon.png';
 import downStairs from '../../assets/textures/down_stairs_icon.png'
