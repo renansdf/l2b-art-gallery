@@ -55,6 +55,11 @@ const teleportPoints : ITeleportPoints = {
     rotation: {x: 0, y: 270, z: 0},
     floor: 0
   },
+  ensaiosStairs: {
+    position: {x:-37.390, y: 1.6, z: -4.12},
+    rotation: {x: 0, y: 270, z: 0},
+    floor: 0
+  },
   contosENovelas: {
     position: {x:-22.23, y: 4.81, z: -4.21},
     rotation: {x: 0, y: 270, z: 0},
