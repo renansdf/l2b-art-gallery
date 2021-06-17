@@ -2,10 +2,11 @@ import React from 'react';
 import 'aframe';
 import './helpers/vendors/aframe-billboard';
 
-import Museu from './environments/Museu';
+import Galeria from './environments/Galeria';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Overlay from './components/Overlay';
+import FadePanel from './components/FadePanel';
 
 import AppProvider from './hooks/AppProvider';
 
@@ -16,10 +17,11 @@ const App: React.FC = () => {
   return (
     <>
       <AppProvider>
-        <Museu />
+        <Galeria />
         <Header />
         <Sidebar />
         <Overlay />
+        <FadePanel />
       </AppProvider>
       <GlobalStyles />
     </>
