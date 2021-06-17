@@ -47,14 +47,10 @@ const Camera: React.FC = () => {
       if(cameraRef.current){
         cameraRef.current.setAttribute('position', cameraAttr.position);
 
-        // console.log(cameraAttr, cameraRef.current.components['touch-look-controls']);
-        // cameraRef.current.setAttribute('rotation', cameraAttr.rotation);
-        // cameraRef.current.components['touch-look-controls'].pitchObject.rotation.x = THREE.Math.degToRad(cameraAttr.rotation.x);
-        cameraRef.current.object3D.rotation.set(
-          THREE.Math.degToRad(cameraAttr.rotation.x),
-          THREE.Math.degToRad(cameraAttr.rotation.y),
-          THREE.Math.degToRad(cameraAttr.rotation.z)
-        );
+        if(cameraRef.current.components['touch-look-controls'].pitchObject){
+          cameraRef.current.components['touch-look-controls'].pitchObject.rotation.x = THREE.Math.degToRad(cameraAttr.rotation.x);
+          cameraRef.current.components['touch-look-controls'].yawObject.rotation.y = THREE.Math.degToRad(cameraAttr.rotation.y);
+        }
       }
     }, [cameraAttr]);
 
