@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import Camera from '../../components/Camera';
 import skybox from '../../assets/textures/skybox.png';
-import museuglb from '../../assets/models/galeria_neue.glb';
+import galeriaGLB from '../../assets/models/galeria_neue.glb';
 import hotspotIcon from '../../assets/textures/hotspot_icon.png';
 import upStairs from '../../assets/textures/up_stairs_icon.png';
 import downStairs from '../../assets/textures/down_stairs_icon.png'
@@ -23,8 +23,8 @@ interface IAssetRef {
   }
 }
 
-const Museu: React.FC = () => {
-  const museuRef = useRef(null);
+const Galeria: React.FC = () => {
+  const galeriaRef = useRef(null);
   const assetsRef = useRef<IAssetRef>(null);
   const [loadingVisibility, setLoadingVisibility] = useState(true);
 
@@ -41,7 +41,7 @@ const Museu: React.FC = () => {
     <a-scene id="aframeScene" renderer="colorManagement : true; sortObjects: true" vr-mode-ui="enabled: false" loading-screen="enabled : false">
       <LoadingScreen isVisible={loadingVisibility} />
       <a-sky src={skybox} animation="property : rotation; from : 0 0 0; to : 0 360 0; dur : 1000000; loop : true;" />
-      <a-entity ref={museuRef} gltf-model={museuglb} scale=".75 .75 .75" position="-49.09 0 -4.16" rotation="0 -90 0" />
+      <a-entity ref={galeriaRef} gltf-model={galeriaGLB} scale=".75 .75 .75" position="-49.09 0 -4.16" rotation="0 -90 0" />
       <Camera />
 
       <a-assets ref={assetsRef}>
@@ -66,4 +66,4 @@ const Museu: React.FC = () => {
   );
 }
 
-export default Museu;
+export default Galeria;

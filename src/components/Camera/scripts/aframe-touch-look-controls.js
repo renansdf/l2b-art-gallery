@@ -66,7 +66,7 @@ AFRAME.registerComponent('touch-look-controls', {
   },
 
   update: function (oldData) {
-    var data = this.data;
+    var data = this.nextData;
 
     // Disable grab cursor classes if no longer enabled.
     if (data.enabled !== oldData.enabled) {
@@ -87,7 +87,7 @@ AFRAME.registerComponent('touch-look-controls', {
   },
 
   tick: function (t) {
-    var data = this.data;
+    var data = this.nextData;
     if (!data.enabled) { return; }
     this.updateOrientation();
   },
@@ -156,7 +156,7 @@ AFRAME.registerComponent('touch-look-controls', {
     sceneEl.addEventListener('exit-vr', this.onExitVR);
 
     // Pointer Lock events.
-    if (this.data.pointerLockEnabled) {
+    if (this.nextData.pointerLockEnabled) {
       document.addEventListener('pointerlockchange', this.onPointerLockChange, false);
       document.addEventListener('mozpointerlockchange', this.onPointerLockChange, false);
       document.addEventListener('pointerlockerror', this.onPointerLockError, false);
@@ -207,7 +207,7 @@ AFRAME.registerComponent('touch-look-controls', {
     if (sceneEl.is('vr-mode') && sceneEl.checkHeadsetConnected()) { return; }
     
     // Calculate polyfilled HMD quaternion.
-    if(this.data.isAnimating) return;
+    if(this.nextData.isAnimating) return;
 
     this.polyfillControls.update();
     hmdEuler.setFromQuaternion(this.polyfillObject.quaternion, 'YXZ');
@@ -237,7 +237,7 @@ AFRAME.registerComponent('touch-look-controls', {
     var movementY;
 
     // Not dragging or not enabled.
-    if (!this.data.enabled || (!this.mouseDown && !this.pointerLocked)) { return; }
+    if (!this.nextData.enabled || (!this.mouseDown && !this.pointerLocked)) { return; }
 
      // Calculate delta.
     movementX = event.movementX || event.mozMovementX;
@@ -252,7 +252,7 @@ AFRAME.registerComponent('touch-look-controls', {
     yawObject.rotation.y -= movementX * 0.002;
     yawObject.rotation.y = (yawObject.rotation.y % 6)
 
-    if(this.data.reverseMouseDrag)
+    if(this.nextData.reverseMouseDrag)
       pitchObject.rotation.x -= movementY * -0.002;
     else
       pitchObject.rotation.x -= movementY * 0.002;
@@ -264,7 +264,7 @@ AFRAME.registerComponent('touch-look-controls', {
    * Register mouse down to detect mouse drag.
    */
   onMouseDown: function (evt) {
-    if (!this.data.enabled) { return; }
+    if (!this.nextData.enabled) { return; }
     // Handle only primary button.
     if (evt.button !== 0) { return; }
 
@@ -275,7 +275,7 @@ AFRAME.registerComponent('touch-look-controls', {
     this.previousMouseEvent = evt;
     document.body.classList.add(GRABBING_CLASS);
 
-    if (this.data.pointerLockEnabled && !this.pointerLocked) {
+    if (this.nextData.pointerLockEnabled && !this.pointerLocked) {
       if (canvasEl.requestPointerLock) {
         canvasEl.requestPointerLock();
       } else if (canvasEl.mozRequestPointerLock) {
@@ -296,7 +296,7 @@ AFRAME.registerComponent('touch-look-controls', {
    * Register touch down to detect touch drag.
    */
   onTouchStart: function (evt) {
-    if (evt.touches.length !== 1 || !this.data.touchEnabled) { return; }
+    if (evt.touches.length !== 1 || !this.nextData.touchEnabled) { return; }
     this.touchStart = {
       x: evt.touches[0].pageX,
       y: evt.touches[0].pageY
@@ -313,7 +313,7 @@ AFRAME.registerComponent('touch-look-controls', {
     var pitchObject = this.pitchObject;
     var yawObject = this.yawObject;
 
-    if (!this.touchStarted || !this.data.touchEnabled) { return; }
+    if (!this.touchStarted || !this.nextData.touchEnabled) { return; }
 
     deltaY = 2 * Math.PI * (evt.touches[0].pageX - this.touchStart.x) / canvas.clientWidth;
     deltaX = 2 * Math.PI * (evt.touches[0].pageY - this.touchStart.y) / canvas.clientHeight;
@@ -323,7 +323,7 @@ AFRAME.registerComponent('touch-look-controls', {
     yawObject.rotation.y = (yawObject.rotation.y % 6)
 
     //Inverting the vertical axis
-    if(this.data.reverseMouseDrag)
+    if(this.nextData.reverseMouseDrag)
       pitchObject.rotation.x -= deltaX * -0.5;
     else
       pitchObject.rotation.x -= deltaX * 0.5;
