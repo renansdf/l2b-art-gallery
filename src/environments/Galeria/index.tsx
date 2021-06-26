@@ -44,6 +44,9 @@ const Galeria: React.FC = () => {
       <a-entity ref={galeriaRef} gltf-model={galeriaGLB} scale=".75 .75 .75" position="-49.09 0 -4.16" rotation="0 -90 0" />
       <Camera />
 
+      <a-light position="0.9 6 -0.25" type="directional" />
+      <a-light position="0 0 0" type="ambient" />
+
       <a-assets ref={assetsRef}>
         <img id="plus" src={hotspotIcon} alt="hotspot Icon" />
         <img id="up-stairs" src={upStairs} alt="upstairs icon" />
