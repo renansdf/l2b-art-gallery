@@ -41,3 +41,7 @@ declare module JSX {
     'a-mixin'?: any;
   }
 }
+
+declare namespace AFRAME{
+  export const ANIME: any;
+}
