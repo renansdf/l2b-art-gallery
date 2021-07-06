@@ -1,15 +1,19 @@
 import React, { useCallback } from 'react';
 import { useSidebar } from '../../../hooks/Sidebar';
+import { useClosedCamera } from '../../../hooks/ClosedCamera';
+import orientations from '../../../helpers/orientations';
 import ContentPagination from '../../../components/ContentPagination';
 import Covers from '../../../components/Covers';
 
 const BoasVindas: React.FC = () => {
     const {setContent, setSidebarVisibility} = useSidebar();
+    const { cameraCloseIn } = useClosedCamera();
 
-    const handleClick = useCallback((component: JSX.Element) => {
+    const handleClick = useCallback((component: JSX.Element, obj3D: any) => {
       setContent(component);
       setSidebarVisibility(true);
-    }, [setContent, setSidebarVisibility]);
+      cameraCloseIn(obj3D);
+    }, [setContent, setSidebarVisibility, cameraCloseIn]);
 
     return (
         <a-entity id="BoasVindas" room_name="bem vindo">
@@ -26,14 +30,9 @@ const BoasVindas: React.FC = () => {
             <Covers contentType="boas_vindas" />
 
             {/* <!--HotSpots--> */}
-            <a-entity id="boasvindas_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YK7_XBAAACYAYEN3" />)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="-3.3 3 -4.1"></a-entity> 
-            <a-entity id="boasvindas_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK7_dhAAACQAYEP0" />)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="0.05 3 -6.83"></a-entity>
-            <a-entity id="boasvindas_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK7_mhAAACQAYESU" />)} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="3.3 3 -4.1"></a-entity>
-
-            {/* <!--CloseCameras--> */}
-            <a-camera id="boasvindas_closeCam_01" active="false" class="closeCameras" position="0.21 4.74 -5.06" rotation="-1.55 357 0.00"></a-camera>
-            <a-camera id="boasvindas_closeCam_02" active="false" class="closeCameras" position="1.45 4.47 -4.29" rotation="0.44 267.36 0.00"></a-camera>
-            <a-camera id="boasvindas_closeCam_03" active="false" class="closeCameras" position="-1.51 4.67 -4.09" rotation="-0.44 87.36 0.00"></a-camera>
+            <a-entity id="boasvindas_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YK7_XBAAACYAYEN3" />, {position:{x:-1.7, y: 5.800, z:-4.063},rotation:orientations.esquerda})} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="-3.3 3 -4.1"></a-entity> 
+            <a-entity id="boasvindas_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK7_dhAAACQAYEP0" />, {position:{x:0, y: 5.800, z:-5.3},rotation:orientations.frente})} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="0.05 3 -6.83"></a-entity>
+            <a-entity id="boasvindas_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK7_mhAAACQAYESU" />, {position:{x:1.9, y: 5.800, z:-4.063},rotation:orientations.direita})} contentType="0" scale="0.5 0.5 1" mixin="hotspotMixin" class="collidable" position="3.3 3 -4.1"></a-entity>
         </a-entity>
     );
 }
