@@ -1,18 +1,22 @@
 import React, { useCallback } from 'react';
 import { useSidebar } from '../../../hooks/Sidebar';
 import { useTeleport } from '../../../hooks/Teleport';
+import { useClosedCamera } from '../../../hooks/ClosedCamera';
 
+import orientations from '../../../helpers/orientations';
 import ContentPagination from '../../../components/ContentPagination';
 import Covers from '../../../components/Covers';
 
 const Poesias: React.FC = () => {
   const {setContent, setSidebarVisibility} = useSidebar();
   const {teleportCamera} = useTeleport();
+  const {cameraCloseIn} = useClosedCamera();
 
-  const handleClick = useCallback((component: JSX.Element) => {
+  const handleClick = useCallback((component: JSX.Element, CameraCloseCoords: any) => {
+    cameraCloseIn(CameraCloseCoords);
     setContent(component);
     setSidebarVisibility(true);
-  }, [setContent, setSidebarVisibility]);
+  }, [setContent, setSidebarVisibility, cameraCloseIn]);
 
   return (
     <a-entity id="Poesias" room_name="poesias">
@@ -24,27 +28,16 @@ const Poesias: React.FC = () => {
         <Covers contentType="poesias" />
 
         {/* <!--Hotspots--> */}
-        <a-entity id="poesias_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YKgtiBEAACIAc1rT" />)} mixin="hotspotMixin" class="collidable" position="-36.3 7.41 0.15"></a-entity>
-        <a-entity id="poesias_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK6ssxAAACYAXtDp" />)} mixin="hotspotMixin" class="collidable" position="-35.8‬ 7.41 1.9"></a-entity>
-        <a-entity id="poesias_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK66nRAAACMAXw_m" />)} mixin="hotspotMixin" class="collidable" position="-38.61 7.41 1.9"></a-entity>
-        <a-entity id="poesias_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK66xBAAACYAXxCg" />)} mixin="hotspotMixin" class="collidable" position="-38.5 7.41 0.15"></a-entity>
+        <a-entity id="poesias_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YKgtiBEAACIAc1rT" />, {position:{x:-36.6, y: 8.45, z:-0.65},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-36.3 7.41 0.15"></a-entity>
+        <a-entity id="poesias_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK6ssxAAACYAXtDp" />, {position:{x:-36.3, y: 8.45, z:1.1},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-35.8‬ 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK66nRAAACMAXw_m" />, {position:{x:-39.2, y: 8.45, z:1.1},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-38.61 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK66xBAAACYAXxCg" />, {position:{x:-39.2, y: 8.45, z:-0.65},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-38.5 7.41 0.15"></a-entity>
 
-        <a-entity id="poesias_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK663hAAACMAXxEX" />)} mixin="hotspotMixin" class="collidable" position="-36.2 7.41 -8.7"></a-entity>
-        <a-entity id="poesias_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YK66-BAAACMAXxGN" />)} mixin="hotspotMixin" class="collidable" position="-35.77 7.41 -10.5"></a-entity>
-        <a-entity id="poesias_hotspot_07" onClick={() => handleClick(<ContentPagination contentId="YK67JhAAACMAXxJh" />)} mixin="hotspotMixin" class="collidable" position="-38.56 7.41 -10.5"></a-entity>
-        <a-entity id="poesias_hotspot_08" onClick={() => handleClick(<ContentPagination contentId="YK67DhAAACQAXxHz" />)} mixin="hotspotMixin" class="collidable" position="-38.56 7.41 -8.7"></a-entity>
+        <a-entity id="poesias_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK663hAAACMAXxEX" />, {position:{x:-35.7, y: 8.45, z:-7.65},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-36.2 7.41 -8.7"></a-entity>
+        <a-entity id="poesias_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YK66-BAAACMAXxGN" />, {position:{x:-35.3, y: 8.45, z:-9.5},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-35.77 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_07" onClick={() => handleClick(<ContentPagination contentId="YK67JhAAACMAXxJh" />, {position:{x:-38, y: 8.45, z:-9.5},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-38.56 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_08" onClick={() => handleClick(<ContentPagination contentId="YK67DhAAACQAXxHz" />, {position:{x:-38, y: 8.45, z:-7.65},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-38.56 7.41 -8.7"></a-entity>
         <a-entity id="poesias_downStairs" onClick={() => teleportCamera('contosENovelasStairs')} mixin="downStairs" class="collidable" position="-31.870 7.800 -2.620" scale="0.35 0.35 1" ></a-entity>
-
-        {/* <!--Close Cameras--> */}
-        <a-camera id="poesias_closeCam_01" active="false" class="closeCameras" position="-34.68 8.25 -1.15" rotation="-0.00 180 0.00"></a-camera>
-        <a-camera id="poesias_closeCam_02" active="false" class="closeCameras" position="-37.68 8.29 -1.18" rotation="-4.43 180 0.00"></a-camera>
-        <a-camera id="poesias_closeCam_03" active="false" class="closeCameras" position="-34.68 8.30 0.45" rotation="-4.21 180 0.00"></a-camera>
-        <a-camera id="poesias_closeCam_04" active="false" class="closeCameras" position="-37.63 8.22 0.68" rotation="-5.32 180 0.00"></a-camera>
-
-        <a-camera id="poesias_closeCam_05" active="false" class="closeCameras" position="-34.61 8.18 -7.51" rotation="0.00 0.00 0.00"></a-camera>
-        <a-camera id="poesias_closeCam_06" active="false" class="closeCameras" position="-37.61 8.18 -7.50" rotation="0.00 0.00 0.00"></a-camera>
-        <a-camera id="poesias_closeCam_07" active="false" class="closeCameras" position="-34.67 8.18 -9.43" rotation="0.00 0.00 0.00"></a-camera>
-        <a-camera id="poesias_closeCam_08" active="false" class="closeCameras" position="-37.61 8.18 -9.45" rotation="0.00 0.00 0.00"></a-camera>
       </a-entity>
   );
 }

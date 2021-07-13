@@ -6,6 +6,7 @@ import NextPositionGizmo from './NextPositionGizmo';
 import './scripts/aframe-touch-look-controls';
 import './scripts/aframe-navigation-collider';
 import { useTeleport } from '../../hooks/Teleport';
+import {useClosedCamera} from '../../hooks/ClosedCamera';
 
 export interface IVector3 {
   x: number;
@@ -33,6 +34,7 @@ const Camera: React.FC = () => {
 
     const cameraRef = useRef<CameraProps>();
     const {cameraAttr} = useTeleport();
+    const {setCamera} = useClosedCamera();
     const movementSpeed = 2;
 
     const Vector3ToAframeAttribute = (vec: IVector3) => {
@@ -40,8 +42,12 @@ const Camera: React.FC = () => {
     }
 
     useEffect(() => {
-      setPreviousPosition(cameraRef.current?.object3D.position);
+      setPreviousPosition(cameraRef.current?.object3D.position) 
     }, []);
+
+    useEffect(() => {
+      setCamera(cameraRef.current);
+    }, [setCamera]);
 
     useEffect(() => {
       if(cameraRef.current){
