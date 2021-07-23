@@ -12,8 +12,8 @@ const Poesias: React.FC = () => {
   const {teleportCamera} = useTeleport();
   const {cameraCloseIn} = useClosedCamera();
 
-  const handleClick = useCallback((component: JSX.Element, CameraCloseCoords: any) => {
-    cameraCloseIn(CameraCloseCoords);
+  const handleClick = useCallback((component: JSX.Element, CameraCloseCoords: any, hotspot: string) => {
+    cameraCloseIn(CameraCloseCoords, hotspot);
     setContent(component);
     setSidebarVisibility(true);
   }, [setContent, setSidebarVisibility, cameraCloseIn]);
@@ -28,15 +28,15 @@ const Poesias: React.FC = () => {
         <Covers contentType="poesias" />
 
         {/* <!--Hotspots--> */}
-        <a-entity id="poesias_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YKgtiBEAACIAc1rT" />, {position:{x:-36.6, y: 8.45, z:-0.65},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-36.3 7.41 0.15"></a-entity>
-        <a-entity id="poesias_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK6ssxAAACYAXtDp" />, {position:{x:-36.3, y: 8.45, z:1.1},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-35.8‬ 7.41 1.9"></a-entity>
-        <a-entity id="poesias_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK66nRAAACMAXw_m" />, {position:{x:-39.2, y: 8.45, z:1.1},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-38.61 7.41 1.9"></a-entity>
-        <a-entity id="poesias_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK66xBAAACYAXxCg" />, {position:{x:-39.2, y: 8.45, z:-0.65},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-38.5 7.41 0.15"></a-entity>
+        <a-entity id="poesias_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YKgtiBEAACIAc1rT" />, {position:{x:-36.6, y: 8.45, z:-0.65},rotation:orientations.costas}, 'poesias_hotspot_01')} mixin="hotspotMixin" class="collidable hotspot" position="-36.3 7.41 0.15"></a-entity>
+        <a-entity id="poesias_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK6ssxAAACYAXtDp" />, {position:{x:-36.3, y: 8.45, z:1.1},rotation:orientations.costas}, 'poesias_hotspot_02')} mixin="hotspotMixin" class="collidable hotspot" position="-35.8‬ 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK66nRAAACMAXw_m" />, {position:{x:-39.2, y: 8.45, z:1.1},rotation:orientations.costas}, 'poesias_hotspot_03')} mixin="hotspotMixin" class="collidable hotspot" position="-38.61 7.41 1.9"></a-entity>
+        <a-entity id="poesias_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK66xBAAACYAXxCg" />, {position:{x:-39.2, y: 8.45, z:-0.65},rotation:orientations.costas}, 'poesias_hotspot_04')} mixin="hotspotMixin" class="collidable hotspot" position="-38.5 7.41 0.15"></a-entity>
 
-        <a-entity id="poesias_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK663hAAACMAXxEX" />, {position:{x:-35.7, y: 8.45, z:-7.65},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-36.2 7.41 -8.7"></a-entity>
-        <a-entity id="poesias_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YK66-BAAACMAXxGN" />, {position:{x:-35.3, y: 8.45, z:-9.5},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-35.77 7.41 -10.5"></a-entity>
-        <a-entity id="poesias_hotspot_07" onClick={() => handleClick(<ContentPagination contentId="YK67JhAAACMAXxJh" />, {position:{x:-38, y: 8.45, z:-9.5},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-38.56 7.41 -10.5"></a-entity>
-        <a-entity id="poesias_hotspot_08" onClick={() => handleClick(<ContentPagination contentId="YK67DhAAACQAXxHz" />, {position:{x:-38, y: 8.45, z:-7.65},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-38.56 7.41 -8.7"></a-entity>
+        <a-entity id="poesias_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK663hAAACMAXxEX" />, {position:{x:-35.7, y: 8.45, z:-7.65},rotation:orientations.frente}, 'poesias_hotspot_05')} mixin="hotspotMixin" class="collidable hotspot" position="-36.2 7.41 -8.7"></a-entity>
+        <a-entity id="poesias_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YK66-BAAACMAXxGN" />, {position:{x:-35.3, y: 8.45, z:-9.5},rotation:orientations.frente}, 'poesias_hotspot_06')} mixin="hotspotMixin" class="collidable hotspot" position="-35.77 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_07" onClick={() => handleClick(<ContentPagination contentId="YK67JhAAACMAXxJh" />, {position:{x:-38, y: 8.45, z:-9.5},rotation:orientations.frente}, 'poesias_hotspot_07')} mixin="hotspotMixin" class="collidable hotspot" position="-38.56 7.41 -10.5"></a-entity>
+        <a-entity id="poesias_hotspot_08" onClick={() => handleClick(<ContentPagination contentId="YK67DhAAACQAXxHz" />, {position:{x:-38, y: 8.45, z:-7.65},rotation:orientations.frente}, 'poesias_hotspot_08')} mixin="hotspotMixin" class="collidable hotspot" position="-38.56 7.41 -8.7"></a-entity>
         <a-entity id="poesias_downStairs" onClick={() => teleportCamera('contosENovelasStairs')} mixin="downStairs" class="collidable" position="-31.870 7.800 -2.620" scale="0.35 0.35 1" ></a-entity>
       </a-entity>
   );

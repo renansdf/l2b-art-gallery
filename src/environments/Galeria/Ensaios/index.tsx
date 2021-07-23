@@ -12,8 +12,8 @@ const Ensaios: React.FC = () => {
   const {teleportCamera} = useTeleport();
   const {cameraCloseIn} = useClosedCamera();
 
-  const handleClick = useCallback((component: JSX.Element, cameraCloseCoords: any) => {
-    cameraCloseIn(cameraCloseCoords);
+  const handleClick = useCallback((component: JSX.Element, cameraCloseCoords: any, hotspot: string) => {
+    cameraCloseIn(cameraCloseCoords, hotspot);
     setContent(component);
     setSidebarVisibility(true);
   }, [setContent, setSidebarVisibility, cameraCloseIn]);
@@ -31,12 +31,12 @@ const Ensaios: React.FC = () => {
       <Covers contentType="ensaios" />
 
       {/* <!--Hotspots--> */}
-      <a-entity id="ensaios_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YK7cOxAAACMAX6YT" />, {position:{x:-27.926, y: 1.6, z:-3.4},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-28.8 1.6 -2.5"></a-entity>
-      <a-entity id="ensaios_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK7cTBAAACQAX6Zi" />, {position:{x:-30.756, y: 1.6, z:-3.4},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-31.55 1.6 -2.5"></a-entity>
-      <a-entity id="ensaios_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK7cYBAAACUAX6bF" />, {position:{x:-33.446, y: 1.6, z:-3.4},rotation:orientations.costas})} mixin="hotspotMixin" class="collidable" position="-34.25 1.6 -2.5"></a-entity> 
-      <a-entity id="ensaios_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK7ccRAAACMAX6cU" />, {position:{x:-33.446, y: 1.6, z:-4.9},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-34.35 1.6 -5.8"></a-entity>
-      <a-entity id="ensaios_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK7cgxAAACQAX6do" />, {position:{x:-30.756, y: 1.6, z:-4.9},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-31.65 1.6 -5.8"></a-entity>
-      <a-entity id="ensaios_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YK7ckhAAACYAX6ez" />, {position:{x:-27.926, y: 1.6, z:-4.9},rotation:orientations.frente})} mixin="hotspotMixin" class="collidable" position="-28.8 1.6 -5.8"></a-entity>
+      <a-entity id="ensaios_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YK7cOxAAACMAX6YT" />, {position:{x:-27.926, y: 1.6, z:-3.4},rotation:orientations.costas}, 'ensaios_hotspot_01')} mixin="hotspotMixin" class="collidable" position="-28.8 1.6 -2.5"></a-entity>
+      <a-entity id="ensaios_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YK7cTBAAACQAX6Zi" />, {position:{x:-30.756, y: 1.6, z:-3.4},rotation:orientations.costas}, 'ensaios_hotspot_02')} mixin="hotspotMixin" class="collidable" position="-31.55 1.6 -2.5"></a-entity>
+      <a-entity id="ensaios_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YK7cYBAAACUAX6bF" />, {position:{x:-33.446, y: 1.6, z:-3.4},rotation:orientations.costas}, 'ensaios_hotspot_03')} mixin="hotspotMixin" class="collidable" position="-34.25 1.6 -2.5"></a-entity> 
+      <a-entity id="ensaios_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YK7ccRAAACMAX6cU" />, {position:{x:-33.446, y: 1.6, z:-4.9},rotation:orientations.frente}, 'ensaios_hotspot_04')} mixin="hotspotMixin" class="collidable" position="-34.35 1.6 -5.8"></a-entity>
+      <a-entity id="ensaios_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YK7cgxAAACQAX6do" />, {position:{x:-30.756, y: 1.6, z:-4.9},rotation:orientations.frente}, 'ensaios_hotspot_05')} mixin="hotspotMixin" class="collidable" position="-31.65 1.6 -5.8"></a-entity>
+      <a-entity id="ensaios_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YK7ckhAAACYAX6ez" />, {position:{x:-27.926, y: 1.6, z:-4.9},rotation:orientations.frente}, 'ensaios_hotspot_06')} mixin="hotspotMixin" class="collidable" position="-28.8 1.6 -5.8"></a-entity>
       <a-entity id="ContoENovelas_upStairs" onClick={() => teleportCamera('contosENovelasStairs')} mixin="upStairs" class="collidable" position="-37.390 1.600 -4.880" scale="0.35 0.35 1" ></a-entity>
     </a-entity>
   );
