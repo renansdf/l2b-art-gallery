@@ -15,7 +15,7 @@ export const Container = styled.div<IContainerProps>`
   bottom: 0;
   left: 0;
   background: #fff;
-  z-index:99;
+  z-index:89;
 
   p{
     animation-name: flash;

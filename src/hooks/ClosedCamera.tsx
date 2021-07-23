@@ -1,6 +1,7 @@
 /*global AFRAME*/
 
 import React, { createContext, useState, useContext } from 'react';
+import {fadeOut, fadeIn} from '../helpers/effects';
 
 interface IObject3D {
   position: any;
@@ -8,7 +9,7 @@ interface IObject3D {
 }
 
 interface ClosedCameraContextData {
-  cameraCloseIn: (endPosition: any) => void;
+  cameraCloseIn: (endPosition: any, hotspot?: any) => void;
   cameraReturnNavigation: () => void;
   setCamera: (camera: any) => void;
 }
@@ -19,6 +20,7 @@ const ClosedCameraProvider: React.FC = ({children}) => {
   const [isReading, setIsReading] = useState(false);
   const [currentCloseIn, setCurrentCloseIn] = useState<IObject3D>({position: false, rotation: false});
   const [camera, setCamera] = useState<any>();
+  const [currentHotspot, setCurrentHotspot] = useState<any>();
 
   const THREE = AFRAME.THREE;
 
@@ -89,11 +91,14 @@ const ClosedCameraProvider: React.FC = ({children}) => {
     })
   }
 
-  const cameraCloseIn = (endPosition: any) => {
+  const cameraCloseIn = (endPosition: any, hotspot?: any) => {
     animateCamera(endPosition);
+    fadeOut(hotspot);
+    setCurrentHotspot(hotspot);
   }
   const cameraReturnNavigation = () => {
     animateCamera();
+    fadeIn(currentHotspot);
   }
 
   return (

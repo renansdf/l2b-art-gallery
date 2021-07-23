@@ -62,3 +62,12 @@ export const RoomName = styled.h2`
     font-weight: normal;
     display: block;
 `;
+
+export const ToggleMusic = styled.aside`
+    img{  
+        margin-bottom: -3px;
+        cursor: pointer;
+        width: 32px;
+        margin-left:30px;
+    }
+`;

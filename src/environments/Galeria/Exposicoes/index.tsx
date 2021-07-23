@@ -23,7 +23,7 @@ const Exposicoes: React.FC = () => {
   const {setOverlayVisibility, setContent: setOverlayContent} = useOverlay();
   const {cameraCloseIn} = useClosedCamera();
 
-  const handleClick = async (id: string, cameraCloseCoords: any) => {
+  const handleClick = async (id: string, cameraCloseCoords: any, hotspot: string) => {
     const response: IResponse = await Client.getByID(id, {});
 
     if(response.data.tipo_de_conteudo === false){
@@ -34,7 +34,7 @@ const Exposicoes: React.FC = () => {
       setOverlayContent(<ContentGallery contentId={id} />);
     }
 
-    cameraCloseIn(cameraCloseCoords);
+    cameraCloseIn(cameraCloseCoords, hotspot);
   }
 
   return (
@@ -50,8 +50,8 @@ const Exposicoes: React.FC = () => {
     <Covers contentType="exposicoes" />
 
     {/* <!--Hotspots--> */}
-    <a-entity id="exposicoes_hotspot_01" onClick={() => handleClick('YK8CYxAAACUAYFDH', {position:{x:10.7, y: 1.6, z:-5.330},rotation:orientations.direita})} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -6.000"></a-entity>
-    <a-entity id="exposicoes_hotspot_02" onClick={() => handleClick('YK8LaRAAACMAYHkL', {position:{x:10.7, y: 1.6, z:-2.990},rotation:orientations.direita})} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -2.230"></a-entity>
+    <a-entity id="exposicoes_hotspot_01" onClick={() => handleClick('YK8CYxAAACUAYFDH', {position:{x:10.7, y: 1.6, z:-5.330},rotation:orientations.direita}, 'exposicoes_hotspot_01')} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -6.000"></a-entity>
+    <a-entity id="exposicoes_hotspot_02" onClick={() => handleClick('YK8LaRAAACMAYHkL', {position:{x:10.7, y: 1.6, z:-2.990},rotation:orientations.direita}, 'exposicoes_hotspot_02')} mixin="hotspotMixin" class="collidable" position="11.020 1.560 -2.230"></a-entity>
     <a-entity id="exposicoes_upStairs" onClick={() => teleportCamera('observatorio')} mixin="upStairs" class="collidable" position="15 1.560 -6.000" scale="0.35 0.35 1" ></a-entity>
   </a-entity>
   );

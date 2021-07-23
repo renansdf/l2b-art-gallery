@@ -16,6 +16,7 @@ import Observatorio from './Observatorio';
 import Poesias from './Poesias';
 
 import LoadingScreen from '../../components/LoadingScreen';
+import Instructions from '../../components/Instructions';
 
 interface IAssetRef {
   fileLoader: {
@@ -39,6 +40,7 @@ const Galeria: React.FC = () => {
 
   return (
     <a-scene id="aframeScene" renderer="colorManagement : true; sortObjects: true" vr-mode-ui="enabled: false" loading-screen="enabled : false">
+      <Instructions />
       <LoadingScreen isVisible={loadingVisibility} />
       <a-sky src={skybox} animation="property : rotation; from : 0 0 0; to : 0 360 0; dur : 1000000; loop : true;" />
       <a-entity ref={galeriaRef} gltf-model={galeriaGLB} scale=".75 .75 .75" position="-49.09 0 -4.16" rotation="0 -90 0" />
@@ -51,7 +53,7 @@ const Galeria: React.FC = () => {
         <img id="plus" src={hotspotIcon} alt="hotspot Icon" />
         <img id="up-stairs" src={upStairs} alt="upstairs icon" />
         <img id="down-stairs" src={downStairs} alt="downstairs icon" />
-        <a-mixin id="hotspotMixin" billboard material="shader: flat; side: double; transparent: true; src : #plus; alphaTest : 0.1;" scale="0.3 0.3 1" geometry="primitive : plane"></a-mixin>
+        <a-mixin id="hotspotMixin" billboard material="shader: flat; side: double; transparent: true; src : #plus; alphaTest : 0.1; opacity: 1" scale="0.3 0.3 1" geometry="primitive : plane"></a-mixin>
         <a-mixin id="upStairs" billboard material="shader: flat; side: double; transparent: true; opacity: 1; src : #up-stairs" geometry="primitive : plane"></a-mixin>
         <a-mixin id="downStairs" billboard material="shader: flat; side: double; transparent: true; opacity: 1; src : #down-stairs" geometry="primitive : plane"></a-mixin>
         <a-mixin id="navMeshMaterial" material="shader: flat; side: double; transparent: true; opacity : .5; color : white" visible="false"></a-mixin>
