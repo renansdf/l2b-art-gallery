@@ -1,17 +1,26 @@
 /*global AFRAME*/
 
 import React, { createContext, useState, useContext } from 'react';
+import { useEffect } from 'react';
 import {fadeOut, fadeIn} from '../helpers/effects';
+import { useMusic } from './AmbientSound';
 
 interface IObject3D {
   position: any;
   rotation: any;
 }
 
+interface ICameraCoordinates{
+  x: number;
+  y: number;
+  z: number;
+}
+
 interface ClosedCameraContextData {
   cameraCloseIn: (endPosition: any, hotspot?: any) => void;
   cameraReturnNavigation: () => void;
   setCamera: (camera: any) => void;
+  cameraCoordinates: ICameraCoordinates;
 }
 
 const ClosedCamera = createContext<ClosedCameraContextData>({} as ClosedCameraContextData)
@@ -21,6 +30,9 @@ const ClosedCameraProvider: React.FC = ({children}) => {
   const [currentCloseIn, setCurrentCloseIn] = useState<IObject3D>({position: false, rotation: false});
   const [camera, setCamera] = useState<any>();
   const [currentHotspot, setCurrentHotspot] = useState<any>();
+  const [cameraCoordinates, setCameraCoordinates] = useState<ICameraCoordinates>({x:0, y:0, z:0});
+  const [ticks, setTicks] = useState(0);
+  const {setIsMusicPlaying} = useMusic();
 
   const THREE = AFRAME.THREE;
 
@@ -101,8 +113,32 @@ const ClosedCameraProvider: React.FC = ({children}) => {
     fadeIn(currentHotspot);
   }
 
+  useEffect(() => {
+    if(camera){
+      const intervalId = setInterval(() => {
+        if(camera.object3D.position.z < 0){
+          setIsMusicPlaying(false);
+          clearInterval(intervalId);
+        }
+      }, 2500)
+    }
+  },[camera, setIsMusicPlaying]);
+
+  useEffect(() => {
+    if(camera){
+      setTimeout(() => {
+        setCameraCoordinates({
+          x: camera.object3D.position.x,
+          y: camera.object3D.position.y,
+          z: camera.object3D.position.z
+        })
+        setTicks(ticks + 1)
+      },5000)
+    }
+  }, [ticks, setTicks,camera]);
+
   return (
-    <ClosedCamera.Provider value={{cameraCloseIn, cameraReturnNavigation, setCamera}}>
+    <ClosedCamera.Provider value={{cameraCloseIn, cameraReturnNavigation, setCamera, cameraCoordinates}}>
       {children}
     </ClosedCamera.Provider>
   )
