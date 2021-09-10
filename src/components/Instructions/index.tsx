@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import { useMusic } from '../../hooks/AmbientSound';
 import { Container, Content, Slide, CloseInstructions } from './styles';
 
 const Instructions: React.FC = () => {
   const [visibility, setVisibility] = useState(true);
+  const {setIsMusicPlaying} = useMusic();
+
+  const handleCloseInstructions = () => {
+    setVisibility(!visibility);
+    setIsMusicPlaying(true);
+  }
 
   return (
     <Container isVisible={visibility}>
@@ -18,7 +25,7 @@ const Instructions: React.FC = () => {
           <p>Perto de cada obra haverá um icone de olho. Clique no ícone para visualizar a obra de perto e saber mais detalhes.</p>
         </Slide>
         
-        <CloseInstructions onClick={() => setVisibility(!visibility)} />
+        <CloseInstructions onClick={handleCloseInstructions} />
       </Content>
     </Container>
   );
