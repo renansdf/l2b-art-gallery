@@ -5,4 +5,9 @@ export const Container = styled.div`
   bottom: 50px;
   left: 30px;
   z-index: 91;
+
+  img{
+    max-width: 300px;
+    max-height: 150px;
+  }
 `;
