@@ -1,18 +1,20 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 
 import GalleryMap from '../GalleryMap';
+
+import { useSidebar } from '../../hooks/Sidebar';
+import { useMusic } from '../../hooks/AmbientSound';
 
 import WhiteLogo from '../../assets/img/white_logo_desktop.png';
 import audioFile from '../../assets/audio/audio.mp3';
 import soundOff from '../../assets/img/sound_off.svg';
 import soundOn from '../../assets/img/sound_on.svg';
-import { useSidebar } from '../../hooks/Sidebar';
-
 
 import {Container, HeaderDesktop, HeaderMobile, Text, Logo, MenuButton, RoomName, ToggleMusic} from './styles';
 
 const Header: React.FC = () => {
     const {setSidebarVisibility, setContent} = useSidebar();
+    const {isMusicPlaying, setIsMusicPlaying} = useMusic();
     const [soundIcon, setSoundIcon] = useState(soundOff);
     const audioRef: any = useRef(null);
 
@@ -21,15 +23,15 @@ const Header: React.FC = () => {
         setSidebarVisibility(true);
     }
 
-    const handleSoundStatus = () => {
-        if(soundIcon === soundOff && audioRef){
+    useEffect(() => {
+        if(isMusicPlaying === true){
             setSoundIcon(soundOn);
             audioRef.current.play();
         } else {
             setSoundIcon(soundOff);
             audioRef.current.pause();
-        } 
-    }
+        }
+    }, [isMusicPlaying]);
 
     return (
         <Container>
@@ -37,7 +39,7 @@ const Header: React.FC = () => {
                 <div>
                     <Text>L2Bgaleria</Text>
                     <Logo src={WhiteLogo} />
-                    <ToggleMusic onClick={handleSoundStatus}><img alt="toggle music" src={soundIcon} /></ToggleMusic>
+                    <ToggleMusic onClick={() => setIsMusicPlaying(!isMusicPlaying)}><img alt="toggle music" src={soundIcon} /></ToggleMusic>
                     <audio ref={audioRef} id="ambient_sound" loop={true} src={audioFile}></audio>
                 </div>
 
