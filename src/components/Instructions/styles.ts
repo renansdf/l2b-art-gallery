@@ -22,18 +22,47 @@ export const Container = styled.div<IContainerProps>`
 
 export const Content = styled.div`
   position: relative;
-  background: rgba(255,255,255,.9);
-  border-radius: 40px;
+  background: #fff;
   width: 90%;
   max-width: 700px;
+  height: 90%; max-height: 350px;
   
   display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
 `;
 
 export const Slide = styled.div`
   padding: 40px;
   background: transparent;
+  text-align: center;
+  width: 100%;
+
+  h1{
+    margin: 0 auto 10px;
+    color: #333333;
+  }
+
+  p{
+    max-width: 470px;
+    width: 90%;
+    margin: 0 auto;
+    letter-spacing: 1px;
+    color: #333333;
+    font-size: 17px;
+    line-height: 1.5em;
+  }
+
+  p + p{
+    margin-top: 10px;
+  }
+
+  img{
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 70px;
+  }
 `;
 
 export const CloseInstructions = styled.button`
@@ -43,7 +72,17 @@ export const CloseInstructions = styled.button`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: red;
   border: none;
   cursor: pointer;
+
+  &::before{
+    content: 'x';
+    color: #000;
+  }
+`;
+
+export const PaginationContainer = styled.div`
+  position: absolute;
+  bottom: 14px; 
+  right: 0px;
 `;
