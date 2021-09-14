@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import React, { useState } from 'react';
 import { useMusic } from '../../hooks/AmbientSound';
 
@@ -24,11 +25,11 @@ const Instructions: React.FC = () => {
       <p>além de exibir o acervo próprio convida outros artistas para apresentar suas criações em nossos espaços</p>
     </Slide>,
     <Slide>
-      <img src={mouse} alt="mouse image" />
+      <img src={mouse} alt="mouse" />
       <p>Clique no chão para caminhar<br/>Clique e deslize para girar</p>
     </Slide>,
     <Slide>
-      <img src={hotspot} alt="mouse image" />
+      <img src={hotspot} alt="mouse" />
       <p>Perto de cada obra haverá um icone de olho.<br />Clique no ícone para visualizar a obra de perto e saber mais detalhes.</p>
     </Slide>
   ];
