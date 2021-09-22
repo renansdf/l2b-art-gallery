@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTeleport } from '../../../hooks/Teleport';
 
-import orientations from '../../../helpers/orientations';
 import ObservatorySkyImg from '../../../assets/img/ceu-observatorio.jpeg';
 
 const Observatorio: React.FC = () => {
