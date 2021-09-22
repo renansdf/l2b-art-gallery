@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSidebar } from '../../hooks/Sidebar';
 import { useTeleport } from '../../hooks/Teleport';
-import {ItemContainer, ItemTitle, ItemDescription, ContactEmail} from './styles';
+import {ItemContainer, ItemTitle, ItemDescription, ContactEmail, CloseButton} from './styles';
 
 const GalleryMap: React.FC = () => {
     const {teleportCamera} = useTeleport();
@@ -9,6 +9,10 @@ const GalleryMap: React.FC = () => {
 
     const handleTeleport = (roomName: string) => {
         teleportCamera(roomName);
+        setSidebarVisibility(false);
+    }
+
+    const handleClose = () => {
         setSidebarVisibility(false);
     }
 
@@ -72,6 +76,7 @@ const GalleryMap: React.FC = () => {
                     <ContactEmail href="mailto:contato@l2bgaleria.com">contato@l2bgaleria.com</ContactEmail>
                 </ItemDescription>
             </ItemContainer>
+            <CloseButton onClick={handleClose} >&times;</CloseButton>
         </>
     )
 }

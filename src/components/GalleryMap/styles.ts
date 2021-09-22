@@ -100,3 +100,21 @@ export const ContactEmail = styled.a`
         color: var(--l2b-red);
     }
   `;
+
+  export const CloseButton = styled.span`
+    font-family: "Volkart_Light";
+    color: var(--l2b-light-grey);
+    background: #fff;
+    float: right;
+    font-size: 40px;
+    position: absolute;
+    top: 33px;
+    right: 23px;
+    z-index: 3;
+
+    &:hover, &:focus{
+        color: var(--l2b-black);
+        text-decoration: none;
+        cursor: pointer;
+    }
+  `;
