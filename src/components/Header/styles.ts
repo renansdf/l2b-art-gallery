@@ -8,6 +8,7 @@ export const Container = styled.div`
     position: fixed !important;
     top: 0;
     padding: 25px;
+    pointer-events: none;
 `;
 
 export const HeaderDesktop = styled.div`
@@ -54,6 +55,7 @@ export const MenuButton = styled.span`
     cursor:pointer; 
     margin: 18px;
     font-size: 24px;
+    pointer-events: all;
 `;
 
 export const RoomName = styled.h2`
@@ -70,4 +72,5 @@ export const ToggleMusic = styled.aside`
         width: 32px;
         margin-left:30px;
     }
+    pointer-events: all;
 `;

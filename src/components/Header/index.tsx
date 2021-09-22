@@ -11,11 +11,14 @@ import soundOff from '../../assets/img/sound_off.svg';
 import soundOn from '../../assets/img/sound_on.svg';
 
 import {Container, HeaderDesktop, HeaderMobile, Text, Logo, MenuButton, RoomName, ToggleMusic} from './styles';
+import { useClosedCamera } from '../../hooks/ClosedCamera';
 
 const Header: React.FC = () => {
     const {setSidebarVisibility, setContent} = useSidebar();
     const {isMusicPlaying, setIsMusicPlaying} = useMusic();
+    const {cameraCoordinates} = useClosedCamera();
     const [soundIcon, setSoundIcon] = useState(soundOff);
+    const [roomName, setRoomName] = useState('Bem-vindo');
     const audioRef: any = useRef(null);
 
     const handleOpenMenu = () => {
@@ -33,6 +36,29 @@ const Header: React.FC = () => {
         }
     }, [isMusicPlaying]);
 
+
+    useEffect(() => {
+      if(cameraCoordinates.x > 5.4){
+        if(cameraCoordinates.y > 2){
+          setRoomName('Observatório');
+        } else {
+          setRoomName('Exposições');
+        }
+      } else if(cameraCoordinates.x < 5.4 && cameraCoordinates.x > -5.4){
+        setRoomName('Bem-vindo');
+      } else {
+        if(cameraCoordinates.y > 2 && cameraCoordinates.y < 5){
+          setRoomName('Contos & Novelas');
+        } else if(cameraCoordinates.y > 5){
+          setRoomName('Poesias');
+        } else if(cameraCoordinates.x < -22){
+          setRoomName('Ensaios');
+        } else {
+          setRoomName('Infantil');
+        }
+      }
+    }, [cameraCoordinates]);
+
     return (
         <Container>
             <HeaderDesktop>
@@ -44,7 +70,7 @@ const Header: React.FC = () => {
                 </div>
 
                 <div>
-                    <RoomName>bem-vindo</RoomName>
+                    <RoomName>{roomName}</RoomName>
                     <MenuButton onClick={handleOpenMenu}>&#9776;</MenuButton>
                 </div>
             </HeaderDesktop>
