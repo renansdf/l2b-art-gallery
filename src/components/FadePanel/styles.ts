@@ -22,7 +22,7 @@ export const Container = styled.div<ContainerProps>`
     height: 100vh;
     width: 100%;
     position: fixed;
-    z-index: 2;
+    z-index: 20;
     top: 0;
     left: 0;
     right: 0;
