@@ -1,6 +1,9 @@
 import React from 'react';
 import { useTeleport } from '../../../hooks/Teleport';
 
+import orientations from '../../../helpers/orientations';
+import ObservatorySkyImg from '../../../assets/img/ceu-observatorio.jpeg';
+
 const Observatorio: React.FC = () => {
     const {teleportCamera} = useTeleport();
 
@@ -9,6 +12,15 @@ const Observatorio: React.FC = () => {
             {/* <!--NavMesh--> */}
             <a-plane id="Observatorio-NavMesh-01" position="18.33 3.810 -3.98" scale="7.2 2.8 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
             <a-plane id="Observatorio-NavMesh-02" position="9.97 3.810 -4.18" scale="9 5 1" navigation_collider class="collidable" rotation="-90 0 0" mixin="navMeshMaterial"></a-plane>
+
+            {/* Sky img */}
+            <a-entity 
+                id="obs-sky"
+                geometry="primitive: circle; radius: 2.030;"
+                material={"shader: flat; src:"+ObservatorySkyImg}
+                position="19.910 5.993 -4.149"
+                rotation="29.970 -90.000 0.000"
+            ></a-entity>
 
             {/* <!--Hotspots--> */}
             {/* <a-entity id="observatorio_hotspot_01" mixin="hotspotMixin" class="collidable" position="16.67 4 -2.65"></a-entity> */}
