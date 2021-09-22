@@ -9,7 +9,7 @@ import mapInfantil from '../../assets/img/mapInfantil.png';
 import mapPoesias from '../../assets/img/mapPoesias.png';
 import mapObservatorio from '../../assets/img/mapObservatorio.png';
 
-import {Container} from './styles'
+import {Container, Shadow} from './styles'
 
 const GalleryHud: React.FC = () => {
   const [location, setLocation] = useState<string>('imgsrc');
@@ -22,13 +22,9 @@ const GalleryHud: React.FC = () => {
       } else {
         setLocation(mapExposicoes);
       }
-    }
-
-    if(cameraCoordinates.x < 5.4 && cameraCoordinates.x > -5.4){
+    } else if(cameraCoordinates.x < 5.4 && cameraCoordinates.x > -5.4){
       setLocation(mapBemVindos);
-    }
-
-    if(cameraCoordinates.x < -5.4){
+    } else {
       if(cameraCoordinates.y > 2 && cameraCoordinates.y < 5){
         setLocation(mapContosENovelas);
       } else if(cameraCoordinates.y > 5){
@@ -44,6 +40,7 @@ const GalleryHud: React.FC = () => {
   return (
     <Container>
       <img src={location} alt={location} />
+      <Shadow />
     </Container>
   )
 }
