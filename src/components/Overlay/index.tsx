@@ -4,7 +4,7 @@ import { useOverlay } from '../../hooks/Overlay';
 
 import {Container, Content, CloseContentButton} from './styles';
 
-const Sidebar: React.FC = () => {
+const Overlay: React.FC = () => {
     const {overlayVisibility, setOverlayVisibility, content} = useOverlay();
     const {cameraReturnNavigation} = useClosedCamera();
 
@@ -23,4 +23,4 @@ const Sidebar: React.FC = () => {
     )
 }
 
-export default Sidebar;
+export default Overlay;
