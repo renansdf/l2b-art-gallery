@@ -1,15 +1,26 @@
 import React from 'react';
+import { usePopup } from '../../hooks/Popup';
 import { useSidebar } from '../../hooks/Sidebar';
 import { useTeleport } from '../../hooks/Teleport';
+
+import ObservatorioPopup from '../ObservatorioPopup';
 import {ItemContainer, ItemTitle, ItemDescription, ContactEmail, CloseButton} from './styles';
 
 const GalleryMap: React.FC = () => {
     const {teleportCamera} = useTeleport();
     const {setSidebarVisibility} = useSidebar();
+    const {setPopupVisibility, setContent} = usePopup();
 
     const handleTeleport = (roomName: string) => {
         teleportCamera(roomName);
         setSidebarVisibility(false);
+    }
+
+    const observatorioTeleport = () => {
+        teleportCamera('observatorio');
+        setSidebarVisibility(false);
+        setPopupVisibility(true);
+        setContent(<ObservatorioPopup closePopup={() => setPopupVisibility(false)} />)
     }
 
     const handleClose = () => {
@@ -39,7 +50,7 @@ const GalleryMap: React.FC = () => {
                 </ItemDescription>
             </ItemContainer>
 
-            <ItemContainer onClick={() => handleTeleport('observatorio')}>
+            <ItemContainer onClick={() => observatorioTeleport()}>
                 <ItemTitle>observatório</ItemTitle>
                 <ItemDescription>
                     observatório
