@@ -49,6 +49,12 @@ export const Content = styled.div`
     padding: 30px 70px 70px 70px;
     bottom: 10px;
     overflow: hidden;
+
+    iframe{
+        width: 100%;
+        height: auto;
+        min-height: 210px;
+    }
 `;
 
 export const CloseContentButton = styled.span`
