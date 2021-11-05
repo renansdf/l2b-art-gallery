@@ -16,7 +16,7 @@ const imageList = [
     {name: 'Contos e Novelas', img: ContosENovelas, links: ['YK7F4xAAACUAX0KH','YK7NYBAAACQAX2On','YK7NexAAACUAX2Qp','YK7NlxAAACMAX2Sz']}, 
     {name: 'Ensaios', img:Ensaios, links: ['YK7cOxAAACMAX6YT','YK7cTBAAACQAX6Zi','YK7cYBAAACUAX6bF','YK7ccRAAACMAX6cU','YK7cgxAAACQAX6do','YK7ckhAAACYAX6ez']}, 
     {name: 'Poesias', img: Poesias, links: ['YKgtiBEAACIAc1rT','YK6ssxAAACYAXtDp','YK66nRAAACMAXw_m','YK66xBAAACYAXxCg','YK663hAAACMAXxEX','YK66-BAAACMAXxGN','YK67JhAAACMAXxJh','YK67DhAAACQAXxHz']},
-    {name: 'Observatório', img: Observatorio, links: ['YWoVlhEAACQAky7U','YWoV4REAACUAkzAo','YWoV_hEAACMAkzCs','YWoWIxEAACQAkzFQ','YWoWQhEAACYAkzHi','YWoWXREAACYAkzJa']}
+    {name: 'Observatório', img: Observatorio, links: ['YWoVlhEAACQAky7U','YWoV4REAACUAkzAo','YWoV_hEAACMAkzCs','YWoWIxEAACQAkzFQ','YWoWQhEAACYAkzHi','YWoWXREAACYAkzJa', 'YYWmZxAAACMAhbCx']}
 ]
 
 const AdminGaleryMap: React.FC = () => {
