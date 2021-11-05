@@ -3,7 +3,7 @@ import { useTeleport } from '../../../hooks/Teleport';
 
 import { useClosedCamera } from '../../../hooks/ClosedCamera';
 import { useSidebar } from '../../../hooks/Sidebar';
-import ObservatorySkyImg from '../../../assets/img/ceu-observatorio.jpeg';
+import ObservatorySkyImg from '../../../assets/img/ceu-observatorio-2.jpeg';
 import ContentPagination from '../../../components/ContentPagination';
 
 const Observatorio: React.FC = () => {
@@ -33,12 +33,13 @@ const Observatorio: React.FC = () => {
             ></a-entity>
 
             {/* <!--Hotspots--> */}
-            <a-entity id="observatorio_hotspot_01" onClick={() => handleClick(<ContentPagination contentId="YWoVlhEAACQAky7U" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_01')} mixin="hotspotMixin" class="collidable" position="19.053 6.796 -5.097"></a-entity>
-            <a-entity id="observatorio_hotspot_02" onClick={() => handleClick(<ContentPagination contentId="YWoV4REAACUAkzAo" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_02')} mixin="hotspotMixin" class="collidable" position="19.047 7.211 -4.149"></a-entity>
-            <a-entity id="observatorio_hotspot_03" onClick={() => handleClick(<ContentPagination contentId="YWoV_hEAACMAkzCs" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_03')} mixin="hotspotMixin" class="collidable" position="19.221 6.710 -3.311"></a-entity>
-            <a-entity id="observatorio_hotspot_04" onClick={() => handleClick(<ContentPagination contentId="YWoWIxEAACQAkzFQ" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_04')} mixin="hotspotMixin" class="collidable" position="19.667 5.721 -5.153"></a-entity>
-            <a-entity id="observatorio_hotspot_05" onClick={() => handleClick(<ContentPagination contentId="YWoWQhEAACYAkzHi" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_05')} mixin="hotspotMixin" class="collidable" position="19.540 5.270 -4.443"></a-entity>
-            <a-entity id="observatorio_hotspot_06" onClick={() => handleClick(<ContentPagination contentId="YWoWXREAACYAkzJa" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_06')} mixin="hotspotMixin" class="collidable" position="19.869 5.600 -2.935"></a-entity>
+            <a-entity id="observatorio_hotspot_01" hotspot_collider data-art-ref="YWoVlhEAACQAky7U" onClick={() => handleClick(<ContentPagination contentId="YWoVlhEAACQAky7U" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_01')} mixin="hotspotMixin" class="collidable" position="19.053 6.796 -5.097"></a-entity>
+            <a-entity id="observatorio_hotspot_02" hotspot_collider data-art-ref="YWoV4REAACUAkzAo" onClick={() => handleClick(<ContentPagination contentId="YWoV4REAACUAkzAo" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_02')} mixin="hotspotMixin" class="collidable" position="19.047 7.211 -3.768"></a-entity>
+            <a-entity id="observatorio_hotspot_03" hotspot_collider data-art-ref="YWoV_hEAACMAkzCs" onClick={() => handleClick(<ContentPagination contentId="YWoV_hEAACMAkzCs" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_03')} mixin="hotspotMixin" class="collidable" position="19.221 6.710 -3.311"></a-entity>
+            <a-entity id="observatorio_hotspot_04" hotspot_collider data-art-ref="YWoWIxEAACQAkzFQ" onClick={() => handleClick(<ContentPagination contentId="YWoWIxEAACQAkzFQ" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_04')} mixin="hotspotMixin" class="collidable" position="20.065 5.298 -5.539"></a-entity>
+            <a-entity id="observatorio_hotspot_05" hotspot_collider data-art-ref="YWoWQhEAACYAkzHi" onClick={() => handleClick(<ContentPagination contentId="YWoWQhEAACYAkzHi" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_05')} mixin="hotspotMixin" class="collidable" position="19.620 6.068 -5.478"></a-entity>
+            <a-entity id="observatorio_hotspot_06" hotspot_collider data-art-ref="YWoWXREAACYAkzJa" onClick={() => handleClick(<ContentPagination contentId="YWoWXREAACYAkzJa" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_06')} mixin="hotspotMixin" class="collidable" position="19.869 5.723 -3.277"></a-entity>
+            <a-entity id="observatorio_hotspot_07" hotspot_collider data-art-ref="YYWmZxAAACMAhbCx" onClick={() => handleClick(<ContentPagination contentId="YYWmZxAAACMAhbCx" />, {position:{x:18.840, y: 5.9, z:-3.9},rotation:{x:-.5, y:1.65, z:0}}, 'observatorio_hotspot_07')} mixin="hotspotMixin" class="collidable" position="20.326 4.716 -4.023"></a-entity>
             <a-entity id="observatorio_downStairs" onClick={() => teleportCamera('exposicoesStairs')} mixin="downStairs" class="collidable" position="16.540 4.810 -5.460" scale="0.35 0.35 1" ></a-entity>
         </a-entity>
     )
