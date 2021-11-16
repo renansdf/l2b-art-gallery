@@ -117,7 +117,17 @@ const Camera: React.FC = () => {
     return (
       <a-entity id="cameraRig">
         <NextPositionGizmo position={Vector3ToAframeAttribute(gizmoPosition)} />
-        <a-camera ref={cameraRef} id="mainCamera" animation={cameraAnimation} touch-look-controls wasd-controls="enabled: false" cursor="rayOrigin : mouse" raycaster="objects : .collidable; far : 4;" active="true" />
+        <a-camera 
+          ref={cameraRef} 
+          id="mainCamera" 
+          animation={cameraAnimation} 
+          touch-look-controls 
+          wasd-controls="enabled: false" 
+          cursor="rayOrigin : mouse" 
+          raycaster="objects : .collidable; far : 4;" 
+          active="true"
+          fov="60"
+        />
       </a-entity>
     );
 }
