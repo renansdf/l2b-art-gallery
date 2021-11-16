@@ -33,6 +33,7 @@ export const Content = styled.div`
 
   h1{
     margin: 0 auto 10px;
+    font-size: 22px;
     color: #333333;
   }
 
@@ -41,7 +42,7 @@ export const Content = styled.div`
     margin: 0 auto;
     letter-spacing: 1px;
     color: #333333;
-    font-size: 11px;
+    font-size: 14px;
     line-height: 1.4em;
   }
 
