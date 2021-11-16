@@ -19,6 +19,7 @@ export const Container = styled.div<ContainerProps>`
 
     display: none;
     opacity: 0;
+    z-index: 15;
     
     ${props => props.isVisible && css`
         display: block;
