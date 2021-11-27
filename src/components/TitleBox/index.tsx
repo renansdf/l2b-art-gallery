@@ -39,6 +39,10 @@ const TitleBox: React.FC = () => {
     hotspots.forEach(hotspot => {
       hotspot.addEventListener('mouseenter', () => {
         setContentId(hotspot.getAttribute('data-art-ref'))
+        setTimeout(()=>{
+          setContentId('')
+          setContent('')
+        },3000)
       })
     });
 
