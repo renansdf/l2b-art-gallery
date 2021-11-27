@@ -9,6 +9,7 @@ export const Container = styled.div`
     top: 0;
     padding: 25px;
     pointer-events: none;
+    z-index: 2;
 `;
 
 export const HeaderDesktop = styled.div`
