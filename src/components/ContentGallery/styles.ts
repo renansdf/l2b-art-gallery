@@ -23,4 +23,27 @@ export const Content = styled.div`
 export const GalleryImage = styled.img`
   max-width: 80%;
   max-height: 80vh;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+`;
+
+export const GalleryMobile = styled.div`
+  display: none;
+  width: 80%;
+  max-width: 230px;
+  background: #fff;
+  padding: 10px 15px 5px;
+
+  *{
+    color: #000!important;
+    margin: 0px 0px 5px 0px!important;
+    font-size: 12px;
+    line-height: 1em!important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
 `;

@@ -17,6 +17,12 @@ const ArrowDefault = css`
   background-color: var(--l2b-black);
   clip-path: circle();
   line-height: 100%;
+
+  @media only screen and (max-width: 600px) {
+    padding: 8px 6px 6px;
+    font-size: 10px;
+    margin-top: 0px;
+  }
 `;
 
 export const ArrowNext = styled.div`

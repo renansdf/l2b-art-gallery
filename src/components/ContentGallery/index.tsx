@@ -1,10 +1,11 @@
 /* eslint-disable array-callback-return */
+import { RichText } from 'prismic-reactjs';
 import React, { useCallback, useEffect, useState } from 'react';
 import Client from '../../helpers/api';
 
 import ImageGalleryPagination from '../ImageGalleryPagination';
 
-import { Container, Content, GalleryImage } from './styles';
+import { Container, Content, GalleryImage, GalleryMobile } from './styles';
 
 interface IContentProps{
   contentId: string;
@@ -15,6 +16,7 @@ interface IGalleryDocument{
     galeria: {
       imagem: any;
       legenda: any;
+      texto_mobile: any;
     }[]
   }
 }
@@ -41,7 +43,12 @@ const ContentGallery: React.FC<IContentProps> = ({contentId}) => {
             {content.data.galeria.map((galleryItem: any, index: number) => {
               if(index === currentImage){
                 return(
-                  <GalleryImage key={contentId+index} src={galleryItem.imagem.url} alt={galleryItem.imagem.alt} />
+                  <>
+                    <GalleryImage key={contentId+index} src={galleryItem.imagem.url} alt={galleryItem.imagem.alt} />
+                    <GalleryMobile>
+                      {RichText.render(galleryItem.texto_mobile)}
+                    </GalleryMobile>
+                  </>
                 );
               }
             })}
