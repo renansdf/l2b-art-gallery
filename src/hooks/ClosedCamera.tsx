@@ -21,6 +21,7 @@ interface ClosedCameraContextData {
   cameraReturnNavigation: () => void;
   setCamera: (camera: any) => void;
   cameraCoordinates: ICameraCoordinates;
+  getNormalizedRotationTo: (direction: 'n'|'s'|'e'|'w') => number;
 }
 
 const ClosedCamera = createContext<ClosedCameraContextData>({} as ClosedCameraContextData)
@@ -113,6 +114,37 @@ const ClosedCameraProvider: React.FC = ({children}) => {
     fadeIn(currentHotspot);
   }
 
+  const getNormalizedRotationTo = (direction: 'n'|'s'|'e'|'w') => {
+    const currentYaw = camera.components['touch-look-controls'].yawObject.rotation.y;
+    if (direction === 'n'){
+      if(currentYaw > 3){
+        return 6.125;
+      } else if(currentYaw < -3){
+        return -6.125;
+      } else {
+        return 0;
+      }
+    } else if (direction === 's'){
+      if(currentYaw > 0){
+        return 3.125;
+      } else {
+        return -3.125;
+      }
+    } else if(direction === 'e'){
+
+    } else if(direction === 'w'){
+      if(currentYaw > 0){
+        if(currentYaw < 2){
+          return 0;
+        }
+        return 4.735;
+      } else {
+        return -1.576;
+      }
+    } 
+    return 1
+  }
+
   useEffect(() => {
     if(camera){
       const intervalId = setInterval(() => {
@@ -138,7 +170,7 @@ const ClosedCameraProvider: React.FC = ({children}) => {
   }, [ticks, setTicks,camera]);
 
   return (
-    <ClosedCamera.Provider value={{cameraCloseIn, cameraReturnNavigation, setCamera, cameraCoordinates}}>
+    <ClosedCamera.Provider value={{cameraCloseIn, cameraReturnNavigation, setCamera, cameraCoordinates, getNormalizedRotationTo}}>
       {children}
     </ClosedCamera.Provider>
   )
