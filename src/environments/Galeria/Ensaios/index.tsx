@@ -5,12 +5,11 @@ import { useTeleport } from '../../../hooks/Teleport';
 import ContentPagination from '../../../components/ContentPagination';
 import Covers from '../../../components/Covers';
 import { useClosedCamera } from '../../../hooks/ClosedCamera';
-import orientations from '../../../helpers/orientations';
 
 const Ensaios: React.FC = () => {
   const {setContent, setSidebarVisibility} = useSidebar();
   const {teleportCamera} = useTeleport();
-  const {cameraCloseIn} = useClosedCamera();
+  const {cameraCloseIn, getNormalizedRotationTo} = useClosedCamera();
 
   const handleClick = useCallback((component: JSX.Element, cameraCloseCoords: any, hotspot: string) => {
     cameraCloseIn(cameraCloseCoords, hotspot);
@@ -31,12 +30,12 @@ const Ensaios: React.FC = () => {
       <Covers contentType="ensaios" />
 
       {/* <!--Hotspots--> */}
-      <a-entity id="ensaios_hotspot_01" hotspot_collider data-art-ref="YK7cOxAAACMAX6YT" onClick={() => handleClick(<ContentPagination contentId="YK7cOxAAACMAX6YT" />, {position:{x:-27.926, y: 1.6, z:-3.4},rotation:orientations.costas}, 'ensaios_hotspot_01')} mixin="hotspotMixin" class="collidable" position="-27.910 1.030 -2.630"></a-entity>
-      <a-entity id="ensaios_hotspot_02" hotspot_collider data-art-ref="YK7cTBAAACQAX6Zi" onClick={() => handleClick(<ContentPagination contentId="YK7cTBAAACQAX6Zi" />, {position:{x:-30.756, y: 1.6, z:-3.4},rotation:orientations.costas}, 'ensaios_hotspot_02')} mixin="hotspotMixin" class="collidable" position="-30.750 1.030 -2.630"></a-entity>
-      <a-entity id="ensaios_hotspot_03" hotspot_collider data-art-ref="YK7cYBAAACUAX6bF" onClick={() => handleClick(<ContentPagination contentId="YK7cYBAAACUAX6bF" />, {position:{x:-33.446, y: 1.6, z:-3.4},rotation:orientations.costas}, 'ensaios_hotspot_03')} mixin="hotspotMixin" class="collidable" position="-33.470 1.030 -2.630"></a-entity> 
-      <a-entity id="ensaios_hotspot_04" hotspot_collider data-art-ref="YK7ccRAAACMAX6cU" onClick={() => handleClick(<ContentPagination contentId="YK7ccRAAACMAX6cU" />, {position:{x:-33.446, y: 1.6, z:-4.9},rotation:orientations.frente}, 'ensaios_hotspot_04')} mixin="hotspotMixin" class="collidable" position="-33.470 1.030 -5.730"></a-entity>
-      <a-entity id="ensaios_hotspot_05" hotspot_collider data-art-ref="YK7cgxAAACQAX6do" onClick={() => handleClick(<ContentPagination contentId="YK7cgxAAACQAX6do" />, {position:{x:-30.756, y: 1.6, z:-4.9},rotation:orientations.frente}, 'ensaios_hotspot_05')} mixin="hotspotMixin" class="collidable" position="-30.750 1.030 -5.730"></a-entity>
-      <a-entity id="ensaios_hotspot_06" hotspot_collider data-art-ref="YK7ckhAAACYAX6ez" onClick={() => handleClick(<ContentPagination contentId="YK7ckhAAACYAX6ez" />, {position:{x:-27.926, y: 1.6, z:-4.9},rotation:orientations.frente}, 'ensaios_hotspot_06')} mixin="hotspotMixin" class="collidable" position="-27.910 1.030 -5.730"></a-entity>
+      <a-entity id="ensaios_hotspot_01" hotspot_collider data-art-ref="YK7cOxAAACMAX6YT" onClick={() => handleClick(<ContentPagination contentId="YK7cOxAAACMAX6YT" />, {position:{x:-27.926, y: 1.6, z:-3.4},rotation:{x:0, y:getNormalizedRotationTo('s'), z:0}}, 'ensaios_hotspot_01')} mixin="hotspotMixin" class="collidable" position="-27.910 1.030 -2.630"></a-entity>
+      <a-entity id="ensaios_hotspot_02" hotspot_collider data-art-ref="YK7cTBAAACQAX6Zi" onClick={() => handleClick(<ContentPagination contentId="YK7cTBAAACQAX6Zi" />, {position:{x:-30.756, y: 1.6, z:-3.4},rotation:{x:0, y:getNormalizedRotationTo('s'), z:0}}, 'ensaios_hotspot_02')} mixin="hotspotMixin" class="collidable" position="-30.750 1.030 -2.630"></a-entity>
+      <a-entity id="ensaios_hotspot_03" hotspot_collider data-art-ref="YK7cYBAAACUAX6bF" onClick={() => handleClick(<ContentPagination contentId="YK7cYBAAACUAX6bF" />, {position:{x:-33.446, y: 1.6, z:-3.4},rotation:{x:0, y:getNormalizedRotationTo('s'), z:0}}, 'ensaios_hotspot_03')} mixin="hotspotMixin" class="collidable" position="-33.470 1.030 -2.630"></a-entity> 
+      <a-entity id="ensaios_hotspot_04" hotspot_collider data-art-ref="YK7ccRAAACMAX6cU" onClick={() => handleClick(<ContentPagination contentId="YK7ccRAAACMAX6cU" />, {position:{x:-33.446, y: 1.6, z:-4.9},rotation:{x:0, y:getNormalizedRotationTo('n'), z:0}}, 'ensaios_hotspot_04')} mixin="hotspotMixin" class="collidable" position="-33.470 1.030 -5.730"></a-entity>
+      <a-entity id="ensaios_hotspot_05" hotspot_collider data-art-ref="YK7cgxAAACQAX6do" onClick={() => handleClick(<ContentPagination contentId="YK7cgxAAACQAX6do" />, {position:{x:-30.756, y: 1.6, z:-4.9},rotation:{x:0, y:getNormalizedRotationTo('n'), z:0}}, 'ensaios_hotspot_05')} mixin="hotspotMixin" class="collidable" position="-30.750 1.030 -5.730"></a-entity>
+      <a-entity id="ensaios_hotspot_06" hotspot_collider data-art-ref="YK7ckhAAACYAX6ez" onClick={() => handleClick(<ContentPagination contentId="YK7ckhAAACYAX6ez" />, {position:{x:-27.926, y: 1.6, z:-4.9},rotation:{x:0, y:getNormalizedRotationTo('n'), z:0}}, 'ensaios_hotspot_06')} mixin="hotspotMixin" class="collidable" position="-27.910 1.030 -5.730"></a-entity>
       <a-entity id="ContoENovelas_upStairs" onClick={() => teleportCamera('contosENovelasStairs')} mixin="upStairs" class="collidable" position="-37.390 1.600 -4.880" scale="0.35 0.35 1" ></a-entity>
     </a-entity>
   );
