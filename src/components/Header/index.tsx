@@ -10,7 +10,7 @@ import audioFile from '../../assets/audio/audio.mp3';
 import soundOff from '../../assets/img/sound_off.svg';
 import soundOn from '../../assets/img/sound_on.svg';
 
-import {Container, HeaderDesktop, HeaderMobile, Text, Logo, MenuButton, RoomName, ToggleMusic} from './styles';
+import {Container, HeaderDesktop, HeaderMobile, Logo, MenuButton, RoomName, ToggleMusic} from './styles';
 import { useClosedCamera } from '../../hooks/ClosedCamera';
 
 const Header: React.FC = () => {
@@ -63,7 +63,6 @@ const Header: React.FC = () => {
         <Container>
             <HeaderDesktop>
                 <div>
-                    <Text>L2Bgaleria</Text>
                     <Logo src={WhiteLogo} />
                     <ToggleMusic onClick={() => setIsMusicPlaying(!isMusicPlaying)}><img alt="toggle music" src={soundIcon} /></ToggleMusic>
                     <audio ref={audioRef} id="ambient_sound" loop={true} src={audioFile}></audio>
@@ -77,11 +76,14 @@ const Header: React.FC = () => {
 
             <HeaderMobile>
                 <div>
-                    <Text>L2Bgaleria</Text>
                     <Logo src={WhiteLogo} />
+                    <RoomName>{roomName}</RoomName>
                 </div>
 
-                {/* <img class="sound_icon align_right"> */}
+                <aside>
+                    <ToggleMusic onClick={() => setIsMusicPlaying(!isMusicPlaying)}><img alt="toggle music" src={soundIcon} /></ToggleMusic>
+                    <MenuButton onClick={handleOpenMenu}>&#9776;</MenuButton>
+                </aside>
             </HeaderMobile>
         </Container>
     )
