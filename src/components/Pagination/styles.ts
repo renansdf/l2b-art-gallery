@@ -7,12 +7,22 @@ interface IPaginationButtonProps{
   isDisabled: boolean;
 }
 
-export const PaginationContainer = styled.div`
+interface IPaginationContainer{
+  inLastPage: boolean;
+}
+
+export const PaginationContainer = styled.div<IPaginationContainer>`
   width: 100%;
   height: auto;
   background-color: var(--l2b-transparent);
   bottom: 10;
   text-align: right;
+
+  ${props => props.inLastPage && css`
+    div{
+      margin-right: 50px;
+    }
+  `}
 
   @media only screen and (max-width: 600px) {
     margin-right: 30px;

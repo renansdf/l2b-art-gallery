@@ -36,10 +36,14 @@ const Pagination: React.FC<IPaginationProps> = ({currentPage, setCurrentPage, to
   }
 
   return (
-    <PaginationContainer>
-      <Next isDisabled={nextButtonDisabled} onClick={handleIncrement}></Next>
+    <PaginationContainer inLastPage={currentPage === totalPages -1}>
+      {currentPage < totalPages - 1 && (
+        <Next isDisabled={nextButtonDisabled} onClick={handleIncrement}></Next>
+      )}
       <PageCounter>{currentPage+1}</PageCounter>
-      <Previous isDisabled={previousButtonDisabled} onClick={handleDecrement}></Previous>
+      {currentPage > 0 && (
+        <Previous isDisabled={previousButtonDisabled} onClick={handleDecrement}></Previous>
+      )}
     </PaginationContainer>
   );
 }
