@@ -8,7 +8,7 @@ interface ILoadingProps {
 const LoadingScreen: React.FC<ILoadingProps> = ({isVisible}) => {
   return (
     <Container isVisible={isVisible}>
-      <p>Carregando</p>
+      <p>...</p>
     </Container>
   )
 }
