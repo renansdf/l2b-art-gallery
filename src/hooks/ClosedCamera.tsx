@@ -118,9 +118,9 @@ const ClosedCameraProvider: React.FC = ({children}) => {
     const currentYaw = camera.components['touch-look-controls'].yawObject.rotation.y;
     if (direction === 'n'){
       if(currentYaw > 3){
-        return 6.125;
+        return 6.275;
       } else if(currentYaw < -3){
-        return -6.125;
+        return -6.275;
       } else {
         return 0;
       }
