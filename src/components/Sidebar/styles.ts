@@ -43,6 +43,12 @@ export const Container = styled.div<ContainerProps>`
     &::-webkit-scrollbar-thumb {
         background: var(--l2b-light-grey);
     }
+
+    @media only screen and (max-width: 600px) {
+        ${props => props.isVisible && css`
+            width: 100%;
+        `}
+    }
 `;
 
 export const Content = styled.div`
@@ -54,6 +60,10 @@ export const Content = styled.div`
         width: 100%;
         height: auto;
         min-height: 210px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        padding: 10px 30px;
     }
 `;
 

@@ -66,6 +66,7 @@ export const ItemContainer = styled.div<ItemContainerProps>`
     @media only screen and (max-width: 600px) {
         border-bottom: 0px;
         width: 100% !important;
+        background-size: 25px;
     }
 `;
 
@@ -87,7 +88,9 @@ export const ItemDescription = styled.div`
     line-height: 2;
 
     @media only screen and (max-width: 600px) {
-        font-size: 14px;
+        font-size: 12px;
+        line-height: 1.4em;
+        letter-spacing:.5px;
     }
 `;
 

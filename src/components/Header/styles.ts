@@ -19,6 +19,7 @@ export const HeaderDesktop = styled.div`
 
     div{
         display: flex;
+        align-items: center;
     }
 
     @media only screen and (max-width: 600px) {
@@ -34,18 +35,25 @@ export const HeaderMobile = styled.div`
     @media only screen and (max-width: 600px) {
         display: flex;
     }
+
+    aside{
+        display: flex;
+        align-items: center;
+        img{
+            max-width: 25px;
+            margin-top: -6px;
+        }
+    }
 `;
 
-export const Text = styled.h2`
-    color: var(--l2b-white-full);
-    text-align: center;
-    font-weight: normal;
-    display: none;
-`;
 
 export const Logo = styled.img`
     width: 155px;
     margin-top: 5px;
+
+    @media only screen and (max-width: 600px) {
+        width: 85px;
+    }
 `;
 
 export const MenuButton = styled.span`
@@ -64,6 +72,12 @@ export const RoomName = styled.h2`
     text-align: center;
     font-weight: normal;
     display: block;
+
+    @media only screen and (max-width: 600px) {
+        font-size: 14px;
+        margin: 10px 0 0;
+        text-align: left;
+    }
 `;
 
 export const ToggleMusic = styled.aside`

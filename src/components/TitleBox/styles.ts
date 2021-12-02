@@ -14,4 +14,8 @@ export const Container = styled.div`
   top: 40px;
   transform: translateX(-50%);
   z-index: 14;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
 `
