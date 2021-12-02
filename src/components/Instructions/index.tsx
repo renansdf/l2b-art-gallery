@@ -1,45 +1,73 @@
 /* eslint-disable array-callback-return */
-import React, { useState } from 'react';
-import { useMusic } from '../../hooks/AmbientSound';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Elements, RichText } from 'prismic-reactjs';
 
+import Client from '../../helpers/api';
+import { useMusic } from '../../hooks/AmbientSound';
 import Pagination from '../Pagination';
-import mouse from '../../assets/img/mouse.png';
-import hotspot from '../../assets/textures/hotspot_icon.png';
 
 import { Container, Content, Slide, CloseInstructions, PaginationContainer } from './styles';
+
+interface ISlide {
+  image: {
+    url: string;
+  };
+  text:{
+    text: string;
+    type: Elements;
+  }[];
+  title:{
+    text: string;
+  }[];
+}
+
+interface IInstructionsContent {
+  data: {
+    slides: ISlide[]
+  }
+}
 
 const Instructions: React.FC = () => {
   const [visibility, setVisibility] = useState(true);
   const {setIsMusicPlaying} = useMusic();
   const [currentSlider, setCurrentSlider] = useState(0);
+  const [acontent, setContent] = useState<IInstructionsContent>();
+  const pageId = 'YagjLBIAACEAWFY3';
+
+  const fetchData = useCallback(async (id: string) => {
+    const response: IInstructionsContent = await Client.getByID(id, {});
+    setContent(response);
+  }, []);
 
   const handleCloseInstructions = () => {
     setVisibility(!visibility);
     setIsMusicPlaying(true);
   }
 
-  const content = [
-    <Slide key="slide1">
-      <h1>bem-vindo!</h1>
-      <p>A L2B é um espaço virtual dedicado às artes</p>
-      <p>além de exibir o acervo próprio convida outros artistas para apresentar suas criações em nossos espaços</p>
-    </Slide>,
-    <Slide key="slide2">
-      <img src={mouse} alt="mouse" />
-      <p>Clique no chão para caminhar<br/>Clique e deslize para girar</p>
-    </Slide>,
-    <Slide key="slide3">
-      <img src={hotspot} alt="mouse" />
-      <p>Perto de cada obra haverá um icone de olho.<br />Clique no ícone para visualizar a obra de perto e saber mais detalhes.</p>
-    </Slide>
-  ];
+  useEffect(() => {
+    fetchData(pageId)
+  }, [fetchData])
 
   return (
     <Container isVisible={visibility}>
       <Content>
-        {content.map((content, index) => {
+        {acontent && acontent.data.slides.map((slide, index) => {
           if(index === currentSlider){
-            return content;
+            return (
+              <Slide key={`slide-${index}`}>
+                {slide.title.length > 0 && (
+                  <h1>{slide.title[0].text}</h1>
+                )}
+
+                {slide.image.url && (
+                  <img src={slide.image.url} alt={`icon-${index}`} />
+                )}
+
+                {slide.text.length > 0 && (
+                  RichText.render(slide.text)
+                )}
+              </Slide>
+            )
           }
         })}
         <PaginationContainer>
