@@ -11,6 +11,7 @@ import Observatorio from '../../assets/img/7-observatorio.png';
 import ObservatorioPopup from '../../assets/img/mapObservatorio.png';
 
 const imageList = [
+    {name: 'Modal de Abertura', img: BemVindos, links: ['YagjLBIAACEAWFY3']},
     {name: 'Bem Vindos', img: BemVindos, links: ['YK7_XBAAACYAYEN3','YK7_dhAAACQAYEP0','YK7_mhAAACQAYESU']}, 
     {name: 'Exposições', img: Exposicoes, links: ['YK8CYxAAACUAYFDH','YK8LaRAAACMAYHkL']}, 
     {name: 'Infantil', img:Infantil, links: ['YK7jQhAAACMAX8bf','YK75phAAACUAYCos','YK75vRAAACMAYCqR', 'YK751BAAACMAYCsB']}, 
