@@ -53,7 +53,7 @@ const ContentData: IContentData = {
   'YK8LaRAAACMAYHkL': {position: '11.736 1.600 -2.962', rotation: '0 -90 0', width: 1, height: 1.5, name: 'exposicoes_capa_02'},
 
   'YK7F4xAAACUAX0KH': {position: '-27.163 4.948 -2.720', rotation: '-1.390 90 0', width: .4, height: .6, name: 'ContoENovelas_capa_01'},
-  'YK7NYBAAACQAX2On': {position: '-29.410 4.948 -2.620', rotation: '-1.410 90 0', width: .4, height: .6, name: 'ContoENovelas_capa_02'},
+  'YK7NYBAAACQAX2On': {position: '-29.410 4.948 -2.720', rotation: '-1.390 90 0', width: .4, height: .6, name: 'ContoENovelas_capa_02'},
   'YK7NexAAACUAX2Qp': {position: '-29.410 4.948 -5.629', rotation: '-1.390 90 0', width: .4, height: .6, name: 'ContoENovelas_capa_03'},
   'YK7NlxAAACMAX2Sz': {position: '-27.163 4.948 -5.629', rotation: '-1.390 90 0', width: .4, height: .6, name: 'ContoENovelas_capa_04'},
 
