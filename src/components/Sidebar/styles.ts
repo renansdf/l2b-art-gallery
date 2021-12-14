@@ -55,6 +55,7 @@ export const Content = styled.div`
     padding: 30px 70px 70px 70px;
     bottom: 10px;
     overflow: hidden;
+    height: 100%;
 
     iframe{
         width: 100%;
