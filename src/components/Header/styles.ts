@@ -28,32 +28,41 @@ export const HeaderDesktop = styled.div`
 `;
 
 export const HeaderMobile = styled.div`
-    display: none;
-    align-items: center;
-    justify-content: space-between;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
 
-    @media only screen and (max-width: 600px) {
-        display: flex;
-    }
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  h2{
+    margin-top: 3px;
+  }
 
-    aside{
-        display: flex;
-        align-items: center;
-        img{
-            max-width: 25px;
-            margin-top: -6px;
-        }
+  span{
+    display: flex;
+  }
+
+  aside{
+    display: flex;
+    align-items: flex-start;
+
+    span{
+      margin-top: 0px;
     }
+  }
 `;
 
-
 export const Logo = styled.img`
-    width: 155px;
-    margin-top: 5px;
+  width: 155px;
+  margin-top: 5px;
 
-    @media only screen and (max-width: 600px) {
-        width: 85px;
-    }
+  @media only screen and (max-width: 600px) {
+    width: 85px;
+    margin-top: 0px;
+  }
 `;
 
 export const MenuButton = styled.span`
@@ -74,18 +83,25 @@ export const RoomName = styled.h2`
     display: block;
 
     @media only screen and (max-width: 600px) {
-        font-size: 14px;
-        margin: 10px 0 0;
-        text-align: left;
+      font-size: 14px;
+      margin: 10px 0 0;
+      text-align: left;
     }
 `;
 
 export const ToggleMusic = styled.aside`
-    img{  
-        margin-bottom: -3px;
-        cursor: pointer;
-        width: 32px;
-        margin-left:30px;
+  img{  
+    margin-bottom: -3px;
+    cursor: pointer;
+    width: 32px;
+    margin-left: 30px;
+  }
+  pointer-events: all;
+
+  @media only screen and (max-width: 600px) {
+    img{
+      max-width: 17px;
+      margin-left: 10px;
     }
-    pointer-events: all;
+  }
 `;

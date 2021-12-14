@@ -76,12 +76,14 @@ const Header: React.FC = () => {
 
             <HeaderMobile>
                 <div>
+                  <span>
                     <Logo src={WhiteLogo} />
+                    <ToggleMusic onClick={() => setIsMusicPlaying(!isMusicPlaying)}><img alt="toggle music" src={soundIcon} /></ToggleMusic>
+                  </span>
                     <RoomName>{roomName}</RoomName>
                 </div>
 
                 <aside>
-                    <ToggleMusic onClick={() => setIsMusicPlaying(!isMusicPlaying)}><img alt="toggle music" src={soundIcon} /></ToggleMusic>
                     <MenuButton onClick={handleOpenMenu}>&#9776;</MenuButton>
                 </aside>
             </HeaderMobile>
