@@ -11,7 +11,7 @@ interface IPaginationContainer{
   inLastPage: boolean;
 }
 
-export const PaginationContainer = styled.div<IPaginationContainer>`
+export const PaginationContainer = styled.article<IPaginationContainer>`
   width: 100%;
   height: auto;
   background-color: var(--l2b-transparent);
