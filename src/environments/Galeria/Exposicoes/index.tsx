@@ -60,8 +60,8 @@ const Exposicoes: React.FC = () => {
     <Covers contentType="exposicoes" />
 
     {/* <!--Hotspots--> */}
-    <a-entity id="exposicoes_hotspot_01" hotspot_collider data-art-ref="YK8CYxAAACUAYFDH" onClick={() => handleClick('YK8CYxAAACUAYFDH', {position:{x:10.7, y: 1.6, z:-5.330},rotation:orientations.direita}, 'exposicoes_hotspot_01')} mixin="hotspotMixin" class="collidable" position="11.410 1.140 -5.310"></a-entity>
-    <a-entity id="exposicoes_hotspot_02" hotspot_collider data-art-ref="YK8LaRAAACMAYHkL" onClick={() => handleClick('YK8LaRAAACMAYHkL', {position:{x:10.7, y: 1.6, z:-2.990},rotation:orientations.direita}, 'exposicoes_hotspot_02')} mixin="hotspotMixin" class="collidable" position="11.410 1.140 -3.000"></a-entity>
+    <a-entity id="exposicoes_hotspot_01" hotspot_collider data-art-ref="YK8CYxAAACUAYFDH" onClick={() => handleClick('YK8CYxAAACUAYFDH', {position:{x:9.7, y: 1.6, z:-5.330},rotation:orientations.direita}, 'exposicoes_hotspot_01')} mixin="hotspotMixin" class="collidable" position="11.410 1.140 -5.310"></a-entity>
+    <a-entity id="exposicoes_hotspot_02" hotspot_collider data-art-ref="YK8LaRAAACMAYHkL" onClick={() => handleClick('YK8LaRAAACMAYHkL', {position:{x:9.7, y: 1.6, z:-2.990},rotation:orientations.direita}, 'exposicoes_hotspot_02')} mixin="hotspotMixin" class="collidable" position="11.410 1.140 -3.000"></a-entity>
     <a-entity id="exposicoes_upStairs" onClick={() => observatorioTeleport()} mixin="upStairs" class="collidable" position="15 1.560 -6.000" scale="0.35 0.35 1" ></a-entity>
   </a-entity>
   );
