@@ -62,6 +62,12 @@ export const ItemContainer = styled.div<ItemContainerProps>`
         background-size: 40px;
     }
 
+    aside{
+      display: flex;
+      margin-top: -30px;
+
+      img{max-width: 40px;}
+    }
 
     @media only screen and (max-width: 600px) {
         border-bottom: 0px;
