@@ -6,6 +6,9 @@ import { useTeleport } from '../../hooks/Teleport';
 import ObservatorioPopup from '../ObservatorioPopup';
 import {ItemContainer, ItemTitle, ItemDescription, ContactEmail, CloseButton} from './styles';
 
+import instagramLogo from '../../assets/img/insta.svg';
+import metaLogo from '../../assets/img/meta.svg';
+
 const GalleryMap: React.FC = () => {
     const {teleportCamera} = useTeleport();
     const {setSidebarVisibility} = useSidebar();
@@ -86,6 +89,10 @@ const GalleryMap: React.FC = () => {
                 <ItemDescription>
                     <ContactEmail href="mailto:contato@l2bgaleria.com">contato@l2bgaleria.com</ContactEmail>
                 </ItemDescription>
+                <aside>
+                  <a href="https://www.instagram.com/l2bgaleria/" target="_blank" rel="noreferrer"><img src={instagramLogo} alt="instagram"/></a>
+                  <a href="https://www.facebook.com/L2BGaleria/" target="_blank" rel="noreferrer"><img src={metaLogo} alt="meta"/></a>
+                </aside>
             </ItemContainer>
             <CloseButton onClick={handleClose} >&times;</CloseButton>
         </>
