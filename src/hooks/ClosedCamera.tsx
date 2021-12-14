@@ -131,7 +131,11 @@ const ClosedCameraProvider: React.FC = ({children}) => {
         return -3.125;
       }
     } else if(direction === 'e'){
-
+      if(currentYaw > 0){
+        return 1.576;
+      } else {
+        return -4.735;
+      }
     } else if(direction === 'w'){
       if(currentYaw > 0){
         if(currentYaw < 2){
