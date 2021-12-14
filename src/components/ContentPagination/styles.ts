@@ -7,4 +7,10 @@ export const Container = styled.div`
     margin-top: 0;
     margin-bottom: 15px;
   }
+
+  > div:last-child{
+    position: absolute;
+    right: 70px;
+    bottom: 70px;
+  }
 `;
