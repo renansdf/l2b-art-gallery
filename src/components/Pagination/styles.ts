@@ -15,7 +15,6 @@ export const PaginationContainer = styled.div<IPaginationContainer>`
   width: 100%;
   height: auto;
   background-color: var(--l2b-transparent);
-  bottom: 10;
   text-align: right;
 
   ${props => props.inLastPage && css`
