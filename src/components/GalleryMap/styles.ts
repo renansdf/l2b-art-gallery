@@ -93,6 +93,10 @@ export const ItemDescription = styled.div`
     /*white-space: pre;*/
     line-height: 2;
 
+    p{
+      margin: 0;
+    }
+
     @media only screen and (max-width: 600px) {
         font-size: 12px;
         line-height: 1.4em;

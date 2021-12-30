@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { RichText } from 'prismic-reactjs';
+
 import { usePopup } from '../../hooks/Popup';
 import { useSidebar } from '../../hooks/Sidebar';
 import { useTeleport } from '../../hooks/Teleport';
+import Client from '../../helpers/api';
 
 import ObservatorioPopup from '../ObservatorioPopup';
 import {ItemContainer, ItemTitle, ItemDescription, ContactEmail, CloseButton} from './styles';
@@ -9,10 +12,33 @@ import {ItemContainer, ItemTitle, ItemDescription, ContactEmail, CloseButton} fr
 import instagramLogo from '../../assets/img/insta.svg';
 import metaLogo from '../../assets/img/meta.svg';
 
+interface IMenuTexts{
+  data: {
+    texto_ensaios: any;
+    texto_poesias: any;
+    texto_exposicoes: any;
+    texto_observatorio: any;
+    texto_contos_novelas: any;
+    texto_infantis: any;
+    texto_bemvindo: any;
+  }
+}
+
 const GalleryMap: React.FC = () => {
     const {teleportCamera} = useTeleport();
     const {setSidebarVisibility} = useSidebar();
     const {setPopupVisibility, setContent} = usePopup();
+    const [content, setMenuContent] = useState<IMenuTexts>();
+  
+    const fetchData = useCallback(async (id: string) => {
+      const response: IMenuTexts = await Client.getByID(id, {});
+      setMenuContent(response);
+      console.log(response)
+    }, []);
+  
+    useEffect(() => {
+      fetchData('Yc4VtxMAACEAsMew');
+    }, [fetchData]);
 
     const handleTeleport = (roomName: string) => {
         teleportCamera(roomName);
@@ -34,54 +60,37 @@ const GalleryMap: React.FC = () => {
         <>
             <ItemContainer onClick={() => handleTeleport('ensaios')}>
                 <ItemTitle>ensaios</ItemTitle>
-                <ItemDescription>a arte, o artista e a criação artistica</ItemDescription>
+                <ItemDescription>{RichText.render(content?.data.texto_ensaios)}</ItemDescription>
             </ItemContainer>
 
             <ItemContainer onClick={() => handleTeleport('poesias')}>
                 <ItemTitle>poesias</ItemTitle>
-                <ItemDescription>
-                    só sei falar comigo mesmo<br />sobre mundos
-                </ItemDescription>
+                <ItemDescription>{RichText.render(content?.data.texto_poesias)}</ItemDescription>
             </ItemContainer>
 
             <ItemContainer onClick={() => handleTeleport('exposicoes')}>
                 <ItemTitle>exposições</ItemTitle>
-                <ItemDescription>
-                    turquesas 
-                    <br />
-                    criatividade inquieta
-                </ItemDescription>
+                <ItemDescription>{RichText.render(content?.data.texto_exposicoes)}</ItemDescription>
             </ItemContainer>
 
             <ItemContainer onClick={() => observatorioTeleport()}>
                 <ItemTitle>observatório</ItemTitle>
-                <ItemDescription>
-                    observatório
-                </ItemDescription>
+                <ItemDescription>{RichText.render(content?.data.texto_observatorio)}</ItemDescription>
             </ItemContainer>
 
             <ItemContainer onClick={() => handleTeleport('contosENovelas')}>
                 <ItemTitle>contos & novelas</ItemTitle>
-                <ItemDescription>
-                    labirintos da memória
-                </ItemDescription>
+                <ItemDescription>{RichText.render(content?.data.texto_contos_novelas)}</ItemDescription>
             </ItemContainer>
 
             <ItemContainer onClick={() => handleTeleport('infantis')}>
                 <ItemTitle>infantis</ItemTitle>
-                <ItemDescription>
-                    o navio que era saudade 
-                    <br />
-                    os amigos do pedro no jogo das palavras
-                    <br />
-                    o panda e o unicórnio
-                    <br />
-                    história para as crianças
-                </ItemDescription>
+                <ItemDescription>{RichText.render(content?.data.texto_infantis)}</ItemDescription>
             </ItemContainer>
 
             <ItemContainer onClick={() => handleTeleport('boasVindas')}>
                 <ItemTitle>bem-vindo</ItemTitle>
+                <ItemDescription>{RichText.render(content?.data.texto_bemvindo)}</ItemDescription>
             </ItemContainer>
 
             <ItemContainer>
