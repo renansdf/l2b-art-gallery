@@ -33,7 +33,6 @@ const GalleryMap: React.FC = () => {
     const fetchData = useCallback(async (id: string) => {
       const response: IMenuTexts = await Client.getByID(id, {});
       setMenuContent(response);
-      console.log(response)
     }, []);
   
     useEffect(() => {
