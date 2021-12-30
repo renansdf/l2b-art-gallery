@@ -6,6 +6,9 @@ import Client from '../../helpers/api';
 import Pagination from '../Pagination';
 
 import { Container } from './styles';
+import { useSidebar } from '../../hooks/Sidebar';
+import { useClosedCamera } from '../../hooks/ClosedCamera';
+import { CloseContentButton } from '../Sidebar/styles';
 
 interface IContentProps{
   contentId: string;
@@ -14,6 +17,7 @@ interface IContentProps{
 interface IPaginationDocument{
   data: {
     titulo: any;
+    subtitle?: any;
     paginas: {
       conteudo: any;
     }[]
@@ -23,6 +27,13 @@ interface IPaginationDocument{
 const ContentPagination: React.FC<IContentProps> = ({contentId}) => {
   const [content, setContent] = useState<IPaginationDocument>();
   const [currentPage, setCurrentPage] = useState(0);
+  const {sidebarVisibility, setSidebarVisibility} = useSidebar();
+  const {cameraReturnNavigation} = useClosedCamera();
+
+  const handleClose = () => {
+      setSidebarVisibility(!sidebarVisibility)
+      cameraReturnNavigation();
+  }
 
   const fetchData = useCallback(async (id: string) => {
     const response: IPaginationDocument = await Client.getByID(id, {});
@@ -36,9 +47,13 @@ const ContentPagination: React.FC<IContentProps> = ({contentId}) => {
 
   return (
     <div>
+      <CloseContentButton onClick={handleClose}>&times;</CloseContentButton>
       {content && (
         <Container>
           <h1>{RichText.asText(content.data.titulo)}</h1>
+          {content.data.subtitle && (
+            <h3>{RichText.asText(content.data.subtitle)}</h3>
+          )}
           <div>
             {content.data.paginas.map((pagina: any, index: number) => {
               if(index === currentPage){
