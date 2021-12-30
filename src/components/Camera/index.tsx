@@ -124,7 +124,7 @@ const Camera: React.FC = () => {
           touch-look-controls 
           wasd-controls="enabled: false" 
           cursor="rayOrigin : mouse" 
-          raycaster="objects : .collidable; far : 5;" 
+          raycaster="objects : .collidable; far : 6;" 
           active="true"
           fov="60"
         />
