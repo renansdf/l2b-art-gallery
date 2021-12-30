@@ -73,7 +73,7 @@ const Instructions: React.FC = () => {
         <PaginationContainer>
           <Pagination currentPage={currentSlider} setCurrentPage={setCurrentSlider} totalPages={3} />
         </PaginationContainer>
-        <CloseInstructions onClick={handleCloseInstructions} />
+        <CloseInstructions onClick={handleCloseInstructions}>&times;</CloseInstructions>
       </Content>
     </Container>
   );

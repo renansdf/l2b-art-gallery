@@ -69,15 +69,18 @@ export const CloseInstructions = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
   border: none;
   cursor: pointer;
+  background: none;
+  
+  font-family: "Volkart_Light";
+  color: var(--l2b-light-grey);
+  font-size: 40px;
 
-  &::before{
-    content: 'x';
-    color: #000;
+  &:hover, &:focus{
+    color: var(--l2b-black);
+    text-decoration: none;
+    cursor: pointer;
   }
 `;
 
