@@ -16,9 +16,11 @@ export const PaginationContainer = styled.article<IPaginationContainer>`
   height: auto;
   background-color: var(--l2b-transparent);
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
 
   ${props => props.inLastPage && css`
-    div{
+    div:last-child{
       margin-right: 50px;
     }
   `}
@@ -30,7 +32,6 @@ export const PaginationContainer = styled.article<IPaginationContainer>`
 `;
 
 export const Next = styled.button<IPaginationButtonProps>`
-  float: right;
   height: 20px;
   width: 40px;
   background: url(${nextArrow});
@@ -45,7 +46,6 @@ export const Next = styled.button<IPaginationButtonProps>`
 `;
 
 export const Previous = styled.button<IPaginationButtonProps>`
-  float: right;
   height: 20px;
   width: 40px;
   background: url(${previousArrow});
@@ -60,7 +60,6 @@ export const Previous = styled.button<IPaginationButtonProps>`
 `;
 
 export const PageCounter = styled.div`
-  float: right;
   font-weight: bold;
   margin-left: 10px;
   margin-right: 10px;
