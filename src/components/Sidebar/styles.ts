@@ -13,7 +13,6 @@ export const Container = styled.div<ContainerProps>`
     right: 0;
     background: var(--l2b-white-full) 0% 0% no-repeat padding-box;
     overflow-x: hidden;
-    padding-top: 60px;
     transition: 0.5s;
 
     ${props => props.isVisible && css`
@@ -52,10 +51,11 @@ export const Container = styled.div<ContainerProps>`
 `;
 
 export const Content = styled.div`
-    padding: 30px 70px 70px 70px;
+    padding: 90px 70px 70px 70px;
     bottom: 10px;
     overflow: hidden;
-    height: 100%;
+    min-height: 100%;
+    position: relative;
 
     iframe{
         width: 100%;
@@ -64,7 +64,7 @@ export const Content = styled.div`
     }
 
     @media only screen and (max-width: 600px) {
-        padding: 10px 30px;
+        padding: 50px 30px 10px;
     }
 `;
 

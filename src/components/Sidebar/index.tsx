@@ -1,21 +1,13 @@
 import React from 'react';
-import { useClosedCamera } from '../../hooks/ClosedCamera';
 import { useSidebar } from '../../hooks/Sidebar';
 
-import {Container, Content, CloseContentButton} from './styles';
+import {Container, Content} from './styles';
 
 const Sidebar: React.FC = () => {
-    const {sidebarVisibility, setSidebarVisibility, content} = useSidebar();
-    const {cameraReturnNavigation} = useClosedCamera();
-
-    const handleClose = () => {
-        setSidebarVisibility(!sidebarVisibility)
-        cameraReturnNavigation();
-    }
+    const {sidebarVisibility, content} = useSidebar();
 
     return (
         <Container isVisible={sidebarVisibility}>
-            <CloseContentButton onClick={handleClose}>&times;</CloseContentButton>
             <Content>
                 {content}
             </Content>
