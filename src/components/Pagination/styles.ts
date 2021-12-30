@@ -39,10 +39,6 @@ export const Next = styled.button<IPaginationButtonProps>`
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-
-  ${props => props.isDisabled && css`
-    cursor: not-allowed;
-  `}
 `;
 
 export const Previous = styled.button<IPaginationButtonProps>`
@@ -53,10 +49,6 @@ export const Previous = styled.button<IPaginationButtonProps>`
   background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-
-  ${props => props.isDisabled && css`
-    cursor: not-allowed;
-  `}
 `;
 
 export const PageCounter = styled.div`
