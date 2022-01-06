@@ -30,7 +30,7 @@ interface IContentData {
 
 const ContentData: IContentData = {
   'YKgtiBEAACIAc1rT': {position: '-36.199 8.457 0.368', rotation: '0 -180 0', width: .93, height: 1.43, name: 'poesia_capa_01'},
-  'YK6ssxAAACYAXtDp': {position: '-35.781‬ 8.457 2.142', rotation: '0 -180 0', width: .93, height: 1.43, name: 'poesia_capa_02'},
+  'YK6ssxAAACYAXtDp': {position: '-35.781 8.457 2.142', rotation: '0 -180 0', width: .93, height: 1.43, name: 'poesia_capa_02'},
   'YK66nRAAACMAXw_m': {position: '-38.563 8.457 2.142', rotation: '0 -180 0', width: .93, height: 1.43, name: 'poesia_capa_03'},
   'YK66xBAAACYAXxCg': {position: '-38.563 8.457 0.368', rotation: '0 -180 0', width: .93, height: 1.43, name: 'poesia_capa_04'},
   'YK663hAAACMAXxEX': {position: '-36.2 8.457 -8.7', rotation: '0 0 0', width: .93, height: 1.43, name: 'poesia_capa_05'},
@@ -39,7 +39,7 @@ const ContentData: IContentData = {
   'YK67DhAAACQAXxHz': {position: '-38.56 8.457 -8.7', rotation: '0 0 0', width: .93, height: 1.43, name: 'poesia_capa_08'},
 
   'YK7_XBAAACYAYEN3': {position: '-3.332 5.801 -4.150', rotation: '0 90 0', width: 1.45, height: 2.35, name: 'boas_vindas_capa_01'},
-  'YK7_dhAAACQAYEP0': {position: '0.074 5.801 -6.777', rotation: '0 0 0', width: 1.45, height: 2.35, name: 'boas_vindas_capa_02'},
+  'YK7_dhAAACQAYEP0': {position: '0.074 5.801 -6.767', rotation: '0 0 0', width: 1.45, height: 2.35, name: 'boas_vindas_capa_02'},
   'YK7_mhAAACQAYESU': {position: '3.382 5.801 -4.150', rotation: '0 -90 0', width: 1.45, height: 2.35, name: 'boas_vindas_capa_03'},
 
   'YK7cOxAAACMAX6YT': {position: '-27.950 1.562 -2.430', rotation: '0 -180 0', width: 1, height: 1.5, name: 'ensaios_capa_01'},
