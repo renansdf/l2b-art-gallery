@@ -45,9 +45,11 @@ const ContentGallery: React.FC<IContentProps> = ({contentId}) => {
                 return(
                   <>
                     <GalleryImage key={contentId+index} src={galleryItem.imagem.url} alt={galleryItem.imagem.alt} />
-                    <GalleryMobile>
-                      {RichText.render(galleryItem.texto_mobile)}
-                    </GalleryMobile>
+                    {galleryItem.texto_mobile.length > 0 && (
+                      <GalleryMobile>
+                        {RichText.render(galleryItem.texto_mobile)}
+                      </GalleryMobile>
+                    )}
                   </>
                 );
               }
