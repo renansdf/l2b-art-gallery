@@ -25,12 +25,18 @@ export const Content = styled.div`
   background: #fff;
   width: 90%;
   max-width: 700px;
-  height: 90%; max-height: 350px;
+  height: 90%; 
+  max-height: 350px;
   
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
+  @media only screen and (max-width: 600px){
+    max-height: 100%;
+    height: fit-content;
+  }
 `;
 
 export const Slide = styled.div`
@@ -63,6 +69,22 @@ export const Slide = styled.div`
     margin: 0 auto 10px;
     max-width: 70px;
   }
+
+  @media only screen and (max-width: 600px){
+    padding: 50px 20px;
+
+    h1{
+      font-size: 17px;
+    }
+    p{
+      font-size: 13px;
+    }
+
+    img{
+      max-width: 50px;
+    }
+
+  }
 `;
 
 export const CloseInstructions = styled.button`
@@ -81,6 +103,11 @@ export const CloseInstructions = styled.button`
     color: var(--l2b-black);
     text-decoration: none;
     cursor: pointer;
+  }
+
+  @media only screen and (max-width: 600px){
+    top: 3px;
+    right: 7px;
   }
 `;
 
