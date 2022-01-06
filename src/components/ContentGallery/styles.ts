@@ -18,6 +18,7 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 export const GalleryImage = styled.img`
@@ -32,7 +33,6 @@ export const GalleryImage = styled.img`
 export const GalleryMobile = styled.div`
   display: none;
   width: 80%;
-  max-width: 230px;
   background: #fff;
   padding: 10px 15px 5px;
 
@@ -44,6 +44,6 @@ export const GalleryMobile = styled.div`
   }
 
   @media only screen and (max-width: 600px) {
-    /* display: block; */
+    display: block;
   }
 `;
