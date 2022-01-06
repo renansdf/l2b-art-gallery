@@ -23,8 +23,17 @@ const GlobalStyles = createGlobalStyle`
     }
 
     *{box-sizing: border-box;}
-    body{
-        font-family: 'Volkart-Regular';
+    p, div{
+      font-family: 'Volkart-Light';
+      font-weight: normal;
+    }
+    h1, h2 {
+      font-family: 'Volkart-Bold';
+      font-weight: normal;
+    }
+    h3, h4, h5, h6{
+      font-family: 'Volkart-Regular';
+      font-weight: normal;
     }
 `;
 
