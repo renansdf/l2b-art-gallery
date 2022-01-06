@@ -54,7 +54,7 @@ const Header: React.FC = () => {
         } else if(cameraCoordinates.x < -22){
           setRoomName('Ensaios');
         } else {
-          setRoomName('Infantil');
+          setRoomName('Infantis');
         }
       }
     }, [cameraCoordinates]);
