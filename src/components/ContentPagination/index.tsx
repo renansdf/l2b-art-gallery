@@ -17,7 +17,9 @@ interface IContentProps{
 interface IPaginationDocument{
   data: {
     titulo: any;
-    subtitle?: any;
+    subtitulos?: {
+      subtitle: any;
+    }[];
     paginas: {
       conteudo: any;
     }[]
@@ -38,6 +40,7 @@ const ContentPagination: React.FC<IContentProps> = ({contentId}) => {
   const fetchData = useCallback(async (id: string) => {
     const response: IPaginationDocument = await Client.getByID(id, {});
     setContent(response);
+    console.log(response)
   }, []);
 
   useEffect(() => {
@@ -51,9 +54,9 @@ const ContentPagination: React.FC<IContentProps> = ({contentId}) => {
       {content && (
         <Container>
           <h1>{RichText.asText(content.data.titulo)}</h1>
-          {content.data.subtitle && (
-            <h3>{RichText.asText(content.data.subtitle)}</h3>
-          )}
+          {content.data.subtitulos && content.data.subtitulos.map(sub => (
+            <h3>{RichText.asText(sub.subtitle)}</h3>
+          ))}
           <div>
             {content.data.paginas.map((pagina: any, index: number) => {
               if(index === currentPage){

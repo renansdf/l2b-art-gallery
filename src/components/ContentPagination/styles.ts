@@ -6,10 +6,18 @@ export const Container = styled.div`
   }
 
   h3{
-    margin-top: 0px;
+    margin: 0px;
     color: grey;
   }
-
+  
+  h3 + h3{
+    margin-top: 5px;
+  }
+  
+  h3 + div{
+    margin-top: 15px;
+  }
+  
   p{
     display: table;
     line-height: 1.3em;
