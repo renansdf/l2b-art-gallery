@@ -21,6 +21,7 @@ interface IPaginationDocument{
       subtitle: any;
     }[];
     paginas: {
+      subtitulo_de_pagina?: any;
       conteudo: any;
     }[]
   }
@@ -58,10 +59,13 @@ const ContentPagination: React.FC<IContentProps> = ({contentId}) => {
             <h3>{RichText.asText(sub.subtitle)}</h3>
           ))}
           <div>
-            {content.data.paginas.map((pagina: any, index: number) => {
+            {content.data.paginas.map((pagina, index: number) => {
               if(index === currentPage){
                 return(
                   <div key={contentId+index}>
+                    {pagina.subtitulo_de_pagina && (
+                      <h3>{RichText.asText(pagina.subtitulo_de_pagina)}</h3>
+                    )}
                     {RichText.render(pagina.conteudo)}
                   </div>
                 );
