@@ -33,6 +33,11 @@ export const CloseInstructions = styled.button`
   border: none;
   cursor: pointer;
   background: none;
+  color: var(--l2b-light-grey);
+
+  &:hover, &:focus{
+    color: var(--l2b-black);
+  }
 `;
 
 export const PaginationContainer = styled.div`
