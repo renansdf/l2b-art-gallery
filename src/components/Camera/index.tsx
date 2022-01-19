@@ -126,7 +126,7 @@ const Camera: React.FC = () => {
           cursor="rayOrigin : mouse" 
           raycaster="objects : .collidable; far : 6;" 
           active="true"
-          fov="60"
+          fov="88"
         />
       </a-entity>
     );

@@ -184,7 +184,7 @@ function useClosedCamera(): ClosedCameraContextData {
   const context = useContext(ClosedCamera);
 
   if (!context) {
-    throw new Error('The context must be used within an Sidebar Provider');
+    throw new Error('The context must be used within an ClosedCamera Provider');
   }
 
   return context;
