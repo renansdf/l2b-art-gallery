@@ -10,6 +10,9 @@ interface IPaginationProps {
 const Pagination: React.FC<IPaginationProps> = ({currentPage, setCurrentPage, totalPages}) => {
   const [nextButtonDisabled, setNextButtonDisabled] = useState(false);
   const [previousButtonDisabled, setPreviousButtonDisabled] = useState(true);
+  const [scrollContainer] = useState(() => {
+    return document.getElementById('sidebar-scroll');
+  });
 
   const handleIncrement = () => {
     if (currentPage === totalPages - 2){
@@ -21,6 +24,8 @@ const Pagination: React.FC<IPaginationProps> = ({currentPage, setCurrentPage, to
       setCurrentPage(currentPage + 1);
       setPreviousButtonDisabled(false);
     }
+    if (scrollContainer)
+    scrollContainer.scrollTop = 0;
   }
 
   const handleDecrement = () => {
@@ -33,6 +38,8 @@ const Pagination: React.FC<IPaginationProps> = ({currentPage, setCurrentPage, to
       setCurrentPage(currentPage - 1);
       setNextButtonDisabled(false);
     }
+    if (scrollContainer)
+    scrollContainer.scrollTop = 0;
   }
 
   return (

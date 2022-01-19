@@ -7,7 +7,7 @@ const Sidebar: React.FC = () => {
     const {sidebarVisibility, content} = useSidebar();
 
     return (
-        <Container isVisible={sidebarVisibility}>
+        <Container isVisible={sidebarVisibility} id='sidebar-scroll'>
             <Content>
                 {content}
             </Content>
