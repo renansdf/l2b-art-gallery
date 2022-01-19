@@ -25,6 +25,11 @@ export const Container = styled.div`
     margin-bottom: 15px;
   }
 
+  a{
+    color: #BF0012;
+    text-decoration: underline;
+  }
+
   article{
     position: absolute;
     right: 70px;
