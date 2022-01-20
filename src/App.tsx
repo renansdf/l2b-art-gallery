@@ -13,9 +13,6 @@ import GalleryHud from './components/GalleryHud';
 
 import AppProvider from './hooks/AppProvider';
 
-import GlobalStyles from './styles/GlobalStyles';
-
-
 const App: React.FC = () => {
   return (
     <>
@@ -29,7 +26,6 @@ const App: React.FC = () => {
         <TitleBox />
         <GalleryHud />
       </AppProvider>
-      <GlobalStyles />
     </>
   );
 }

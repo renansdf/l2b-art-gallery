@@ -22,8 +22,13 @@ const GlobalStyles = createGlobalStyle`
         --l2b-map-header-mobile: #E1E1E1;
     }
 
-    *{box-sizing: border-box;}
-    p, div{
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      margin: 0;
+    }
+    p, div, textarea{
       font-family: 'Volkart-Light';
       font-weight: normal;
     }
