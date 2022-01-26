@@ -22,7 +22,7 @@ export const Container = styled.div<ContainerProps>`
     a{
         padding: 8px 8px 8px 0px;
         text-decoration: none;
-        color: var(--l2b-grey);
+        color: #AF2420;
         display: block;
 
         &:hover{

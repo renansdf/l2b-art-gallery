@@ -26,7 +26,7 @@ export const Container = styled.div`
   }
 
   a{
-    color: #BF0012;
+    color: #AF2420;
     text-decoration: underline;
   }
 
